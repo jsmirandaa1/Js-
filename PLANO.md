@@ -10,6 +10,7 @@
 - Desconfortável em mostrar o rosto → formato escolhido: **Shorts de curiosidades narrados com voz de IA** (ElevenLabs). Ele grava a voz e manda; o Claude monta o vídeo.
 
 ## Estratégia decidida
+- Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
 - Duração **65–75s** (TikTok só monetiza vídeo com mais de 1 min).
 - Referências analisadas: **Hazard** (@HazardousHDTV, 727k – formatos repetíveis: X vs Y, "fases de", "faça isso agora", "ninguém usa", dinheiro; capas com texto grande em 2 cores; volume altíssimo) e **TGG** (@TGG_, 2,37M – humor/esquetes, legenda palavra por palavra). Fórmula: formato do Hazard + zoeira do TGG + jeitinho brasileiro.
@@ -21,6 +22,7 @@
 |---|---|---|
 | "7 coisas que você precisa saber antes de jogar GTA 6" | **Postado em 18/11** | `videos/7coisas_gta6.mp4` |
 | "As 5 fases de quem esperou o GTA 6" | Pronto, ainda não postado (sugestão: 18/11 ~22h) |
+| "13 anos em 1 minuto: linha do tempo do GTA 6" (formato texto na tela + música, sem voz) | Pronto em 18/11 (`videos/linha_do_tempo_gta6.mp4`, legendas em `roteiros/shorts-04-linha-do-tempo.md`) |
 | "O que todo brasileiro vai fazer na primeira hora de GTA 6" | Roteiro pronto (`roteiros/shorts-03-brasileiro-primeira-hora.md`), aguardando narração do usuário | `videos/5fases_gta6.mp4` |
 
 - Roteiros: `roteiros/shorts-gta6-lancamento.md`
