@@ -23,6 +23,7 @@
 | "7 coisas que você precisa saber antes de jogar GTA 6" | **Postado em 18/11** | `videos/7coisas_gta6.mp4` |
 | "As 5 fases de quem esperou o GTA 6" | Pronto, ainda não postado (sugestão: 18/11 ~22h) |
 | "13 anos em 1 minuto: linha do tempo do GTA 6" (formato texto na tela + música, sem voz) | Pronto em 18/11 (`videos/linha_do_tempo_gta6.mp4`, legendas em `roteiros/shorts-04-linha-do-tempo.md`) |
+| "POV: faltam 5 minutos pro GTA 6" (POV narrado) | Roteiro pronto (`roteiros/shorts-05-pov-5-minutos.md`), aguardando voz; postar 18/11 23h–23h40 |
 | "O que todo brasileiro vai fazer na primeira hora de GTA 6" | Roteiro pronto (`roteiros/shorts-03-brasileiro-primeira-hora.md`), aguardando narração do usuário | `videos/5fases_gta6.mp4` |
 
 - Roteiros: `roteiros/shorts-gta6-lancamento.md`
