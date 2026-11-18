@@ -41,6 +41,13 @@
    - "GTA 6 é mais realista que o Brasil?"
    - Formatos fixos: X vs Y, As fases de…, Ninguém usa isso, Respondendo comentário.
 4. Montar calendário das 2 primeiras semanas pós-lançamento.
+5. **Vídeo longo #1** – "Guia completo: primeiras horas no GTA 6 (sem spoiler)", 10–12 min, horizontal. Roteiro com capítulos em `roteiros/longo-01-guia-primeiras-horas.md`. Faltam: o usuário jogar e preencher os [PREENCHER] (mecânicas reais), gravar gameplay por capítulo e a narração (um áudio por capítulo).
+
+### Vídeos longos (decisões)
+- Base visual = gameplay do usuário (trailer só no gancho) para evitar "conteúdo reutilizado" e repetição.
+- Começar com 8–12 min (anúncio no meio a partir de 8 min). Voz própria recomendada; IA aceita, 1 arquivo por capítulo.
+- Usuário manda clipes cortados por capítulo ou lista de minutos; Claude não "assiste" horas de vídeo bruto.
+- Render de ~20 min leva 1–2 h no container (rodar em segundo plano).
 
 ## Como os vídeos são montados (técnico)
 - Scripts em `tools/`: `build_7coisas.py`, `build_5fases.py`, `capw.py` (legenda por palavra), `asr.py` (transcrição).
