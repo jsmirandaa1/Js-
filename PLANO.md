@@ -20,7 +20,8 @@
 | Vídeo | Status | Arquivo |
 |---|---|---|
 | "7 coisas que você precisa saber antes de jogar GTA 6" | **Postado em 18/11** | `videos/7coisas_gta6.mp4` |
-| "As 5 fases de quem esperou o GTA 6" | Pronto, ainda não postado (sugestão: 18/11 à noite) | `videos/5fases_gta6.mp4` |
+| "As 5 fases de quem esperou o GTA 6" | Pronto, ainda não postado (sugestão: 18/11 ~22h) |
+| "O que todo brasileiro vai fazer na primeira hora de GTA 6" | Roteiro pronto (`roteiros/shorts-03-brasileiro-primeira-hora.md`), aguardando narração do usuário | `videos/5fases_gta6.mp4` |
 
 - Roteiros: `roteiros/shorts-gta6-lancamento.md`
 - Legendas dos posts (TikTok / Reels / Shorts): `roteiros/legendas-posts.md`
