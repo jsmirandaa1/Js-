@@ -19,15 +19,15 @@
 ## O que já foi feito
 | Vídeo | Status | Arquivo |
 |---|---|---|
-| "7 coisas que você precisa saber antes de jogar GTA 6" | Pronto (v2 com cenas oficiais e legenda sincronizada por palavra) | `videos/7coisas_gta6.mp4` |
-| "As 5 fases de quem esperou o GTA 6" | Pronto | `videos/5fases_gta6.mp4` |
+| "7 coisas que você precisa saber antes de jogar GTA 6" | **Postado em 18/11** | `videos/7coisas_gta6.mp4` |
+| "As 5 fases de quem esperou o GTA 6" | Pronto, ainda não postado (sugestão: 18/11 à noite) | `videos/5fases_gta6.mp4` |
 
 - Roteiros: `roteiros/shorts-gta6-lancamento.md`
 - Legendas dos posts (TikTok / Reels / Shorts): `roteiros/legendas-posts.md`
 - O "7 coisas" diz "hoje à meia-noite" → só serve pra postar em 18/11.
 
 ## Próximos passos (ordem)
-1. Saber como foram os 2 primeiros posts (views, retenção, comentários) e ajustar.
+1. Confirmar se o "5 fases" foi postado e saber como foram os 2 primeiros posts (views, retenção, comentários) e ajustar.
 2. **"Segredos do GTA 6 que ninguém te contou"** (prometido no fim do "7 coisas") – idealmente com gameplay dele gravado após o lançamento.
 3. Banco de ideias pendente:
    - "GTA 5 vs GTA 6: o que mudou em 13 anos"
