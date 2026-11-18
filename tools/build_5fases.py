@@ -17,12 +17,13 @@ def run(cmd):
 # ---------------- shots: (start, end, src, src_t, xoff 0..1, mode) ----------------
 SH = [
     # hook
-    (0.00, 1.30, TR, 26.2, 0.45, ""), (1.30, 2.40, TR, 53.0, 0.5, ""), (2.40, 3.50, TR, 49.4, 0.5, ""),
-    (3.50, 4.60, TR, 21.1, 0.45, ""), (4.60, 5.80, TR, 73.0, 0.4, ""), (5.80, 7.42, TR, 25.0, 0.5, ""),
+    (0.00, 1.02, TR, 26.2, 0.45, ""), (1.02, 2.10, TR, 53.0, 0.5, ""), (2.10, 3.32, TR, 25.0, 0.5, ""),
+    (3.32, 4.54, TR, 49.4, 0.5, ""), (4.54, 5.92, TR, 21.1, 0.45, ""), (5.92, 7.32, TR, 73.0, 0.4, ""),
+    (7.32, 9.08, TR, 69.0, 0.5, ""),
     # fase 1 hype
-    (7.42, 9.60, TR, 18.2, 0.5, ""), (9.60, 11.20, TR, 19.4, 0.5, ""), (11.20, 13.00, TR, 40.0, 0.5, ""),
-    (13.00, 14.60, TR, 45.0, 0.55, ""), (14.60, 16.20, TR, 35.0, 0.5, ""), (16.20, 17.80, TR, 63.0, 0.6, ""),
-    (17.80, 19.25, TR, 22.28, 0.5, "zoom"), (19.25, 20.72, TR, 64.38, 0.45, "zoom"),
+    (9.08, 10.90, TR, 18.2, 0.5, ""), (10.90, 12.32, TR, 19.4, 0.5, ""), (12.32, 14.12, TR, 40.0, 0.5, ""),
+    (14.12, 15.28, TR, 45.0, 0.55, ""), (15.28, 16.74, TR, 35.0, 0.5, ""), (16.74, 18.54, TR, 63.0, 0.6, ""),
+    (18.54, 19.70, TR, 22.28, 0.5, "zoom"), (19.70, 20.72, TR, 64.38, 0.45, "zoom"),
     # fase 2 negação
     (20.72, 22.86, TR, 47.0, 0.5, ""), (22.86, 25.40, TR, 12.3, 0.55, ""), (25.40, 27.60, TR, 8.0, 0.5, ""),
     (27.60, 28.95, TR, 55.2, 0.5, ""),
@@ -33,7 +34,7 @@ SH = [
     (39.70, 42.00, PL, 15.0, 0.5, ""), (42.00, 44.50, PL, 11.0, 0.5, ""), (44.50, 46.19, PL, 19.0, 0.5, ""),
     (46.19, 46.98, None, 0, 0, "black"), (46.98, 49.29, PL, 9.0, 0.5, ""),
     # fase 5 meia-noite
-    (49.29, 51.54, TR, 80.0, 0.5, ""), (51.54, 53.60, TR, 38.0, 0.5, ""), (53.60, 55.20, TR, 61.0, 0.5, ""),
+    (49.29, 51.54, TR, 70.0, 0.5, ""), (51.54, 53.60, TR, 38.0, 0.5, ""), (53.60, 55.20, TR, 61.0, 0.5, ""),
     (55.20, 56.40, TR, 72.0, 0.4, ""), (56.40, 58.33, TR, 67.5, 0.5, ""),
     # CTA
     (58.33, 60.60, TR, 27.0, 0.45, ""), (60.60, 62.10, TR, 75.0, 0.5, ""), (62.10, DUR, TR, 41.0, 0.5, ""),
@@ -83,18 +84,9 @@ def SL(x): return len(x.replace("GTA", "gê tê á").replace("2023", "dois mil e
 def at(t):
     return f"0:{int(t//60):02d}:{t%60:05.2f}"
 
-ev = []
-for text, a, b in CAP:
-    ws = text.split(); chunks, c = [], []
-    for w in ws:
-        c.append(w)
-        if len(" ".join(c)) >= 11 or len(c) >= 3 or re.search(r"[,.?!:…]$", w):
-            chunks.append(" ".join(c)); c = []
-    if c: chunks.append(" ".join(c))
-    L = sum(SL(x) + 2 for x in chunks); t = a
-    for x in chunks:
-        d = (b - a) * (SL(x) + 2) / L; ev.append((t, t + d, x)); t += d
-
+import sys; sys.path.insert(0, D)
+from capw import build_ev
+ev = build_ev(f"{D}/voz_words.json", [("Pré download", "Pré-download")], DUR)
 def fmt(x):
     out = []
     for w in x.upper().split():
@@ -104,9 +96,6 @@ def fmt(x):
 
 lines = []
 for j, (a, b, x) in enumerate(ev):
-    nxt = ev[j + 1][0] if j + 1 < len(ev) else DUR
-    b = min(max(b, a + 0.3), nxt) if nxt - a > 0.3 else nxt
-    if nxt - b < 0.35: b = nxt
     lines.append(f"Dialogue: 0,{at(a)},{at(b)},Cap,,0,0,0,,{{\\pos(540,1330)\\fscx70\\fscy70\\t(0,80,\\fscx104\\fscy104)\\t(80,140,\\fscx100\\fscy100)}}{fmt(x)}")
 open(f"{D}/caps.ass", "w").write(f"""[Script Info]
 ScriptType: v4.00+
@@ -133,7 +122,7 @@ def emoji(e, size):
 
 PH = [("HYPE", "🔥", (255, 90, 30)), ("NEGAÇÃO", "🙂", (40, 140, 255)), ("LUTO", "💀", (120, 120, 120)),
       ("ANSIEDADE", "⏳", (255, 200, 0)), ("MEIA-NOITE", "🌙", (160, 60, 255))]
-PT = [(7.42, 20.72), (20.72, 28.95), (28.95, 39.70), (39.70, 49.29), (49.29, 58.33)]
+PT = [(9.08, 20.72), (20.72, 28.95), (28.95, 39.70), (39.70, 49.29), (49.29, 58.33)]
 
 # shading (top/bottom gradient for legibility)
 sh = Image.new("RGBA", (W, H), (0, 0, 0, 0)); px = sh.load()
@@ -221,10 +210,10 @@ OV = [("o_shade.png", 0, DUR), ("o_title.png", 0.0, 2.9)]
 for k, (a, b) in enumerate(PT):
     OV.append((f"o_badge{k}.png", a + 1.6, b))
     OV.append((f"o_big{k}.png", a, a + 1.75))
-OV += [("o_dez.png", 9.9, 11.6), ("o_40x.png", 14.0, 16.0), ("o_seg.png", 18.2, 20.6),
-       ("o_st1.png", 23.2, 25.6), ("o_st2.png", 31.0, 33.4), ("o_gta5.png", 37.0, 39.6),
+OV += [("o_dez.png", 10.9, 12.3), ("o_40x.png", 14.84, 16.0), ("o_seg.png", 18.64, 20.7),
+       ("o_st1.png", 23.24, 25.6), ("o_st2.png", 30.8, 33.4), ("o_gta5.png", 36.94, 39.7),
        ("o_dl.png", 41.9, 46.19), ("o_desl.png", 46.19, 46.98), ("o_dl.png", 47.2, 49.29),
-       ("o_0000.png", 51.6, 53.5), ("o_0600.png", 54.6, 58.2), ("o_cta.png", 58.33, 61.4), ("o_follow.png", 61.6, DUR)]
+       ("o_0000.png", 51.05, 53.8), ("o_0600.png", 55.18, 58.2), ("o_cta.png", 58.33, 61.4), ("o_follow.png", 61.6, DUR)]
 
 # ---------------- music + sfx (synthesized) ----------------
 SR = 44100
@@ -278,8 +267,8 @@ def thump(at_, amp=0.8):
     x = np.sin(2 * np.pi * (40 + 120 * np.exp(-kt * 25)) * kt) * np.exp(-kt * 6) + np.random.randn(n) * np.exp(-kt * 40) * 0.4
     sfx[s0:s0 + n] += amp * x[:N - s0]
 for a, _ in PT: whoosh(a)
-for x in (23.2, 31.0): thump(x)
-thump(46.19, 0.6); whoosh(54.6, 0.4, 0.4)
+for x in (23.24, 30.8): thump(x)
+thump(46.19, 0.6); whoosh(55.18, 0.4, 0.4)
 def wav(fn, x):
     x = np.clip(x, -1, 1); w = wave.open(fn, "wb"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((x * 32767).astype(np.int16).tobytes()); w.close()
