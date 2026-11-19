@@ -37,6 +37,12 @@ CLIPS = {
         lines=[],
         ov=[("ISSO É BUG???", "😳", 0.0, 2.8, "clip"), ("OLHA PRA CIMA", "👆", 7485.5, 3.0), ("REPLAY", "🎬", 50.8, 1.2, "clip")],
     ),
+    "caminhonete": dict(
+        parts=[(5108, 5185, 1.0), (5155.5, 5164.5, 0.5)],
+        title="CAIU UMA CAMINHONETE DA PONTE NO GTA 6",
+        lines=[],
+        ov=[],
+    ),
     "basquete": dict(
         parts=[(3540, 3620)],
         title="DÁ PRA JOGAR BASQUETE NO GTA 6?",
