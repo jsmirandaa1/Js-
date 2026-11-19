@@ -22,6 +22,9 @@
 - **Cortes entregues (19/11):** "Eu tentando ser discreto no GTA 6" (32:30–33:22 + 35:46–35:56 + 38:20–38:57, 1:39), "O gráfico do GTA 6 é surreal" (barco 21:58–23:18, 1:20), "Dá pra jogar basquete no GTA 6?" (59:00–60:20, 1:20). Corte extra "Caiu um carro da ponte no GTA 6" (queda em 2:04:49; gancho 2s em câmera lenta + 7474–7522 + replay lento, 1:08) – pelas legendas do jogo ("a ponte não conecta") é evento da missão, não bug. Camaleão descartado (bicho não aparece na tela). Vídeos NÃO commitados (rosto, repo público). Script: `tools/build_cortes_live.py` (transcrição de clipe com vad_filter=True, senão perde a voz dele).
 - Feedback: ele fala pouco na live (transcrição é quase só diálogo do jogo) → incentivar narrar/reagir mais.
 
+## Preferências de edição (19/11)
+- Cortes: vídeo cru, só título fixo; sem legendas/textos no meio. Todo vídeo termina com "ME SEGUE" + @jhonexlives (TikTok) e @jhonlivesx (YouTube/Twitch).
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.

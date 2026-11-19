@@ -73,29 +73,9 @@ def v2c(t):  # VOD time -> clip time
         acc += (b - a) / sp
     return None
 
-# 2) word-level captions for his lines
-subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", f"{O}/raw.mp4", "-ac", "1", "-ar", "16000", f"{O}/a.wav"], check=True)
-from faster_whisper import WhisperModel
-import wave
-wv = wave.open(f"{O}/a.wav"); aud = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(np.float32) / 32768
-m = WhisperModel("small", device="cpu", compute_type="int8")
-segs, _ = m.transcribe(aud, language="pt", word_timestamps=True, beam_size=5, vad_filter=True)
-words = [(w.start, w.end, w.word.strip()) for s in segs for w in s.words]
-wins = [(v2c(a) - 2.5, v2c(b) + 2.0) for a, b in C["lines"] if v2c(a) is not None]
-keep = [w for w in words if any(x <= w[0] <= y for x, y in wins)]
-json.dump(words, open(f"{O}/words_all.json", "w"), ensure_ascii=False)
-ev, cur = [], []
-for w in keep:
-    if cur and w[0] - cur[-1][1] > 0.8: ev.append(cur); cur = []
-    cur.append(w)
-    if len(" ".join(x[2] for x in cur)) >= 12 or len(cur) >= 3 or re.search(r"[,.?!]$", w[2]): ev.append(cur); cur = []
-if cur: ev.append(cur)
+# 2) no mid-video captions (user preference: video "cru", só título)
 def at(t): return f"0:{int(t//60):02d}:{t%60:05.2f}"
 L = []
-for e in ev:
-    txt = " ".join(x[2] for x in e).upper()
-    L.append(f"Dialogue: 0,{at(e[0][0])},{at(e[-1][1] + 0.3)},Cap,,0,0,0,,{{\\pos(540,1010)\\fscx70\\fscy70\\t(0,80,\\fscx104\\fscy104)\\t(80,140,\\fscx100\\fscy100)}}{txt}")
-print("captions:", [" ".join(x[2] for x in e) for e in ev])
 open(f"{O}/caps.ass", "w").write(f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -107,7 +87,7 @@ Style: Cap,Anton,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,0,0,0,0,100,100
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-""" + "\n".join(L) + "\n")
+""")
 
 # 3) overlays
 def F(s): return ImageFont.truetype(ANTON, s)
@@ -125,7 +105,7 @@ d.text((540, 40 + s * 0.75), C["title"], font=F(s), fill=(255, 230, 0), anchor="
 d.rectangle([0, TOPH - 4, W, TOPH + 4], fill=(255, 230, 0, 255))
 im.save(f"{O}/o_title.png")
 OV = [("o_title.png", 0, DUR)]
-for i, o in enumerate(C["ov"]):
+for i, o in enumerate([]):  # sem textos no meio do vídeo
     txt, em, vt, dur = o[:4]; t = vt if len(o) > 4 else v2c(vt)
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     e = emoji(em, 150); im.alpha_composite(e, (540 - e.width // 2, 1180))
@@ -133,9 +113,11 @@ for i, o in enumerate(C["ov"]):
     d.text((540, 1430), txt, font=F(s), fill=(255, 230, 0), anchor="mm", stroke_width=11, stroke_fill=(0, 0, 0))
     im.save(f"{O}/o{i}.png"); OV.append((f"o{i}.png", t, min(DUR, t + dur)))
 im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-d.rounded_rectangle([190, 1700, 890, 1800], 50, fill=(255, 40, 80, 230))
-d.text((540, 1750), "SEGUE PRA MAIS 🎮".replace(" 🎮", ""), font=F(60), fill=(255, 255, 255), anchor="mm")
-im.save(f"{O}/o_follow.png"); OV.append(("o_follow.png", max(0, DUR - 4), DUR))
+d.rounded_rectangle([110, 1240, 970, 1640], 40, fill=(0, 0, 0, 215), outline=(255, 230, 0, 255), width=6)
+d.text((540, 1320), "ME SEGUE!", font=F(96), fill=(255, 230, 0), anchor="mm")
+d.text((540, 1440), "TIKTOK  @jhonexlives", font=F(62), fill=(255, 255, 255), anchor="mm")
+d.text((540, 1540), "YOUTUBE / TWITCH  @jhonlivesx", font=F(54), fill=(255, 255, 255), anchor="mm")
+im.save(f"{O}/o_follow.png"); OV.append(("o_follow.png", max(0, DUR - 4.5), DUR))
 
 # 4) compose
 fx, fy, fw, fh = FC
