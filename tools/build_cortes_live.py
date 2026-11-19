@@ -31,6 +31,12 @@ CLIPS = {
         lines=[(1325, 1398)],
         ov=[("OLHA ESSA ÁGUA", "🌊", 1322, 3.5), ("ISSO É UM JOGO???", "🤯", 1355, 3.5)],
     ),
+    "ponte": dict(
+        parts=[(7489.2, 7490.6, 0.5), (7474, 7522, 1.0), (7488.5, 7497.5, 0.5)],
+        title="CAIU UM CARRO DA PONTE NO GTA 6",
+        lines=[],
+        ov=[("ISSO É BUG???", "😳", 0.0, 2.8, "clip"), ("OLHA PRA CIMA", "👆", 7485.5, 3.0), ("REPLAY", "🎬", 50.8, 1.2, "clip")],
+    ),
     "basquete": dict(
         parts=[(3540, 3620)],
         title="DÁ PRA JOGAR BASQUETE NO GTA 6?",
@@ -43,7 +49,8 @@ O = f"{D}/clips/{name}"; os.makedirs(O, exist_ok=True)
 
 # 1) fetch + cut parts (exact) -> raw 1920x1080 clip
 cuts = []
-for j, (a, b) in enumerate(C["parts"]):
+for j, pt in enumerate(C["parts"]):
+    a, b = pt[0], pt[1]; sp = pt[2] if len(pt) > 2 else 1.0
     ks = [k for k, (t, d, u) in enumerate(idx) if t + d > a and t < b]
     for k in ks:
         p = f"{D}/ts/{k}.ts"
@@ -52,16 +59,18 @@ for j, (a, b) in enumerate(C["parts"]):
     run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{O}/l{j}.txt", "-c", "copy", f"{O}/cat{j}.ts"])
     t0 = idx[ks[0]][0]
     out = f"{O}/p{j}.mp4"; cuts.append(out)
-    run(["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{a - t0:.3f}", "-i", f"{O}/cat{j}.ts", "-t", f"{b - a:.3f}",
-         "-vf", f"fps={FPS}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-c:a", "aac", "-ar", "48000", "-ac", "2", out])
+    run(["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{a - t0:.3f}", "-i", f"{O}/cat{j}.ts", "-t", f"{(b - a) / sp:.3f}",
+         "-vf", f"setpts=PTS/{sp},fps={FPS}", "-af", f"atempo={sp}" if sp >= 0.5 else "atempo=0.5",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-c:a", "aac", "-ar", "48000", "-ac", "2", out])
 open(f"{O}/parts.txt", "w").write("".join(f"file '{c}'\n" for c in cuts))
 run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{O}/parts.txt", "-c", "copy", f"{O}/raw.mp4"])
-DUR = sum(b - a for a, b in C["parts"])
+DUR = sum((p[1] - p[0]) / (p[2] if len(p) > 2 else 1.0) for p in C["parts"])
 def v2c(t):  # VOD time -> clip time
     acc = 0
-    for a, b in C["parts"]:
-        if a <= t <= b: return acc + t - a
-        acc += b - a
+    for p in C["parts"]:
+        a, b = p[0], p[1]; sp = p[2] if len(p) > 2 else 1.0
+        if a <= t <= b and sp == 1.0: return acc + t - a
+        acc += (b - a) / sp
     return None
 
 # 2) word-level captions for his lines
@@ -116,8 +125,8 @@ d.text((540, 40 + s * 0.75), C["title"], font=F(s), fill=(255, 230, 0), anchor="
 d.rectangle([0, TOPH - 4, W, TOPH + 4], fill=(255, 230, 0, 255))
 im.save(f"{O}/o_title.png")
 OV = [("o_title.png", 0, DUR)]
-for i, (txt, em, vt, dur) in enumerate(C["ov"]):
-    t = v2c(vt)
+for i, o in enumerate(C["ov"]):
+    txt, em, vt, dur = o[:4]; t = vt if len(o) > 4 else v2c(vt)
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     e = emoji(em, 150); im.alpha_composite(e, (540 - e.width // 2, 1180))
     s = fit(d, txt, 130, 980)
