@@ -9,12 +9,11 @@
 - Tem **PS5 + GTA 6 (pré-download)**, placa de captura e OBS (ainda se enrolando com o OBS). Quer fazer live na **Twitch**.
 - Desconfortável em mostrar o rosto → formato escolhido: **Shorts de curiosidades narrados com voz de IA** (ElevenLabs). Ele grava a voz e manda; o Claude monta o vídeo.
 
-## Identidade visual (19/11)
-- Marca **JHON LIVES**, estética neon Vice City / synthwave (roxo → rosa → laranja, sol listrado, grade neon) + ciano do LED do setup. Logo: "JHON" branco com brilho ciano + "LIVES" com brilho rosa, fonte Anton inclinada. Tagline: "GTA 6 • ZOEIRA • GAMEPLAY".
-- Feito a partir da foto real (recorte rembg isnet + tratamento + contorno branco/neon). Claude não gera caricatura por IA.
-- Peças: perfil 1080x1080, capa YouTube 2560x1440 (conteúdo dentro da área segura 1546x423), capa Twitch 1200x480. Script: `tools/build_identidade.py`.
-- @: YouTube/Twitch **@jhonlivesx**; TikTok **@jhonexlives** (só muda daqui ~20 dias → depois trocar e regenerar capas).
-- Repositório é **público**: as imagens com o rosto NÃO foram commitadas (ficaram só com o usuário).
+## Identidade visual (19/11) – EM ABERTO
+- 1ª tentativa (recorte da foto real + fundo neon Vice City/GTA 6, logo "JHON LIVES") foi **reprovada** pelo usuário: recorte ruim, não quer GTA 6 nem fundo de GTA na marca.
+- O que ele quer: **ilustração/caricatura com o rosto dele**, usando a foto só como referência. Claude não gera imagem por IA → caminho combinado: usuário gera a ilustração numa ferramenta de imagem (prompt fornecido no chat) e Claude monta perfil + capas (YouTube 2560x1440 com área segura 1546x423, Twitch 1200x480) em cima dela.
+- @: YouTube/Twitch @jhonlivesx (confirmar Twitch); TikTok @jhonexlives (muda em ~20 dias).
+- Repositório é público: não commitar fotos/artes com o rosto.
 
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
