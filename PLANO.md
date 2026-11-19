@@ -15,6 +15,12 @@
 - @: YouTube/Twitch @jhonlivesx (confirmar Twitch); TikTok @jhonexlives (muda em ~20 dias).
 - Repositório é público: não commitar fotos/artes com o rosto.
 
+## Cortes da live (19/11) – VOD Twitch 2933162928 "GTA 6 AO VIVO" (2h14)
+- Pipeline: yt-dlp (áudio) + Whisper + picos de volume; vídeo baixado só nos trechos (segmentos .ts do m3u8). Chat bloqueado (não usar client-id interno). Facecam no canto inferior direito → formato vertical facecam em cima + jogo embaixo. Trechos silenciados (direitos autorais): 48:06–51:12 e 69:12–75:18.
+- Hosts liberados no ambiente: www.twitch.tv, gql.twitch.tv, usher.ttvnw.net, d1m7jfoe9zdc1j.cloudfront.net.
+- Candidatos: (1) 32:20–33:40 "dei um tiro sem querer" + morte; (2) 35:45–39:10 "não sei mais mirar" + 2ª morte; (3) 95:30–96:40 "tem camaleão?"; (4) 22:00–23:20 passeio de barco "meu Deus"; (5) 59:00–60:20 basquete no jogo. Evitar cutscenes da história (spoiler).
+- Feedback: ele fala pouco na live (transcrição é quase só diálogo do jogo) → incentivar narrar/reagir mais.
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
