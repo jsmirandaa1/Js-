@@ -29,6 +29,10 @@
 - Roteiros em `roteiros/shorts-06-07-gringos.md`: "3 segredos que os gringos acharam" (Dexter, ovo na torre, Pé Grande) e "Primeira pessoa (truque)". Aguardando narração; Shorts 7 idealmente com gameplay dele fazendo o truque.
 - Sites de notícia (gamingbible, gamerant, gamespot) não abrem no ambiente; pesquisa feita via busca.
 
+## Shorts 8 e 9 (20/11)
+- Usuário reprovou os roteiros 6 e 7 (segredos gringos / primeira pessoa). Escolheu: "Se o GTA 6 fosse no Brasil" (pronto, `videos/gta6_no_brasil.mp4`, 1:14) e "POV: sua mãe entrando no quarto" (roteiro em `roteiros/shorts-08-09-brasil-e-pov-mae.md`, aguardando voz).
+- Ideias guardadas: compilado de fails da live (VOD some ~25/11), "Jason ou Lúcia? responde sem pensar", "1ª hora vs 10ª hora".
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
