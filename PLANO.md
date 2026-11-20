@@ -25,6 +25,10 @@
 ## Preferências de edição (19/11)
 - Cortes: vídeo cru, só título fixo; sem legendas/textos no meio. Todo vídeo termina com "ME SEGUE" + @jhonexlives (TikTok) e @jhonlivesx (YouTube/Twitch).
 
+## Shorts 6 e 7 (20/11) – adaptação de conteúdo gringo
+- Roteiros em `roteiros/shorts-06-07-gringos.md`: "3 segredos que os gringos acharam" (Dexter, ovo na torre, Pé Grande) e "Primeira pessoa (truque)". Aguardando narração; Shorts 7 idealmente com gameplay dele fazendo o truque.
+- Sites de notícia (gamingbible, gamerant, gamespot) não abrem no ambiente; pesquisa feita via busca.
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
