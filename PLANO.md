@@ -33,6 +33,9 @@
 - Usuário reprovou os roteiros 6 e 7 (segredos gringos / primeira pessoa). Escolheu: "Se o GTA 6 fosse no Brasil" (pronto, `videos/gta6_no_brasil.mp4`, 1:14) e "POV: sua mãe entrando no quarto" (roteiro em `roteiros/shorts-08-09-brasil-e-pov-mae.md`, aguardando voz).
 - Ideias guardadas: compilado de fails da live (VOD some ~25/11), "Jason ou Lúcia? responde sem pensar", "1ª hora vs 10ª hora".
 
+## Série principal proposta (21/11): "FLORIDA MAN x BRASIL MAN"
+- Manchetes reais e absurdas da Flórida x do Brasil recriadas no GTA 6, público vota qual é mais absurda e manda as próximas. Detalhes, EP.1 e fontes em `roteiros/serie-florida-man-x-brasil-man.md`. Aguardando aprovação/gravação.
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
