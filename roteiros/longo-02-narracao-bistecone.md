@@ -1,0 +1,89 @@
+# Narração – "Do caminhão de descarga ao topo: a história do BISTECONE"
+
+Texto pronto pra voz de IA. Gerar **um áudio por capítulo** (cap0.mp3 … cap8.mp3).
+Os trechos que eu não consegui confirmar foram reescritos de forma segura ("segundo reportagens", sem números exatos), pra não ter informação errada.
+
+---
+
+## cap0 – Gancho
+Madrugada em São Paulo. Enquanto a cidade dorme, um moleque da Grande São Paulo tá descarregando caminhão. Caixa atrás de caixa. Trabalho pesado, salário baixo.
+
+Poucos anos depois, esse mesmo cara tá entre os maiores streamers do Brasil. Mais de cinco milhões de inscritos somando os dois canais, prêmio iBest, e dezenas de milhares de pessoas assistindo ele jogar GTA 6 ao mesmo tempo.
+
+O nome dele é David. Mas você conhece ele como Bistecone.
+
+Nesse vídeo eu vou te contar como ele chegou lá, o que ele faz de diferente, e o que eu, que tô começando agora, tô aprendendo com ele. Fica até o final, porque a última parte é a mais importante.
+
+## cap1 – Quem é o Bistecone
+Quem vê o Bistecone hoje, gritando, rindo, fazendo maratona de mais de quinze horas de live, não imagina a rotina que ele tinha antes.
+
+A internet conhece o personagem: o cara caótico, aleatório, que transforma qualquer jogo em entretenimento. Mas por trás disso tem um trabalhador. E é aí que a história fica boa.
+
+## cap2 – O descarregador de caminhão
+Antes de qualquer câmera, a vida do David era uma das rotinas mais pesadas de São Paulo: descarregar caminhão de madrugada, em bairro afastado. Trabalho físico, puxado, e mal pago.
+
+Segundo reportagens sobre a trajetória dele, foram anos nessa rotina, sem ver o salário crescer.
+
+Até que ele tomou uma decisão que muita gente não teria coragem de tomar: saiu, comprou uma moto e foi trabalhar como motoboy. Mais liberdade, mas ainda longe do sonho.
+
+E aí veio a pandemia.
+
+## cap3 – A virada
+Com o mundo trancado em casa, a live virou o novo ponto de encontro. O lugar onde a galera se juntava pra dar risada, conversar e passar o tempo.
+
+E foi nesse momento que o Bistecone apareceu.
+
+O segredo nunca foi o jogo. Era ele. A energia, as reações, o jeito de falar com o chat como se fosse um amigo de infância. Ele não tentava parecer profissional. Tanto que a própria capa do canal de lives dele diz: "vídeos de qualidade duvidosa". O humor começava ali.
+
+## cap4 – A fórmula do Bistecone
+Olhando os dois canais dele, dá pra ver uma fórmula muito clara.
+
+Primeiro: frequência. O canal principal promete "vídeos todos os dias". São mais de setecentos vídeos em um canal e mais de novecentos no outro.
+
+Segundo: dois canais com funções diferentes. Um, que ele chama de "o canal mais aleatório da internet", com vídeos editados e divertidos. O outro, o BisteconeLive, com as gameplays sem cortes. Quem chega por um, descobre o outro.
+
+Terceiro: a reação vale mais que o jogo. Terror, simulador, GTA. Não importa. O que prende é a cara dele, o susto, a risada.
+
+Quarto: proximidade. Ele mostra bastidores, conversa com quem apoia o canal e divide as conquistas com a comunidade.
+
+E quinto: coragem pra mudar. Ele saiu da Twitch e foi pra Kick. E o título de um vídeo dele resume bem: "três dias na Kick renderam um mês de Twitch".
+
+Pausa rápida: se você curte o Bistecone, você provavelmente vai curtir o que eu faço. Eu faço live de GTA 6 à noite, na mesma pegada de zoeira. O link tá na descrição. Agora, voltando.
+
+## cap5 – Os números
+Hoje, o canal Bistecone passa de dois milhões e duzentos mil inscritos. E o BisteconeLive passa de três milhões e quatrocentos mil.
+
+Ele já venceu o prêmio iBest na categoria Streamer Influenciador, disputando com nomes gigantes como Alanzoka, Casimiro, Gaules e Cellbit.
+
+E foi confirmado no SANA, um dos maiores eventos geek do Brasil, lá em Fortaleza.
+
+## cap6 – GTA 6, a prova de fogo
+Quando o GTA 6 saiu, o Brasil quebrou recordes de audiência no mundo inteiro. E o Bistecone tava lá.
+
+A primeira live dele de GTA 6 na Kick durou quinze horas e quarenta e três minutos. Ele bateu o próprio recorde de audiência, com um pico de cerca de setenta e duas mil pessoas assistindo ao mesmo tempo, e ficou entre os streamers de língua portuguesa mais assistidos da Kick naquela semana.
+
+O cara que descarregava caminhão de madrugada agora segura dezenas de milhares de pessoas numa madrugada de GTA.
+
+## cap7 – O que eu aprendi com ele
+E agora, a parte que eu prometi.
+
+Eu sou o Jhon, e tô começando agora. Eu trabalho de madrugada e durante o dia, e só sobra a noite pra fazer live de GTA 6. Quando eu conheci a história do Bistecone, eu me vi nela.
+
+O que eu tirei disso tudo:
+
+Um: não espera ficar perfeito. "Qualidade duvidosa", e mesmo assim gigante.
+
+Dois: constância vence talento. Conteúdo todo dia.
+
+Três: seja você. A zoeira é a sua marca.
+
+E quatro: começa com o que tem. Ele começou depois de um trabalho pesado. Eu também tô começando assim.
+
+## cap8 – Encerramento
+Bistecone, se um dia esse vídeo chegar até você: obrigado pela inspiração. De fã pra fã.
+
+E se você chegou até aqui, você é igual a mim: curte esse estilo de conteúdo. Então se inscreve, ativa o sininho, e cola na minha live de GTA 6. Twitch e YouTube: arroba jhon lives x. TikTok: arroba jhon ex lives.
+
+Comenta aí qual é o momento do Bistecone que você mais curte. Eu vou ler todos.
+
+Valeu, e até a próxima.
