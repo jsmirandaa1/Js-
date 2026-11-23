@@ -40,6 +40,7 @@
 - Ideia do usuário: conteúdo 100% positivo sobre o criador favorito dele (Bistecone: canais Bistecone 2,21 mi e BisteconeLive 3,49 mi; hoje faz live na Kick) pra atrair esse público.
 - Vídeo longo #2 "Do caminhão de descarga ao topo: a história do Bistecone" – roteiro completo em `roteiros/longo-02-historia-bistecone.md` (12–13 min). Fatos marcados [CONFIRMAR] dependem do usuário assistir o vídeo do Bistecone sobre a trajetória (YouTube bloqueado aqui).
 - Recomendação forte: multistream Twitch + **Kick** (é onde o público do Bistecone está).
+- Vídeo do Bistecone: 1ª versão (5:35) com narração IA do usuário + gameplay da live 2937709195 de fundo. Usuário quer maior: 5 áudios extras em `roteiros/narracao_bistecone_extra.txt` (+~2:30). Confirmado: Bistecone venceu Prêmio eSports Brasil 2025 – Streamer Revelação. Texto "resposta do Bistecone" enviado pelo usuário parece gerado por IA (marcadores de citação) → não usar como citação dele sem confirmar.
 - Próximo da série: "Tentei fazer uma live de 15h de GTA 6 igual o Bistecone".
 
 ## Estratégia decidida
