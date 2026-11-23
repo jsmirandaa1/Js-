@@ -42,6 +42,9 @@
 - Recomendação forte: multistream Twitch + **Kick** (é onde o público do Bistecone está).
 - Vídeo do Bistecone: 1ª versão (5:35) com narração IA do usuário + gameplay da live 2937709195 de fundo. Usuário quer maior: 5 áudios extras em `roteiros/narracao_bistecone_extra.txt` (+~2:30). Confirmado: Bistecone venceu Prêmio eSports Brasil 2025 – Streamer Revelação. Texto "resposta do Bistecone" enviado pelo usuário parece gerado por IA (marcadores de citação) → não usar como citação dele sem confirmar.
 - Próximo da série: "Tentei fazer uma live de 15h de GTA 6 igual o Bistecone".
+- 23/11: versão final ~7:41 renderizada (`tools/build_historia_bistecone.py`, não commitada por ter facecam). Inclui capítulo extra "O primeiro grande prêmio", print dos bastidores, cards das frases e cartão @jhonlivesx no fim.
+- Anúncios: 7:41 pega pre-roll/post-roll; mid-roll só a partir de 8:00 e só com o canal no YPP. Se o canal estiver monetizado, completar ~20s pra passar de 8:00.
+- Pendências com o usuário: (1) o texto da "resposta do Bistecone" é dele mesmo?; (2) usar trechos curtos de live do Bistecone (Kick) + mensagem pedindo permissão pra equipe dele?; (3) canal monetizado?; (4) thumbnail amarela com a marca do Jhon (sem imitar a do Bistecone).
 
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
