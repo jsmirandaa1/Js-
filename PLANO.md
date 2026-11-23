@@ -36,6 +36,12 @@
 ## Série principal proposta (21/11): "FLORIDA MAN x BRASIL MAN"
 - Manchetes reais e absurdas da Flórida x do Brasil recriadas no GTA 6, público vota qual é mais absurda e manda as próximas. Detalhes, EP.1 e fontes em `roteiros/serie-florida-man-x-brasil-man.md`. Aguardando aprovação/gravação.
 
+## Plano "Sequestro de audiência" (23/11)
+- Ideia do usuário: conteúdo 100% positivo sobre o criador favorito dele (Bistecone: canais Bistecone 2,21 mi e BisteconeLive 3,49 mi; hoje faz live na Kick) pra atrair esse público.
+- Vídeo longo #2 "Do caminhão de descarga ao topo: a história do Bistecone" – roteiro completo em `roteiros/longo-02-historia-bistecone.md` (12–13 min). Fatos marcados [CONFIRMAR] dependem do usuário assistir o vídeo do Bistecone sobre a trajetória (YouTube bloqueado aqui).
+- Recomendação forte: multistream Twitch + **Kick** (é onde o público do Bistecone está).
+- Próximo da série: "Tentei fazer uma live de 15h de GTA 6 igual o Bistecone".
+
 ## Estratégia decidida
 - Variar formatos (o usuário pediu): lista narrada, "fases", linha do tempo em texto na tela. Formato texto na tela + música é útil quando ele não pode gravar voz.
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
