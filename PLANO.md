@@ -46,6 +46,8 @@
 - Anúncios: 7:41 pega pre-roll/post-roll; mid-roll só a partir de 8:00 e só com o canal no YPP. Se o canal estiver monetizado, completar ~20s pra passar de 8:00.
 - 24/11: usuário NÃO gostou da v2 (mostrava a gameplay dele no fundo). Regra nova: em vídeo sobre outro criador, mostrar SÓ o criador (clipes/VOD dele), mesmo com risco de direitos autorais; trilha emocionante; visual profissional.
 - v3 "profissional" (8:28, passa de 8:00): só imagens do Bistecone (34 clipes da Twitch dele + VOD "GTA 6 NADA DEMAIS" com câmera dele ampliada), 6 momentos com a voz real dele ("BISTECONE AO VIVO"), trilha cinematográfica sintetizada que cresce nos momentos fortes (`tools/music3.py`), zoom lento em todas as cenas, textos deslizando, whoosh/impacto, flashes, card animado do prêmio. Script: `tools/build_historia_bistecone_v3.py`.
+- 24/11: usuário achou a trilha sintetizada RUIM → não usar mais música gerada por código. Shorts vão SEM música (usuário põe som em alta no TikTok/YouTube); vídeo longo ganhou versão sem trilha. Se quiser música no longo: pedir mp3 da Biblioteca de Áudio do YouTube.
+- 4 Shorts verticais do vídeo do Bistecone (>61s, título fixo no topo, vídeo no meio, legenda sincronizada com palavra amarela, cartão ME SEGUE): 1 caminhão (86s), 2 prêmio (68s), 3 GTA 6/72 mil (75s), 4 lição "eu me vi na história" (77s). Script: `tools/build_shorts_bistecone.py`.
 - Pendências com o usuário: (1) o texto da "resposta do Bistecone" é dele mesmo?; (2) usar trechos curtos de live do Bistecone (Kick) + mensagem pedindo permissão pra equipe dele?; (3) canal monetizado?; (4) thumbnail amarela com a marca do Jhon (sem imitar a do Bistecone).
 
 ## Estratégia decidida

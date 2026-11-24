@@ -425,6 +425,10 @@ mix = mus * gain[:, None] + (1.0 * voice + 1.0 * live + sfx)[:, None]
 mix = np.clip(mix, -1, 1)
 w = wave.open(f"{D}/mix.wav", "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
 w.writeframes((mix * 32767).astype(np.int16).tobytes()); w.close()
+nm = np.clip(voice + live + sfx, -1, 1)
+w = wave.open(f"{D}/mix_nomusic.wav", "wb"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+w.writeframes((nm * 32767).astype(np.int16).tobytes()); w.close()
+if os.environ.get("NOCOMPOSE"): sys.exit(0)
 
 # ---------------- compose ----------------
 inp = ["-i", f"{D}/base.mp4"]
