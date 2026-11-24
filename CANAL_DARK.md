@@ -8,13 +8,14 @@
 - **Canal dark** (sem rosto, sem a voz real dele) sobre **dinheiro**, em inglês, pro público gringo.
 - Nome: **The Wealth Blueprint** (slogan: "Understand money. Build wealth.").
 - Formato do ep. 001: **vídeo longo de 8–10 min**, narração em inglês americano, voz masculina grave e calma.
+- **Estilo visual decidido (24/11): opção A – 100% motion graphics** feito pelo Claude (sem banco de vídeo).
+- **Voz decidida: o Claude gera** com Kokoro TTS (mix am_michael/am_onyx). Não precisa mandar mp3.
 - Objetivo: **crescer o canal** primeiro e **monetizar depois**.
 
 ## Decisões em aberto
 - @ do canal e plataformas (YouTube só, ou também TikTok/Reels).
 - Formato: Shorts, vídeo longo, ou os dois.
 - Recorte do nicho (renda extra, investimento, histórias de ricos/falências, psicologia do dinheiro, etc.).
-- Voz (ElevenLabs em inglês?) e estilo visual.
 
 ## Cuidados (monetização no YouTube)
 - O YouTube corta monetização de conteúdo "inautêntico": vídeo em massa, repetitivo, só voz de IA lendo texto genérico em cima de imagem de banco. Pra passar: roteiro original com opinião e ângulo próprio, edição caprichada e formatos variados.
@@ -36,7 +37,6 @@
 
 ## Próximos passos
 1. Postar o Ep. 001 no YouTube (seguir `roteiros/dark/ep001-publicacao.md`) e contar como foi (CTR da thumb, retenção nos primeiros 30s, comentários).
-2. Se quiser trocar a voz por ElevenLabs: mandar o mp3 que eu ressincronizo tudo (a timeline é recalculada pelo Whisper).
 3. Ep. 002: definir tema. Formato "Wealth Blueprint" (documentário 8–10 min) reaproveita o motor de animação.
 4. Definir as decisões em aberto acima (@, Shorts de corte do episódio pra divulgar, frequência).
 
