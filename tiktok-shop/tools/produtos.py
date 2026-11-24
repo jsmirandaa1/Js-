@@ -31,11 +31,11 @@ PRODUTOS = {
         prod="escova_gokoco", accent=(255, 79, 139), accent2=(255, 200, 225), key=5,
         tag="ACHADINHO DE BELEZA",
         gancho=["5 APARELHOS", "EM 1 SÓ"],
-        titulo=["SECADORA 5 EM 1", "GOKOCO PROFISSIONAL"], desconto="-4%",
+        titulo=["SECADORA 5 EM 1", "GOKOCO PROFISSIONAL"], desconto="",  # desconto de só 4%: melhor sem selo
         beneficios=["Seca 5x mais rápido", "Motor de 110.000 RPM", "Íons negativos anti-frizz", "Bivolt: leva pra qualquer lugar"],
         desejo=["RESULTADO DE", "SALÃO EM CASA"], desejo_sub="Alisa, enrola e modela com um aparelho só",
         preco="R$ 439", preco_pre="POR",
-        ia=["dryB1", "dryB2", "dryB3"],
+        ia=["dryB1b", "dryB2", "dryB3"],
     ),
     "panelas_munique": dict(
         arquivo="04_kit_panelas_munique_11pcs",

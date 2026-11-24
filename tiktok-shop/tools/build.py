@@ -158,7 +158,7 @@ def badge(txt, r=125):
     f2 = F("Mont900", int(r * .26)); bb = f2.getbbox("OFF")
     d.text((r + 20 - (bb[0] + bb[2]) / 2, r + 20 + r * .42 - (bb[1] + bb[3]) / 2), "OFF", font=f2, fill=(255, 255, 255))
     return im
-T_BADGE = badge(P["desconto"])
+T_BADGE = badge(P["desconto"]) if P["desconto"] else Image.new("RGBA", (1, 1))
 CHK = check_icon(64, ACC + (255,))
 T_BEN = [pill(b, F("Mont800", 46), (255, 255, 255, 240), fg=(25, 25, 25), padx=30, pady=26, r=28, icon=CHK) for b in P["beneficios"]]
 T_BEN_H = text_layer("POR QUE TODO MUNDO QUER:", F("Mont900", 50), stroke=3)
