@@ -567,6 +567,60 @@ def build_footage(S):
                     '-c', 'copy', f'{WORK}/tmp/footage{S.n}.mp4'], check=True)
 
 
+# ================================================================= fallback (sem filmagem): fundo animado da marca
+_bg = {}
+_rnd = __import__('random').Random(7)
+PARTS = [(_rnd.uniform(0, W + 200), _rnd.uniform(0, H), _rnd.uniform(4, 14), _rnd.uniform(0.15, 0.7), _rnd.uniform(0, 6.28), _rnd.uniform(0.05, 0.18)) for _ in range(30)]
+
+
+def _sprite():
+    if 'b' not in _bg:
+        sp = cairo.ImageSurface(cairo.FORMAT_ARGB32, 128, 128); cc = cairo.Context(sp)
+        gr = cairo.RadialGradient(64, 64, 0, 64, 64, 64)
+        gr.add_color_stop_rgba(0, *GOLD2, 1); gr.add_color_stop_rgba(0.55, *GOLD, 0.45); gr.add_color_stop_rgba(1, *GOLD, 0)
+        cc.set_source(gr); cc.paint(); _bg['b'] = sp
+    return _bg['b']
+
+
+def fallback_kind(q, k):
+    if any(w in q for w in ('night', 'late', 'sleeping')):
+        return 'night'
+    if any(w in q for w in ('sunrise', 'sunset', 'dusk', 'aerial', 'skyline', 'city', 'morning')):
+        return 'dawn' if k % 2 else 'night'
+    return 'dark'
+
+
+def fallback_bg(c, g, kind, t0, t1, k):
+    c.set_source_rgb(*BG0); c.paint()
+    p = clamp((g - t0) / max(0.5, t1 - t0))
+    if kind in ('night', 'dawn'):
+        if kind not in _bg:
+            _bg[kind] = cairo.ImageSurface.create_from_png(f'{WORK}/bg_{kind}.png')
+        img = _bg[kind]
+        z = (H / 1350) * (1.08 + 0.06 * (p if k % 2 == 0 else 1 - p))
+        c.save(); c.translate(CX + (-1 if k % 2 else 1) * (p - 0.5) * 160, H / 2); c.scale(z, z)
+        c.set_source_surface(img, -1200 + (k % 3 - 1) * 260, -760); c.paint(); c.restore()
+        c.set_source_rgba(0, 0, 0, 0.25); c.paint()
+    else:
+        cx = W * (0.3 + 0.4 * ((k * 0.37) % 1)); cy = H * (0.25 + 0.3 * ((k * 0.61) % 1))
+        gr = cairo.RadialGradient(cx, cy, 0, cx, cy, 1300)
+        gr.add_color_stop_rgb(0, 0.10, 0.11, 0.16); gr.add_color_stop_rgb(0.5, 0.05, 0.065, 0.10); gr.add_color_stop_rgb(1, *BG0)
+        c.set_source(gr); c.paint()
+        # linhas finas douradas em perspectiva (grade "blueprint")
+        c.set_source_rgba(*GOLD, 0.06); c.set_line_width(1.5)
+        for j in range(-8, 9):
+            c.move_to(CX + j * 40, H * 0.55); c.line_to(CX + j * 260, H); c.stroke()
+        for j in range(10):
+            yy = H * 0.55 + (H * 0.45) * ((j / 10 + g * 0.05) % 1) ** 2
+            c.move_to(0, yy); c.line_to(W, yy); c.stroke()
+    sp = _sprite()
+    for x0, y0, vx, sc, ph, al in PARTS:
+        x = (x0 + vx * g * 3) % (W + 200) - 100
+        y = (y0 - g * 12 * sc) % H
+        c.save(); c.translate(x, y); c.scale(sc, sc); c.set_source_surface(sp, -64, -64)
+        c.paint_with_alpha(al * (0.6 + 0.4 * math.sin(g + ph))); c.restore()
+
+
 # ================================================================= frame compose
 def draw_overlay(c, S, g, gfx):
     # top & bottom gradient for legibility
@@ -595,6 +649,7 @@ def draw_overlay(c, S, g, gfx):
 
 def render(S, out_path):
     cuts, gfx = spec(S)
+    plan = json.load(open(f'{WORK}/clips/plan{S.n}.json'))
     N = int(S.dur * FPS)
     dec = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-i', f'{WORK}/tmp/footage{S.n}.mp4', '-f', 'rawvideo',
                             '-pix_fmt', 'bgra', '-'], stdout=subprocess.PIPE)
@@ -611,7 +666,12 @@ def render(S, out_path):
         arr = np.frombuffer(bytearray(last), np.uint8).reshape(H, W, 4).copy()
         surf = cairo.ImageSurface.create_for_data(memoryview(arr), cairo.FORMAT_ARGB32, W, H)
         c = cairo.Context(surf)
-        draw_overlay(c, S, f / FPS, gfx)
+        g = f / FPS
+        k = max(i for i, (t, q) in enumerate(cuts) if t <= g + 1e-6)
+        if plan[k] is None:
+            t1 = cuts[k + 1][0] if k + 1 < len(cuts) else S.dur
+            fallback_bg(c, g, fallback_kind(cuts[k][1], k), cuts[k][0], t1, k)
+        draw_overlay(c, S, g, gfx)
         surf.flush()
         enc.stdin.write(arr.tobytes())
     enc.stdin.close(); enc.wait(); dec.terminate()

@@ -68,7 +68,9 @@ def make_bed(dur, seed=1, prog='dm', bar=4.0, bpm=80, pulse=0.6, piano=1.0, swel
         th = np.sin(2 * np.pi * (55 * np.exp(-tt * 9) + 40) * tt) * np.exp(-tt * 10)
         s0 = int(tb * SR); z = min(N, s0 + L); pu[s0:z] += th[:z - s0] * 0.12 * pulse
         L2 = int(0.06 * SR); hat = hp(rng.standard_normal(L2), 7000) * np.exp(-np.arange(L2) / SR * 60) * 0.02 * pulse
-        s1 = int((tb + 60 / bpm / 2) * SR); z = min(N, s1 + L2); pu[s1:z] += hat[:z - s1]
+        s1 = int((tb + 60 / bpm / 2) * SR); z = min(N, s1 + L2)
+        if z > s1:
+            pu[s1:z] += hat[:z - s1]
         tb += 60 / bpm
     env = np.minimum(1, t / 1.5) * np.minimum(1, (dur - t) / 1.2)
     if swell_at:
