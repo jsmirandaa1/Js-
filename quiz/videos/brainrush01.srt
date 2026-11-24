@@ -1,0 +1,891 @@
+1
+00:00:01,000 --> 00:00:03,230
+Think you're smarter than the average person?
+
+2
+00:00:03,440 --> 00:00:04,870
+It's time to find out.
+
+3
+00:00:05,958 --> 00:00:07,688
+Welcome to BrainRush Quiz!
+
+4
+00:00:08,158 --> 00:00:10,678
+Today, you'll face fifteen general knowledge
+
+5
+00:00:10,678 --> 00:00:11,368
+questions.
+
+6
+00:00:11,758 --> 00:00:12,718
+Some are easy,
+
+7
+00:00:12,718 --> 00:00:14,508
+but others might surprise you.
+
+8
+00:00:15,260 --> 00:00:17,240
+You have seven seconds to answer each
+
+9
+00:00:17,240 --> 00:00:17,990
+question.
+
+10
+00:00:18,380 --> 00:00:19,710
+Keep track of your score,
+
+11
+00:00:19,840 --> 00:00:21,070
+challenge your friends,
+
+12
+00:00:21,140 --> 00:00:22,100
+and see if you can get a
+
+13
+00:00:22,100 --> 00:00:23,950
+perfect fifteen out of fifteen.
+
+14
+00:00:24,360 --> 00:00:25,150
+Let's begin!
+
+15
+00:00:27,020 --> 00:00:28,210
+Question number one!
+
+16
+00:00:28,420 --> 00:00:29,880
+Which planet is known as the Red
+
+17
+00:00:29,880 --> 00:00:30,510
+Planet?
+
+18
+00:00:30,700 --> 00:00:31,570
+A: Venus.
+
+19
+00:00:31,720 --> 00:00:32,660
+B: Mars.
+
+20
+00:00:32,660 --> 00:00:33,550
+C: Jupiter.
+
+21
+00:00:33,600 --> 00:00:34,590
+Or D: Mercury.
+
+22
+00:00:34,820 --> 00:00:36,140
+You have seven seconds.
+
+23
+00:00:36,140 --> 00:00:36,810
+Think fast!
+
+24
+00:00:45,336 --> 00:00:47,046
+The correct answer is Mars!
+
+25
+00:00:47,496 --> 00:00:50,306
+Its reddish appearance comes from iron oxide,
+
+26
+00:00:50,396 --> 00:00:53,226
+basically rust, covering much of its surface.
+
+27
+00:00:55,686 --> 00:00:56,896
+Question number two!
+
+28
+00:00:57,106 --> 00:00:59,076
+What is the largest ocean on Earth?
+
+29
+00:00:59,346 --> 00:01:00,606
+A: Atlantic Ocean.
+
+30
+00:01:00,606 --> 00:01:02,346
+B: Indian Ocean.
+
+31
+00:01:02,346 --> 00:01:03,626
+C: Pacific Ocean.
+
+32
+00:01:03,626 --> 00:01:05,416
+Or D: Arctic Ocean.
+
+33
+00:01:05,546 --> 00:01:06,556
+Seven seconds.
+
+34
+00:01:06,606 --> 00:01:07,476
+What's your answer?
+
+35
+00:01:15,923 --> 00:01:18,373
+The correct answer is the Pacific Ocean!
+
+36
+00:01:18,743 --> 00:01:20,963
+It's the largest and deepest ocean on
+
+37
+00:01:20,963 --> 00:01:23,603
+Earth, covering more area than all the
+
+38
+00:01:23,603 --> 00:01:24,713
+continents combined.
+
+39
+00:01:27,363 --> 00:01:28,593
+Question number three!
+
+40
+00:01:28,643 --> 00:01:30,633
+How many sides does a hexagon have?
+
+41
+00:01:30,863 --> 00:01:31,423
+A: Five.
+
+42
+00:01:31,423 --> 00:01:32,213
+B: Six.
+
+43
+00:01:32,323 --> 00:01:33,203
+C: Seven.
+
+44
+00:01:33,203 --> 00:01:34,113
+Or D: Eight.
+
+45
+00:01:34,263 --> 00:01:35,633
+You have seven seconds!
+
+46
+00:01:44,146 --> 00:01:44,836
+That's right!
+
+47
+00:01:44,886 --> 00:01:46,766
+A hexagon has six sides and six
+
+48
+00:01:46,766 --> 00:01:47,436
+angles.
+
+49
+00:01:47,826 --> 00:01:49,726
+A famous example is the shape of
+
+50
+00:01:49,726 --> 00:01:50,876
+a honeycomb cell.
+
+51
+00:01:53,246 --> 00:01:54,496
+Question number four!
+
+52
+00:01:54,666 --> 00:01:56,146
+What is the largest animal in the
+
+53
+00:01:56,146 --> 00:01:56,716
+world?
+
+54
+00:01:56,986 --> 00:01:58,246
+A: African Elephant.
+
+55
+00:01:58,246 --> 00:01:59,936
+B: Great White Shark.
+
+56
+00:02:00,066 --> 00:02:01,386
+C: Blue Whale.
+
+57
+00:02:01,386 --> 00:02:02,706
+Or D: Giraffe.
+
+58
+00:02:02,706 --> 00:02:03,636
+Make your choice!
+
+59
+00:02:12,182 --> 00:02:14,302
+The blue whale is the largest animal
+
+60
+00:02:14,302 --> 00:02:16,272
+known to have ever lived on Earth.
+
+61
+00:02:16,582 --> 00:02:18,542
+It can grow longer than thirty meters
+
+62
+00:02:18,542 --> 00:02:20,892
+and weigh over one hundred tons.
+
+63
+00:02:23,339 --> 00:02:24,549
+Question number five!
+
+64
+00:02:24,799 --> 00:02:26,729
+What is the chemical symbol for gold?
+
+65
+00:02:26,939 --> 00:02:27,739
+A: A G.
+
+66
+00:02:27,739 --> 00:02:28,759
+B: G D.
+
+67
+00:02:28,759 --> 00:02:29,759
+C: G O.
+
+68
+00:02:29,759 --> 00:02:30,939
+Or D: A U.
+
+69
+00:02:30,939 --> 00:02:31,899
+Seven seconds.
+
+70
+00:02:31,899 --> 00:02:32,809
+Choose carefully!
+
+71
+00:02:41,354 --> 00:02:42,944
+The correct answer is Au!
+
+72
+00:02:43,194 --> 00:02:44,894
+The symbol comes from the Latin word
+
+73
+00:02:44,894 --> 00:02:46,704
+'aurum', which means gold.
+
+74
+00:02:46,974 --> 00:02:48,974
+That's why gold is represented by the
+
+75
+00:02:48,974 --> 00:02:50,384
+letters A and U.
+
+76
+00:02:52,702 --> 00:02:53,932
+Question number six!
+
+77
+00:02:54,242 --> 00:02:55,842
+Where are the Great Pyramids of Giza
+
+78
+00:02:55,842 --> 00:02:56,452
+located?
+
+79
+00:02:56,702 --> 00:02:57,432
+A: Mexico.
+
+80
+00:02:57,722 --> 00:02:58,922
+B: Egypt.
+
+81
+00:02:58,922 --> 00:02:59,812
+C: Greece.
+
+82
+00:02:59,822 --> 00:03:00,932
+Or D: India.
+
+83
+00:03:01,102 --> 00:03:02,392
+You have seven seconds!
+
+84
+00:03:10,893 --> 00:03:11,403
+Correct!
+
+85
+00:03:11,753 --> 00:03:13,913
+The Great Pyramids of Giza are located
+
+86
+00:03:13,913 --> 00:03:16,143
+in Egypt, near Cairo.
+
+87
+00:03:16,493 --> 00:03:18,133
+They were built thousands of years ago
+
+88
+00:03:18,133 --> 00:03:20,273
+and remain among the most famous ancient
+
+89
+00:03:20,273 --> 00:03:21,783
+structures in the world.
+
+90
+00:03:24,156 --> 00:03:25,386
+Question number seven!
+
+91
+00:03:25,596 --> 00:03:27,306
+Which of these is a prime number?
+
+92
+00:03:27,396 --> 00:03:28,146
+A: Nine.
+
+93
+00:03:28,316 --> 00:03:29,156
+B: Fifteen.
+
+94
+00:03:29,156 --> 00:03:30,056
+C: Twenty-one.
+
+95
+00:03:30,056 --> 00:03:30,986
+Or D: Two.
+
+96
+00:03:31,136 --> 00:03:32,266
+Don't overthink it!
+
+97
+00:03:40,566 --> 00:03:41,316
+That's correct!
+
+98
+00:03:41,646 --> 00:03:43,996
+Two is the only even prime number.
+
+99
+00:03:44,226 --> 00:03:46,126
+A prime number can only be divided
+
+100
+00:03:46,126 --> 00:03:48,076
+evenly by one and itself.
+
+101
+00:03:50,561 --> 00:03:51,771
+Question number eight!
+
+102
+00:03:52,021 --> 00:03:53,661
+How many keys does a standard piano
+
+103
+00:03:53,661 --> 00:03:54,351
+have?
+
+104
+00:03:54,501 --> 00:03:55,701
+A: Sixty-six.
+
+105
+00:03:55,701 --> 00:03:57,181
+B: Seventy-six.
+
+106
+00:03:57,181 --> 00:03:58,281
+C: Eighty-eight.
+
+107
+00:03:58,281 --> 00:04:00,001
+Or D: Ninety-six.
+
+108
+00:04:00,001 --> 00:04:00,951
+Seven seconds!
+
+109
+00:04:09,456 --> 00:04:11,316
+The answer is eighty-eight!
+
+110
+00:04:11,316 --> 00:04:13,876
+A standard modern piano has fifty-two white
+
+111
+00:04:13,876 --> 00:04:16,206
+keys and thirty-six black keys,
+
+112
+00:04:16,276 --> 00:04:17,986
+making eighty-eight in total.
+
+113
+00:04:20,354 --> 00:04:21,584
+Question number nine!
+
+114
+00:04:21,834 --> 00:04:23,584
+What is the capital city of Australia?
+
+115
+00:04:23,934 --> 00:04:24,694
+A: Sydney.
+
+116
+00:04:24,694 --> 00:04:25,824
+B: Melbourne.
+
+117
+00:04:25,854 --> 00:04:26,614
+C: Perth.
+
+118
+00:04:26,614 --> 00:04:27,854
+Or D: Canberra.
+
+119
+00:04:27,854 --> 00:04:28,924
+Lock in your answer!
+
+120
+00:04:37,371 --> 00:04:37,881
+Correct!
+
+121
+00:04:38,071 --> 00:04:40,301
+Australia's capital is Canberra,
+
+122
+00:04:40,431 --> 00:04:42,081
+not Sydney or Melbourne.
+
+123
+00:04:42,491 --> 00:04:44,411
+It was chosen as a compromise between
+
+124
+00:04:44,411 --> 00:04:46,021
+those two major cities.
+
+125
+00:04:48,500 --> 00:04:49,690
+Question number ten!
+
+126
+00:04:49,920 --> 00:04:51,990
+What is the chemical symbol for sodium?
+
+127
+00:04:52,180 --> 00:04:52,960
+A: S O.
+
+128
+00:04:52,960 --> 00:04:53,700
+B: S.
+
+129
+00:04:53,700 --> 00:04:54,760
+C: N A.
+
+130
+00:04:54,760 --> 00:04:55,970
+Or D: S D.
+
+131
+00:04:56,180 --> 00:04:57,730
+Seven seconds to answer!
+
+132
+00:05:06,193 --> 00:05:07,923
+The correct answer is Na!
+
+133
+00:05:08,233 --> 00:05:10,393
+Sodium's chemical symbol comes from the
+
+134
+00:05:10,393 --> 00:05:11,843
+Latin word 'natrium'.
+
+135
+00:05:12,073 --> 00:05:14,573
+It's also an important component of ordinary
+
+136
+00:05:14,573 --> 00:05:15,663
+table salt.
+
+137
+00:05:17,968 --> 00:05:19,278
+Question number eleven!
+
+138
+00:05:19,408 --> 00:05:21,398
+How many hearts does an octopus have?
+
+139
+00:05:21,628 --> 00:05:22,228
+A: One.
+
+140
+00:05:22,228 --> 00:05:22,888
+B: Two.
+
+141
+00:05:22,888 --> 00:05:23,738
+C: Three.
+
+142
+00:05:23,768 --> 00:05:24,668
+Or D: Four.
+
+143
+00:05:24,668 --> 00:05:25,418
+What's your guess?
+
+144
+00:05:33,938 --> 00:05:34,598
+That's right!
+
+145
+00:05:34,598 --> 00:05:36,328
+An octopus has three hearts.
+
+146
+00:05:36,658 --> 00:05:38,428
+Two pump blood to the gills,
+
+147
+00:05:38,518 --> 00:05:40,158
+while the third pumps blood to the
+
+148
+00:05:40,158 --> 00:05:41,088
+rest of the body.
+
+149
+00:05:43,465 --> 00:05:44,915
+Question number twelve!
+
+150
+00:05:45,085 --> 00:05:46,785
+Which planet is famous for its prominent
+
+151
+00:05:46,785 --> 00:05:47,475
+rings?
+
+152
+00:05:47,665 --> 00:05:48,435
+A: Jupiter.
+
+153
+00:05:48,445 --> 00:05:49,515
+B: Saturn.
+
+154
+00:05:49,545 --> 00:05:50,415
+C: Neptune.
+
+155
+00:05:50,585 --> 00:05:52,145
+Or D: Uranus.
+
+156
+00:05:52,145 --> 00:05:53,075
+Seven seconds.
+
+157
+00:05:53,165 --> 00:05:53,555
+Go!
+
+158
+00:06:02,002 --> 00:06:03,332
+The answer is Saturn!
+
+159
+00:06:03,742 --> 00:06:06,532
+Although other giant planets also have rings,
+
+160
+00:06:06,722 --> 00:06:08,822
+Saturn's are by far the most visible
+
+161
+00:06:08,822 --> 00:06:09,772
+and famous.
+
+162
+00:06:10,142 --> 00:06:12,122
+They're made mostly of ice and rocky
+
+163
+00:06:12,122 --> 00:06:12,852
+particles.
+
+164
+00:06:15,329 --> 00:06:16,799
+Question number thirteen!
+
+165
+00:06:17,049 --> 00:06:18,809
+In which year did humans first land
+
+166
+00:06:18,809 --> 00:06:19,659
+on the Moon?
+
+167
+00:06:19,889 --> 00:06:21,469
+A: Nineteen fifty-nine.
+
+168
+00:06:21,469 --> 00:06:23,589
+B: Nineteen sixty-five.
+
+169
+00:06:23,589 --> 00:06:25,549
+C: Nineteen sixty-nine.
+
+170
+00:06:25,549 --> 00:06:27,729
+Or D: Nineteen seventy-two.
+
+171
+00:06:27,729 --> 00:06:28,619
+Think carefully!
+
+172
+00:06:37,165 --> 00:06:37,695
+Correct!
+
+173
+00:06:38,025 --> 00:06:40,245
+The Apollo 11 mission landed on the
+
+174
+00:06:40,245 --> 00:06:43,165
+Moon in July nineteen sixty-nine.
+
+175
+00:06:43,165 --> 00:06:45,685
+Neil Armstrong became the first human to
+
+176
+00:06:45,685 --> 00:06:46,915
+walk on its surface.
+
+177
+00:06:49,378 --> 00:06:50,688
+Question number fourteen!
+
+178
+00:06:50,978 --> 00:06:52,798
+Which mammal is capable of true powered
+
+179
+00:06:52,798 --> 00:06:53,428
+flight?
+
+180
+00:06:53,718 --> 00:06:54,998
+A: Flying Squirrel.
+
+181
+00:06:54,998 --> 00:06:55,598
+B: Bat.
+
+182
+00:06:55,598 --> 00:06:56,498
+C: Sloth.
+
+183
+00:06:56,498 --> 00:06:57,688
+Or D: Lemur.
+
+184
+00:06:57,778 --> 00:06:58,708
+Seven seconds!
+
+185
+00:07:07,224 --> 00:07:08,914
+The correct answer is the bat!
+
+186
+00:07:09,164 --> 00:07:11,244
+Bats are the only mammals capable of
+
+187
+00:07:11,244 --> 00:07:12,954
+sustained powered flight.
+
+188
+00:07:13,264 --> 00:07:15,114
+Flying squirrels can glide,
+
+189
+00:07:15,304 --> 00:07:16,934
+but they cannot truly fly.
+
+190
+00:07:19,413 --> 00:07:20,423
+Final question!
+
+191
+00:07:20,633 --> 00:07:21,503
+Number fifteen!
+
+192
+00:07:21,533 --> 00:07:23,103
+Which number is a perfect square?
+
+193
+00:07:23,413 --> 00:07:24,583
+A: One hundred twenty.
+
+194
+00:07:24,653 --> 00:07:26,633
+B: One hundred thirty-two.
+
+195
+00:07:26,633 --> 00:07:28,593
+C: One hundred forty-four.
+
+196
+00:07:28,593 --> 00:07:30,143
+Or D: One hundred fifty.
+
+197
+00:07:30,313 --> 00:07:31,903
+This is your final chance.
+
+198
+00:07:32,213 --> 00:07:33,163
+Seven seconds!
+
+199
+00:07:41,762 --> 00:07:42,532
+That's correct!
+
+200
+00:07:42,822 --> 00:07:45,322
+One hundred forty-four is a perfect square
+
+201
+00:07:45,322 --> 00:07:48,182
+because twelve multiplied by twelve equals
+
+202
+00:07:48,182 --> 00:07:49,962
+one hundred forty-four.
+
+203
+00:07:49,962 --> 00:07:51,232
+Did you get it right?
+
+204
+00:07:53,473 --> 00:07:54,803
+Your challenge is complete!
+
+205
+00:07:55,173 --> 00:07:56,743
+Now, let's see how you did.
+
+206
+00:07:56,973 --> 00:07:59,113
+If you scored between zero and five,
+
+207
+00:07:59,113 --> 00:08:00,563
+keep learning and improving.
+
+208
+00:08:00,933 --> 00:08:02,113
+Between six and ten,
+
+209
+00:08:02,113 --> 00:08:04,003
+you've got a solid knowledge base.
+
+210
+00:08:04,273 --> 00:08:05,733
+Between eleven and thirteen,
+
+211
+00:08:05,733 --> 00:08:06,823
+you're ahead of the game.
+
+212
+00:08:07,053 --> 00:08:08,623
+Fourteen correct answers?
+
+213
+00:08:08,933 --> 00:08:09,863
+That's impressive!
+
+214
+00:08:10,173 --> 00:08:11,933
+And if you scored a perfect fifteen
+
+215
+00:08:11,933 --> 00:08:12,763
+out of fifteen,
+
+216
+00:08:12,893 --> 00:08:14,723
+you're a true BrainRush legend!
+
+217
+00:08:16,495 --> 00:08:17,865
+How many did you get right?
+
+218
+00:08:18,095 --> 00:08:19,765
+Leave your score in the comments!
+
+219
+00:08:20,135 --> 00:08:21,865
+And if you enjoyed this challenge,
+
+220
+00:08:21,975 --> 00:08:25,035
+subscribe to BrainRush Quiz for more mind-bending
+
+221
+00:08:25,035 --> 00:08:25,745
+questions.
+
+222
+00:08:26,195 --> 00:08:27,775
+Remember: think fast,
+
+223
+00:08:27,775 --> 00:08:28,405
+know more!
