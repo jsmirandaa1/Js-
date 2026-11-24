@@ -113,3 +113,8 @@ Valeu, e até a próxima.
 - Streams Charts (Kick PT): https://streamscharts.com/channels?lang=pt&platform=kick
 - VidIQ: https://vidiq.com/youtube-stats/channel/@bisteconeee/videos/
 - Kick: https://kick.com/bistecone/about
+
+## Publicação (24/11)
+- Thumbnails: A "DO CAMINHÃO AO TOPO" (caminhão → troféu → rosto) e B "EX-DESCARREGADOR / 5 MILHÕES DE INSCRITOS". Testar as duas no "Testar e comparar" do YouTube. Script: `tools/thumb_bistecone.py`.
+- Título principal: "Ele DESCARREGAVA CAMINHÃO de madrugada… hoje tem 5 MILHÕES de inscritos (A história do Bistecone)"
+- Alternativas: "Do CAMINHÃO ao TOPO: a história REAL do Bistecone" · "Como o BISTECONE saiu do caminhão e virou um dos MAIORES streamers do Brasil" · "BISTECONE: de motoboy a STREAMER REVELAÇÃO do ano"
