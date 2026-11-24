@@ -94,7 +94,8 @@ def particles(img, t, alpha=1.0):
 @functools.lru_cache(None)
 def q_img(txt):
     f = F("mont", 56); lines = wrap(txt, f, 960)
-    if len(lines) > 2: f = F("mont", 48); lines = wrap(txt, f, 980)
+    if len(lines) > 2: f = F("mont", 46); lines = wrap(txt, f, 1000)
+    if len(lines) > 2: f = F("mont", 42); lines = wrap(txt, f, 1000)
     lh = int(f.size * 1.18); asc, desc = f.getmetrics()
     out = Image.new("RGBA", (1060, lh * len(lines) + desc + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(out)
     sh = Image.new("RGBA", out.size, (0, 0, 0, 0)); ds = ImageDraw.Draw(sh)
@@ -120,7 +121,7 @@ def render_qv(img, sc, tq):
     else: frac, num, pulse = 1.0, 0, 0
     tim = B.timer(frac, num, pulse, done=tq >= R, urgent=(CS + 4 <= tq < R))
     paste_c(img, tim, W / 2, 900, alpha=ease(tq / 0.5), scale=0.72 * (1 + (0.12 * max(0, 1 - (tq - R) / 0.4) if tq >= R else 0)))
-    qa = ease((tq - 0.5) / 0.4); paste_c(img, q_img(q[1]), W / 2, 1088 + 20 * (1 - qa), alpha=qa)
+    qa = ease((tq - 0.5) / 0.4); qi_ = q_img(q[1]); paste_c(img, qi_, W / 2, 1088 - max(0, qi_.height - 150) / 2 + 20 * (1 - qa), alpha=qa)
     for k, opt in enumerate(q[2]):
         t0 = sc["letters"][k] - 0.1 if k < len(sc["letters"]) else 1.5 + k * 0.4
         p = eout((tq - t0) / 0.35)
