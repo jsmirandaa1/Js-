@@ -1,0 +1,843 @@
+1
+00:00:00,500 --> 00:00:02,390
+Welcome back to BrainRush Quiz!
+
+2
+00:00:03,416 --> 00:00:05,616
+Today, we're testing your knowledge of science
+
+3
+00:00:05,616 --> 00:00:06,486
+and nature.
+
+4
+00:00:06,876 --> 00:00:08,906
+From the human body to outer space,
+
+5
+00:00:09,116 --> 00:00:11,236
+these fifteen questions will challenge what
+
+6
+00:00:11,236 --> 00:00:12,326
+you think you know.
+
+7
+00:00:12,616 --> 00:00:14,576
+You'll have just seven seconds to answer
+
+8
+00:00:14,576 --> 00:00:15,646
+each question.
+
+9
+00:00:15,956 --> 00:00:17,276
+Keep track of your score,
+
+10
+00:00:17,276 --> 00:00:18,936
+and don't forget to comment your final
+
+11
+00:00:18,936 --> 00:00:20,006
+result below.
+
+12
+00:00:20,456 --> 00:00:21,266
+Are you ready?
+
+13
+00:00:21,496 --> 00:00:22,286
+Let's begin!
+
+14
+00:00:24,109 --> 00:00:25,339
+Question number one!
+
+15
+00:00:25,448 --> 00:00:26,928
+What is the closest planet to the
+
+16
+00:00:26,928 --> 00:00:27,438
+Sun?
+
+17
+00:00:27,688 --> 00:00:28,478
+A: Venus.
+
+18
+00:00:28,488 --> 00:00:29,398
+B: Mercury.
+
+19
+00:00:29,488 --> 00:00:30,438
+C: Mars.
+
+20
+00:00:30,508 --> 00:00:31,538
+Or D: Earth.
+
+21
+00:00:31,588 --> 00:00:32,838
+You have seven seconds!
+
+22
+00:00:41,348 --> 00:00:43,388
+Mercury is the closest planet to the
+
+23
+00:00:43,388 --> 00:00:43,918
+Sun.
+
+24
+00:00:44,248 --> 00:00:46,568
+It completes one orbit in just eighty-eight
+
+25
+00:00:46,568 --> 00:00:47,438
+Earth days!
+
+26
+00:00:49,902 --> 00:00:51,152
+Question number two!
+
+27
+00:00:51,320 --> 00:00:53,240
+Which gas do plants absorb from the
+
+28
+00:00:53,240 --> 00:00:55,290
+atmosphere during photosynthesis?
+
+29
+00:00:55,700 --> 00:00:57,010
+A: Oxygen.
+
+30
+00:00:57,060 --> 00:00:58,520
+B: Nitrogen.
+
+31
+00:00:58,520 --> 00:00:59,870
+C: Carbon dioxide.
+
+32
+00:00:59,920 --> 00:01:01,840
+Or D: Hydrogen.
+
+33
+00:01:01,840 --> 00:01:02,750
+Seven seconds.
+
+34
+00:01:02,840 --> 00:01:03,750
+What's your answer?
+
+35
+00:01:12,201 --> 00:01:15,541
+Plants absorb carbon dioxide and use sunlight
+
+36
+00:01:15,541 --> 00:01:17,311
+and water to produce sugars,
+
+37
+00:01:17,501 --> 00:01:19,751
+releasing oxygen as a byproduct.
+
+38
+00:01:22,209 --> 00:01:23,539
+Question number three!
+
+39
+00:01:23,701 --> 00:01:25,221
+What is the largest organ of the
+
+40
+00:01:25,221 --> 00:01:26,111
+human body?
+
+41
+00:01:26,421 --> 00:01:27,141
+A: Liver.
+
+42
+00:01:27,141 --> 00:01:28,071
+B: Brain.
+
+43
+00:01:28,081 --> 00:01:29,061
+C: Lungs.
+
+44
+00:01:29,061 --> 00:01:29,951
+Or D: Skin.
+
+45
+00:01:30,101 --> 00:01:30,791
+Think fast!
+
+46
+00:01:39,321 --> 00:01:41,321
+Your skin is the largest organ of
+
+47
+00:01:41,321 --> 00:01:41,991
+your body.
+
+48
+00:01:42,321 --> 00:01:43,351
+It protects you,
+
+49
+00:01:43,541 --> 00:01:45,131
+helps regulate temperature,
+
+50
+00:01:45,201 --> 00:01:46,771
+and allows you to feel touch.
+
+51
+00:01:49,201 --> 00:01:50,491
+Question number four!
+
+52
+00:01:50,646 --> 00:01:52,266
+Which planet is known for having the
+
+53
+00:01:52,266 --> 00:01:54,296
+strongest winds in our solar system?
+
+54
+00:01:54,566 --> 00:01:55,536
+A: Neptune.
+
+55
+00:01:55,586 --> 00:01:56,716
+B: Saturn.
+
+56
+00:01:56,746 --> 00:01:57,716
+C: Jupiter.
+
+57
+00:01:57,786 --> 00:01:59,356
+Or D: Uranus.
+
+58
+00:01:59,386 --> 00:02:00,336
+Make your choice!
+
+59
+00:02:08,868 --> 00:02:11,928
+Neptune has incredibly powerful winds that
+
+60
+00:02:11,928 --> 00:02:13,928
+can reach speeds of over two thousand
+
+61
+00:02:13,928 --> 00:02:15,398
+kilometers per hour!
+
+62
+00:02:17,714 --> 00:02:18,984
+Question number five!
+
+63
+00:02:19,183 --> 00:02:21,353
+What is the chemical symbol for oxygen?
+
+64
+00:02:21,643 --> 00:02:22,363
+A: O X.
+
+65
+00:02:22,363 --> 00:02:23,123
+B: O.
+
+66
+00:02:23,123 --> 00:02:24,133
+C: O G.
+
+67
+00:02:24,163 --> 00:02:25,403
+Or D: O Y.
+
+68
+00:02:25,403 --> 00:02:26,393
+Seven seconds!
+
+69
+00:02:34,915 --> 00:02:37,585
+The chemical symbol for oxygen is O.
+
+70
+00:02:37,935 --> 00:02:40,715
+Oxygen is essential for human respiration
+
+71
+00:02:40,715 --> 00:02:41,885
+and supports combustion.
+
+72
+00:02:44,542 --> 00:02:45,812
+Question number six!
+
+73
+00:02:46,000 --> 00:02:47,960
+Which animal is famous for changing its
+
+74
+00:02:47,960 --> 00:02:50,250
+skin color to blend into its surroundings?
+
+75
+00:02:50,680 --> 00:02:51,560
+A: Cheetah.
+
+76
+00:02:51,560 --> 00:02:52,700
+B: Chameleon.
+
+77
+00:02:52,700 --> 00:02:53,920
+C: Kangaroo.
+
+78
+00:02:53,920 --> 00:02:55,240
+Or D: Zebra.
+
+79
+00:02:55,240 --> 00:02:56,190
+Choose carefully!
+
+80
+00:03:04,726 --> 00:03:07,226
+Chameleons can change their skin color using
+
+81
+00:03:07,226 --> 00:03:08,756
+specialized cells.
+
+82
+00:03:09,206 --> 00:03:11,066
+They use these changes for communication,
+
+83
+00:03:11,066 --> 00:03:14,016
+temperature regulation, and camouflage.
+
+84
+00:03:16,660 --> 00:03:17,970
+Question number seven!
+
+85
+00:03:18,121 --> 00:03:19,801
+How many chambers does a human heart
+
+86
+00:03:19,801 --> 00:03:20,371
+have?
+
+87
+00:03:20,621 --> 00:03:21,461
+A: Two.
+
+88
+00:03:21,461 --> 00:03:22,081
+B: Three.
+
+89
+00:03:22,081 --> 00:03:22,881
+C: Four.
+
+90
+00:03:22,881 --> 00:03:23,641
+Or D: Five.
+
+91
+00:03:23,641 --> 00:03:24,991
+Lock in your answer!
+
+92
+00:03:33,416 --> 00:03:35,036
+The human heart has four chambers:
+
+93
+00:03:35,036 --> 00:03:37,686
+two atria and two ventricles.
+
+94
+00:03:37,916 --> 00:03:40,556
+Together, they keep blood circulating throughout
+
+95
+00:03:40,556 --> 00:03:41,226
+the body.
+
+96
+00:03:43,594 --> 00:03:44,884
+Question number eight!
+
+97
+00:03:45,024 --> 00:03:46,844
+What is the hardest naturally occurring
+
+98
+00:03:46,844 --> 00:03:48,154
+substance on Earth?
+
+99
+00:03:48,444 --> 00:03:49,334
+A: Quartz.
+
+100
+00:03:49,344 --> 00:03:50,244
+B: Diamond.
+
+101
+00:03:50,244 --> 00:03:51,264
+C: Granite.
+
+102
+00:03:51,264 --> 00:03:52,494
+Or D: Iron.
+
+103
+00:03:52,624 --> 00:03:53,754
+Don't overthink it!
+
+104
+00:04:02,046 --> 00:04:04,466
+Diamond is the hardest naturally occurring
+
+105
+00:04:04,466 --> 00:04:07,096
+mineral on the Mohs hardness scale.
+
+106
+00:04:07,426 --> 00:04:09,686
+It can scratch almost every other natural
+
+107
+00:04:09,686 --> 00:04:10,296
+mineral.
+
+108
+00:04:12,649 --> 00:04:13,939
+Question number nine!
+
+109
+00:04:14,074 --> 00:04:15,474
+What is the main gas found in
+
+110
+00:04:15,474 --> 00:04:16,624
+Earth's atmosphere?
+
+111
+00:04:16,914 --> 00:04:17,914
+A: Oxygen.
+
+112
+00:04:17,914 --> 00:04:19,184
+B: Carbon dioxide.
+
+113
+00:04:19,574 --> 00:04:20,934
+C: Nitrogen.
+
+114
+00:04:20,934 --> 00:04:22,354
+Or D: Hydrogen.
+
+115
+00:04:22,354 --> 00:04:23,284
+What's your answer?
+
+116
+00:04:31,696 --> 00:04:34,416
+Nitrogen makes up approximately seventy-eight
+
+117
+00:04:34,416 --> 00:04:36,206
+percent of Earth's atmosphere,
+
+118
+00:04:36,436 --> 00:04:38,696
+making it the most abundant atmospheric
+
+119
+00:04:38,696 --> 00:04:39,426
+gas.
+
+120
+00:04:41,875 --> 00:04:43,105
+Question number ten!
+
+121
+00:04:43,283 --> 00:04:44,783
+Which part of the human brain is
+
+122
+00:04:44,783 --> 00:04:47,633
+mainly responsible for balance and coordination?
+
+123
+00:04:47,943 --> 00:04:49,283
+A: Cerebellum.
+
+124
+00:04:49,283 --> 00:04:49,813
+B:
+
+125
+00:04:50,283 --> 00:04:50,963
+Hypothalamus.
+
+126
+00:04:50,963 --> 00:04:52,283
+C: Brainstem.
+
+127
+00:04:52,283 --> 00:04:54,043
+Or D: Frontal lobe.
+
+128
+00:04:54,043 --> 00:04:54,953
+Seven seconds.
+
+129
+00:04:55,183 --> 00:04:55,613
+Go!
+
+130
+00:05:04,052 --> 00:05:06,052
+The cerebellum helps coordinate voluntary
+
+131
+00:05:06,052 --> 00:05:08,562
+movements, balance, posture,
+
+132
+00:05:08,572 --> 00:05:09,522
+and motor learning.
+
+133
+00:05:11,851 --> 00:05:13,361
+Question number eleven!
+
+134
+00:05:13,527 --> 00:05:15,067
+Which of these animals is a mammal
+
+135
+00:05:15,067 --> 00:05:16,237
+that lays eggs?
+
+136
+00:05:16,507 --> 00:05:17,387
+A: Dolphin.
+
+137
+00:05:17,387 --> 00:05:18,287
+B: Platypus.
+
+138
+00:05:18,287 --> 00:05:19,237
+C: Penguin.
+
+139
+00:05:19,307 --> 00:05:20,317
+Or D: Seal.
+
+140
+00:05:20,407 --> 00:05:21,137
+What's your guess?
+
+141
+00:05:29,617 --> 00:05:31,237
+The platypus is one of the few
+
+142
+00:05:31,237 --> 00:05:32,767
+mammals that lay eggs.
+
+143
+00:05:33,117 --> 00:05:35,867
+These unusual mammals are native to Australia.
+
+144
+00:05:38,466 --> 00:05:39,876
+Question number twelve!
+
+145
+00:05:39,993 --> 00:05:41,953
+What force keeps planets in orbit around
+
+146
+00:05:41,953 --> 00:05:42,703
+the Sun?
+
+147
+00:05:42,973 --> 00:05:44,123
+A: Magnetism.
+
+148
+00:05:44,193 --> 00:05:45,233
+B: Friction.
+
+149
+00:05:45,233 --> 00:05:46,123
+C: Gravity.
+
+150
+00:05:46,133 --> 00:05:47,663
+Or D: Electricity.
+
+151
+00:05:47,713 --> 00:05:48,543
+Think carefully!
+
+152
+00:05:57,095 --> 00:05:59,255
+Gravity is the force of attraction between
+
+153
+00:05:59,255 --> 00:06:00,645
+objects with mass.
+
+154
+00:06:01,075 --> 00:06:03,135
+The Sun's gravity keeps the planets in
+
+155
+00:06:03,135 --> 00:06:03,885
+their orbits.
+
+156
+00:06:06,350 --> 00:06:07,840
+Question number thirteen!
+
+157
+00:06:07,987 --> 00:06:10,067
+Which vitamin can the human body produce
+
+158
+00:06:10,067 --> 00:06:12,077
+when the skin is exposed to sunlight?
+
+159
+00:06:12,407 --> 00:06:13,667
+A: Vitamin A.
+
+160
+00:06:13,667 --> 00:06:14,077
+B:
+
+161
+00:06:14,607 --> 00:06:15,267
+Vitamin C.
+
+162
+00:06:15,267 --> 00:06:15,637
+C:
+
+163
+00:06:16,107 --> 00:06:16,927
+Vitamin D.
+
+164
+00:06:16,927 --> 00:06:19,277
+Or D: Vitamin B twelve.
+
+165
+00:06:19,427 --> 00:06:20,877
+Seven seconds to answer!
+
+166
+00:06:29,366 --> 00:06:31,846
+When exposed to ultraviolet B radiation
+
+167
+00:06:31,846 --> 00:06:34,746
+from sunlight, the skin can produce vitamin
+
+168
+00:06:34,746 --> 00:06:37,676
+D, which helps the body absorb calcium.
+
+169
+00:06:40,370 --> 00:06:41,760
+Question number fourteen!
+
+170
+00:06:42,029 --> 00:06:43,209
+What is the name of the process
+
+171
+00:06:43,209 --> 00:06:45,389
+in which liquid water changes into water
+
+172
+00:06:45,389 --> 00:06:46,019
+vapor?
+
+173
+00:06:46,369 --> 00:06:47,619
+A: Condensation.
+
+174
+00:06:47,689 --> 00:06:49,249
+B: Evaporation.
+
+175
+00:06:49,249 --> 00:06:50,529
+C: Freezing.
+
+176
+00:06:50,529 --> 00:06:51,939
+Or D: Melting.
+
+177
+00:06:52,029 --> 00:06:52,859
+Lock it in!
+
+178
+00:07:01,194 --> 00:07:03,934
+Evaporation happens when liquid water gains
+
+179
+00:07:03,934 --> 00:07:06,344
+enough energy to become water vapor.
+
+180
+00:07:06,734 --> 00:07:08,314
+It's an important part of the water
+
+181
+00:07:08,314 --> 00:07:09,024
+cycle.
+
+182
+00:07:11,376 --> 00:07:12,426
+Final question!
+
+183
+00:07:12,456 --> 00:07:13,346
+Number fifteen!
+
+184
+00:07:13,605 --> 00:07:15,255
+Which star is closest to Earth?
+
+185
+00:07:15,465 --> 00:07:16,305
+A: Sirius.
+
+186
+00:07:16,305 --> 00:07:17,485
+B: Polaris.
+
+187
+00:07:17,485 --> 00:07:18,405
+C: The Sun.
+
+188
+00:07:18,405 --> 00:07:20,495
+Or D: Proxima Centauri.
+
+189
+00:07:20,505 --> 00:07:21,995
+This is your final chance.
+
+190
+00:07:22,205 --> 00:07:23,135
+Seven seconds!
+
+191
+00:07:31,639 --> 00:07:33,539
+The Sun is the closest star to
+
+192
+00:07:33,539 --> 00:07:35,919
+Earth, at an average distance of about
+
+193
+00:07:35,919 --> 00:07:38,429
+one hundred fifty million kilometers.
+
+194
+00:07:38,839 --> 00:07:41,699
+Proxima Centauri is the closest star beyond
+
+195
+00:07:41,699 --> 00:07:42,989
+our solar system.
+
+196
+00:07:45,261 --> 00:07:46,571
+That's the end of the challenge!
+
+197
+00:07:46,981 --> 00:07:48,551
+Now, let's see how you did.
+
+198
+00:07:48,881 --> 00:07:50,261
+Zero to five correct:
+
+199
+00:07:50,261 --> 00:07:50,971
+Keep learning!
+
+200
+00:07:51,041 --> 00:07:52,271
+Six to ten correct:
+
+201
+00:07:52,401 --> 00:07:53,471
+Solid knowledge!
+
+202
+00:07:53,781 --> 00:07:55,311
+Eleven to thirteen correct:
+
+203
+00:07:55,421 --> 00:07:56,451
+Brain power!
+
+204
+00:07:56,601 --> 00:07:58,331
+Fourteen correct: Impressive!
+
+205
+00:07:58,701 --> 00:08:00,441
+And if you got all fifteen correct,
+
+206
+00:08:00,441 --> 00:08:02,291
+you're a true BrainRush legend!
+
+207
+00:08:04,174 --> 00:08:05,574
+Comment your score below,
+
+208
+00:08:05,574 --> 00:08:07,244
+and challenge a friend to beat it.
+
+209
+00:08:07,434 --> 00:08:10,564
+Subscribe to BrainRush Quiz for more challenges.
+
+210
+00:08:10,814 --> 00:08:11,624
+Think fast.
+
+211
+00:08:11,934 --> 00:08:12,584
+Know more!
