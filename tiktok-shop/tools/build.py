@@ -167,7 +167,7 @@ T_DSUB = pill(P["desejo_sub"], F("Mont800", 40), (0, 0, 0, 170), padx=32, pady=2
 T_PRE = text_layer(P["preco_pre"], F("Mont900", 58), stroke=3)
 T_PRECO = text_layer(P["preco"], F("Anton", 210), fill=ACC2, stroke=8)
 T_CTA = pill("TOCA NO CARRINHO", F("Mont900", 58), (235, 28, 36, 255), padx=46, pady=34, icon=emoji("🛒", 70))
-T_URG = text_layer("Promoção por tempo limitado", F("Mont800", 40), stroke=2)
+T_URG = text_layer("Veja o preço atualizado no carrinho", F("Mont800", 40), stroke=2)
 T_SETA = emoji("👇", 110)
 
 # ---------------- render por quadro ----------------
@@ -286,8 +286,8 @@ if __name__ == "__main__":
         sys.exit()
     out = f"{out_dir}/{P['arquivo']}.mp4"
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                           "-i", f"{tmp}/a.wav", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-pix_fmt", "yuv420p", "-profile:v", "high",
-                           "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
+                           "-i", f"{tmp}/a.wav", "-c:v", "libx264", "-preset", "slow", "-b:v", "9M", "-maxrate", "12M", "-bufsize", "18M", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-g", "30", "-bf", "2", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv",
+                           "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     for i in range(int(DUR * FPS)):
         ff.stdin.write(frame_at(i / FPS).tobytes())
     ff.stdin.close(); ff.wait(); print("ok", out)

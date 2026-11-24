@@ -8,6 +8,14 @@
 5. Cola a legenda + hashtags.
 6. Capa: escolhe o primeiro quadro (o gancho com o texto grande).
 7. Publica e, nos primeiros minutos, **fixa um comentário** com a "Resposta fixada" de cada produto.
+8. **Vídeos com modelo de IA (01, 03, 04):** em *Mais opções*, ativa **"Conteúdo gerado por IA"**. É obrigatório no TikTok, e sem isso o vídeo pode ser removido.
+9. **Sobe o vídeo pelo Wi-Fi** e espera ele aparecer no perfil antes de postar o próximo.
+
+## Se o vídeo sumir ou não reproduzir
+- Vai em **Caixa de entrada → Atividade/Notificações do sistema** e no **Central de Contas/Status da conta**. Se tiver violação, aparece lá o motivo, e dá pra **contestar**.
+- Vídeo com "0 visualizações" por horas costuma estar **em análise** (comum em conta nova com link de produto). Espera algumas horas antes de repostar.
+- **Não reposta o mesmo arquivo várias vezes seguidas.** O TikTok entende como spam.
+- Conta nova: **1 vídeo com produto a cada 2–3 horas** nos primeiros dias.
 
 ## Estratégia rápida
 - **1 a 3 vídeos por dia**, nos horários de pico: **12h, 18h e 21h**.
