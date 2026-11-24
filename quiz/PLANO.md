@@ -24,10 +24,11 @@ Projeto separado do canal de GTA 6. Canal "dark" (sem rosto): narração + visua
 ## O que já foi feito
 - 24/11: estrutura criada, ambiente preparado.
 - 24/11: **Vídeo 01 – "15 General Knowledge Questions — Can You Score 15/15?"** montado (8:31). Arquivos: `quiz/videos/brainrush01.mp4`, `brainrush01_thumb.jpg`, `brainrush01.srt`; publicação em `quiz/roteiros/brainrush01_publicacao.md`.
+  - **5 shorts verticais** (1080×1920, 93–106s, 3 perguntas cada, gancho + CTA "follow"): `quiz/videos/shorts/brainrush01_short1..5.mp4`, legendas dos posts em `quiz/roteiros/brainrush01_shorts_legendas.md`. Script: `tools/build_brainrush01_shorts.py`.
   - Mudança vs roteiro: na Q15 o palco mostra "x²" em vez de "144" (mostrar 144 entregaria a resposta).
 
 ## Próximos passos
-1. Postar o vídeo 01 (subir o .srt como legenda) e trazer os números (CTR da thumb, retenção média, onde o pessoal sai).
+1. Postar o vídeo 01 no YouTube (subir o .srt) e os shorts no TikTok/Shorts (2–3 hoje, resto amanhã). Trazer números: CTR da thumb, retenção, views e comentários dos shorts.
 2. Decidir se mantém a voz Kokoro ou troca pra ElevenLabs (é só substituir os wav em `voz/` e rodar de novo).
 3. Arrumar a chave do Pexels pra ter fotos reais nas perguntas de animais/lugares.
 4. Próximos vídeos: reaproveitar o template; ideias – "Only Geniuses Get 15/15 (Hard Mode)", "Guess the Country by Its Shape", "Science Quiz", Shorts verticais com 3 perguntas cortadas do vídeo longo.
