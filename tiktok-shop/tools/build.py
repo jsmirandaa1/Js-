@@ -112,7 +112,8 @@ def product_card(size, radius=46):
     card.paste(p, (40, 40), m)
     ImageDraw.Draw(card).rounded_rectangle((40, 40, 40 + size, 40 + size), radius, outline=(255, 255, 255), width=6)
     return card
-CARD = product_card(860); CARD_S = product_card(700)
+CARD = product_card(860); CARD_S = product_card(700); CARD_M = product_card(600); CARD_XS = product_card(400)
+FOCO = P.get("foco") == "produto"
 
 def prod_bg():
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
@@ -176,6 +177,7 @@ def frame_at(t):
     punch = 1 + 0.07 * (1 - ease_out(lt / 0.35))  # zoom de impacto no corte
     if sc == "gancho":
         f = kenburns(ia[0], p, 1.0 * punch, 1.10, (0.5, 0.35, 0.5, 0.55)).convert("RGBA"); f.alpha_composite(GRAD)
+        if FOCO: place(f, CARD_M, W / 2, 590 + 14 * math.sin(t * 2.5), 1.0 + 0.05 * p, 1, rot=math.sin(t * 1.5) * 2)
         s, al = (1, 1) if lt < 0.001 else pop(lt, 0.0); place(f, T_TAG, W / 2, 1010, s, al)
         for i, L in enumerate(T_G):
             s, al = (1, 1) if lt < 0.001 and i == 0 else pop(lt, i * 0.2, 0.35); place(f, L, W / 2, 1170 + i * 170, s, al, rot=(-2 if i else 0))
@@ -188,13 +190,15 @@ def frame_at(t):
         s, al = pop(lt, 0.9, 0.4); place(f, T_BADGE, W / 2 + 330, 640, s, al, rot=math.sin(t * 2.4) * 8 + 10)
     elif sc == "beneficios":
         f = kenburns(ia[1], p, 1.04 * punch, 1.13, (0.5, 0.3, 0.5, 0.5)).convert("RGBA"); f.alpha_composite(GRAD); f.alpha_composite(GRAD)
-        s, al = pop(lt, 0.1); place(f, T_BEN_H, W / 2, 300, s, al)
+        if FOCO: place(f, CARD_XS, W / 2, 560 + 10 * math.sin(t * 2.5), 1, 1)
+        s, al = pop(lt, 0.1); place(f, T_BEN_H, W / 2, 250 if FOCO else 300, s, al)
         for i, L in enumerate(T_BEN):
             t0 = 0.45 + i * 0.7
             if lt < t0: continue
-            x = ease_out((lt - t0) / 0.4); place(f, L, W / 2 - (1 - x) * 900, 820 + i * 165, 1, min(1, x * 1.5))
+            x = ease_out((lt - t0) / 0.4); place(f, L, W / 2 - (1 - x) * 900, (900 + i * 150) if FOCO else (820 + i * 165), 1, min(1, x * 1.5))
     elif sc == "desejo":
         f = kenburns(ia[2], p, 1.0 * punch, 1.12, (0.4, 0.4, 0.6, 0.4)).convert("RGBA"); f.alpha_composite(GRAD)
+        if FOCO: place(f, CARD_M, W / 2, 600 + 14 * math.sin(t * 2.5), 1.0 + 0.04 * p, 1, rot=math.sin(t * 1.5) * 2)
         for i, L in enumerate(T_D):
             s, al = pop(lt, 0.1 + i * 0.22, 0.4); place(f, L, W / 2, 1120 + i * 150, s, al)
         s, al = pop(lt, 0.8); place(f, T_DSUB, W / 2, 1450, s, al)

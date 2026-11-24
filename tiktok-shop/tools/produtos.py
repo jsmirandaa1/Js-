@@ -1,4 +1,5 @@
 # Roteiro de cada vídeo (textos na tela, cores, imagens).
+# foco="produto": sem pessoa, o produto flutua sobre cenário gerado por IA
 # Cenas: GANCHO (IA) -> PRODUTO -> BENEFICIOS (IA) -> DESEJO (IA) -> PRECO/CTA
 # Imagens: assets/prod/<id>.jpg (foto oficial do TikTok Shop) e assets/ia/<nome>.png (modelo gerada por IA)
 
@@ -23,7 +24,7 @@ PRODUTOS = {
         beneficios=["Superconfortável o dia todo", "Leve e fácil de limpar", "Vários modelos e cores", "Envio imediato"],
         desejo=["CONFORTO PRA", "BRINCAR À VONTADE"], desejo_sub="Menino ou menina: tem modelo pra todo gosto",
         preco="R$ 20,94", preco_pre="SÓ",
-        ia=["kids1", "kids2", "kids1"],
+        ia=["kidsbg1", "kidsbg2", "kidsbg1"], foco="produto",
     ),
     "escova_gokoco": dict(
         arquivo="03_escova_secadora_gokoco_5em1",
@@ -45,7 +46,7 @@ PRODUTOS = {
         beneficios=["11 peças: cozinha completa", "Antiaderente: nada gruda", "Panela de pressão 2,5L inclusa", "Utensílios inclusos"],
         desejo=["COZINHAR FICOU", "MUITO MAIS GOSTOSO"], desejo_sub="Bonita, prática e fácil de lavar",
         preco="R$ 260,90", preco_pre="A PARTIR DE",
-        ia=["cook1", "cook2", "cook3"],
+        ia=["cook1", "cook2", "cook1"],
     ),
     "suporte_gta": dict(
         arquivo="05_suporte_controles_gta6",
@@ -53,10 +54,10 @@ PRODUTOS = {
         tag="ACHADINHO GAMER",
         gancho=["SEU SETUP TÁ", "SEM ISSO"],
         titulo=["SUPORTE DE CONTROLES", "TEMA GTA VI"], desconto="-31%",
-        beneficios=["Organiza seus controles", "Visual Vice City no setup", "Cabe em qualquer mesa", "Presente perfeito pra gamer"],
+        beneficios=["Organiza seus controles", "Visual Vice City no setup", "Destaque total no seu setup", "Presente perfeito pra gamer"],
         desejo=["SETUP DIGNO", "DE VICE CITY"], desejo_sub="Seus controles sempre no lugar",
         preco="R$ 43,90", preco_pre="A PARTIR DE",
-        ia=["game1", "game2", "game1"],
+        ia=["game1", "game2", "game1"], foco="produto",
     ),
     "relogio_t900": dict(
         arquivo="06_smartwatch_t900",
@@ -67,6 +68,6 @@ PRODUTOS = {
         beneficios=["Pulseira extra na caixa", "Carregador incluso", "Pronta entrega", "Frete grátis"],
         desejo=["ESTILO NO PULSO", "PAGANDO POUCO"], desejo_sub="Visual premium por menos que um lanche",
         preco="R$ 33", preco_pre="SÓ",
-        ia=["watch1", "watch2", "watch3"],
+        ia=["watchbg1", "watchbg2", "watchbg1"], foco="produto",
     ),
 }
