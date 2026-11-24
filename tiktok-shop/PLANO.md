@@ -28,7 +28,16 @@ Vender como afiliado no TikTok Shop com vídeos de apresentação curtos (18s), 
 - Fontes em `fonts/` (Anton + Montserrat).
 - Pexels: a chave salva no ambiente dá 401. O Pexels exige a chave **sem** "Bearer", e o formulário coloca "Bearer". Para usar, editar o segredo nas configurações do ambiente sem prefixo.
 
+## ⚠️ Lição aprendida (24/11): esse formato NÃO serve pro TikTok Shop
+O vídeo do smartwatch levou violação com **-4 pontos**, redução de visibilidade e remoção do produto do vídeo. Motivo: "imagens estáticas / slides / texto animado com pouco movimento". Os outros dois que sumiram provavelmente caíram no mesmo motivo.
+- **Nunca mais** fazer vídeo de TikTok Shop com foto do produto + texto animado + zoom (o formato do `tools/build.py`).
+- O TikTok Shop exige **vídeo real e dinâmico**: produto na mão, em uso, sendo mostrado de verdade.
+- Caminho certo: pedir **amostra grátis** no Centro de Afiliados e gravar com o celular, ou usar os **vídeos oficiais do vendedor** liberados no Centro de Afiliados. Claude ajuda com roteiro, gancho, cortes, legenda e edição do vídeo gravado.
+- Os vídeos em `videos/` só servem fora do TikTok Shop (Stories, status, Reels sem link de produto).
+
 ## Próximos passos
-1. Saber como foram os primeiros posts (views, cliques no produto, vendas) e fazer mais vídeos dos que venderem (mesmo produto, gancho diferente).
-2. Antes de cada post, conferir se preço e desconto ainda batem com a loja. Se mudar, atualizar em `produtos.py` e renderizar de novo.
-3. Novos produtos: o usuário manda os links e o processo se repete.
+1. Apagar os vídeos desse formato que ainda estão no ar com link de produto, pra não juntar mais pontos.
+2. Ver no Centro de Afiliados quais produtos têm amostra grátis ou vídeo do vendedor, e montar roteiros de gravação.
+3. Saber como foram os primeiros posts (views, cliques no produto, vendas) e fazer mais vídeos dos que venderem (mesmo produto, gancho diferente).
+4. Antes de cada post, conferir se preço e desconto ainda batem com a loja. Se mudar, atualizar em `produtos.py` e renderizar de novo.
+5. Novos produtos: o usuário manda os links e o processo se repete.
