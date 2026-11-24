@@ -7,7 +7,7 @@ def _sph(texn, size, lon, amb=0.06, atmo=None):
 
 @functools.lru_cache(None)
 def _sun(size):
-    s = sphere("sunmap.jpg", size, ambient=1.0)
+    s = sphere("sunmap.jpg", size, ambient=0.55, light=(0, 0, 1)); s = Image.fromarray(np.clip(np.asarray(s).astype(np.float32) * np.array([1.15, 0.92, 0.6, 1.0]), 0, 255).astype(np.uint8), "RGBA")
     out = halo(s, max(20, size // 8), (255, 150, 40), 0.9); paste_c(out, s, out.width / 2, out.height / 2); return out
 
 def _bg(top, bot):
@@ -148,7 +148,7 @@ def stage_exp(qi, te, sc):
     if qi == 1:
         im = stage_ask(1, te + 10); im.alpha_composite(Image.new("RGBA", im.size, (0, 0, 0, 150)))
         if te > 0.3: paste_c(im, pill("CARBON DIOXIDE (CO2)", 46), SW / 2, 110, scale=eback((te - 0.3) / 0.4))
-        if te > 1.4: paste_c(im, text_img("CO2 + WATER + SUNLIGHT  →  SUGAR + O2", F("mont", 40), fill=WHITE), SW / 2, SH / 2 + 30, alpha=ease((te - 1.4) / 0.5))
+        if te > 1.4: paste_c(im, text_img("CO2 + WATER + SUNLIGHT  =  SUGAR + O2", F("mont", 40), fill=WHITE), SW / 2, SH / 2 + 30, alpha=ease((te - 1.4) / 0.5))
         if te > 2.4: paste_c(im, emoji("potted_plant", 110), SW / 2, SH - 80, scale=eback((te - 2.4) / 0.4))
         return im
     if qi == 2:
@@ -190,7 +190,7 @@ def stage_exp(qi, te, sc):
             box = rrect((230, 140), 22, (60, 14, 20, 255) if k < 2 else (110, 20, 30, 255), GOLD + (255,), 3)
             ImageDraw.Draw(box).multiline_text((115, 70), nm.replace(" ", "\n"), font=F("mont", 26), anchor="mm", align="center", fill=WHITE)
             paste_c(im, box, x + 115, y + 70, scale=eback(tk / 0.4))
-        if te > 2.6: paste_c(im, pill("4 CHAMBERS", 40), SW * 0.74, SH - 50, scale=eback((te - 2.6) / 0.4))
+        if te > 2.6: paste_c(im, pill("4 CHAMBERS", 40), SW * 0.24, SH - 50, scale=eback((te - 2.6) / 0.4))
         return im
     if qi == 7:
         im = _bg((14, 12, 20), (5, 5, 7)); paste_c(im, halo(emoji("gem_stone", 220), 30, (150, 220, 255), 0.7), SW / 2, 150)
@@ -243,7 +243,9 @@ def stage_exp(qi, te, sc):
             x = SW * (k + 0.5) / 4
             if e: paste_c(im, emoji(e, 140), x, SH / 2 - 50, scale=eback(tk / 0.4)); label(im, nm, x, SH / 2 + 60, 30)
             else: paste_c(im, pill("VITAMIN D", 40), x, SH / 2 - 20, scale=eback(tk / 0.4))
-            if k: ImageDraw.Draw(im).text((SW * k / 4, SH / 2 - 40), "→", font=F("mont", 50), anchor="mm", fill=GOLD_L)
+            if k:
+                d = ImageDraw.Draw(im); ax = SW * k / 4; ay = SH / 2 - 40
+                d.line((ax - 26, ay, ax + 14, ay), fill=GOLD_L, width=7); d.polygon([(ax + 28, ay), (ax + 10, ay - 14), (ax + 10, ay + 14)], fill=GOLD_L)
         return im
     if qi == 13:
         im = _lake().copy(); vap = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(vap)
@@ -263,7 +265,7 @@ def stage_exp(qi, te, sc):
         d = ImageDraw.Draw(im); pr = ease((te - 0.4) / 1.0); x0, x1 = 330, SW - 190
         for x in range(int(x0), int(x0 + (x1 - x0) * pr), 30): d.line((x, SH / 2, x + 16, SH / 2), fill=GOLD_L, width=4)
         if te > 1.2: paste_c(im, pill("150 MILLION KM", 46), (x0 + x1) / 2, SH / 2 - 70, scale=eback((te - 1.2) / 0.4))
-        if te > 2.4: label(im, "NEXT CLOSEST: PROXIMA CENTAURI (4.2 LIGHT-YEARS)", SW / 2 + 40, SH - 50, 26, (200, 200, 200))
+        if te > 2.4: label(im, "NEXT CLOSEST STAR: PROXIMA CENTAURI", SW * 0.64, SH - 70, 24, (200, 200, 200)); label(im, "(4.2 LIGHT-YEARS AWAY)", SW * 0.64, SH - 38, 22, (170, 170, 170))
         if te > 0.3: paste_c(im, pill("THE SUN", 40), 220, 60, scale=eback((te - 0.3) / 0.4))
         return im
 

@@ -21,11 +21,23 @@ Projeto separado do canal de GTA 6. Canal "dark" (sem rosto): narração + visua
 - Assets (não versionados, baixar de novo em `/tmp/claude-0/quiz_assets`): texturas de planetas (raw.githubusercontent: `jeromeetienne/threex.planets`, `mrdoob/three.js` textures/planets), emojis 3D **Microsoft Fluent Emoji** (MIT, `microsoft/fluentui-emoji/main/assets/<Nome>/3D/<nome>_3d.png`), mapas `world-atlas@2` (npm). Modelo Kokoro: HF `onnx-community/Kokoro-82M-v1.0-ONNX`.
 - Rede: Pexels (fotos reais) está com chave inválida; Wikimedia/NASA/Unsplash bloqueados. Visual hoje = planetas 3D reais + cenas desenhadas + emojis 3D.
 
+## Fluxo padrão (decidido em 24/11)
+O usuário manda o roteiro → eu entrego **1 vídeo longo 16:9 no template + 3 cortes verticais** (TikTok/Shorts, 3 perguntas cada, +1 min) + thumb + .srt + título/descrição/capítulos + legendas dos posts.
+Como fazer um vídeo novo NN:
+1. `tools/brainrushNN_data.py` (copiar o 02: INTRO, perguntas, PRE "Question number X!" separado, SCORE/SCORE_KEYS, OUTRO, SHORTS).
+2. `tools/brainrushNN_scenes.py` (stage_ask/stage_exp/MONT de cada pergunta; o palco não pode entregar a resposta na pergunta).
+3. `BR_VID=NN python3 tools/brainrush01_tts.py` → conferir transcrições ruins (Whisper às vezes alucina; refazer sem initial_prompt).
+4. `BR_VID=NN python3 tools/build_brainrush01.py --qframes` (conferir) → render completo → `build_brainrush01_shorts.py`.
+5. `tools/thumb_brainrushNN.py`.
+
 ## O que já foi feito
 - 24/11: estrutura criada, ambiente preparado.
 - 24/11: **Vídeo 01 – "15 General Knowledge Questions — Can You Score 15/15?"** montado (8:31). Arquivos: `quiz/videos/brainrush01.mp4`, `brainrush01_thumb.jpg`, `brainrush01.srt`; publicação em `quiz/roteiros/brainrush01_publicacao.md`.
   - **5 shorts verticais** (1080×1920, 93–106s, 3 perguntas cada, gancho + CTA "follow"): `quiz/videos/shorts/brainrush01_short1..5.mp4`, legendas dos posts em `quiz/roteiros/brainrush01_shorts_legendas.md`. Script: `tools/build_brainrush01_shorts.py`.
   - Mudança vs roteiro: na Q15 o palco mostra "x²" em vez de "144" (mostrar 144 entregaria a resposta).
+
+- 24/11: **Vídeo 02 – "15 Science & Nature Questions — Can You Beat This Quiz?"** (8:15) + 3 shorts, pra postar em 25/11. Arquivos `quiz/videos/brainrush02*`, `quiz/videos/shorts/brainrush02_short1..3.mp4`, textos em `quiz/roteiros/brainrush02_*`.
+  - Padronizei "Question number X!" + leitura das alternativas em todas as perguntas (o roteiro só tinha na 1ª).
 
 ## Próximos passos
 1. Postar o vídeo 01 no YouTube (subir o .srt) e os shorts no TikTok/Shorts (2–3 hoje, resto amanhã). Trazer números: CTR da thumb, retenção, views e comentários dos shorts.
