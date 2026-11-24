@@ -582,6 +582,53 @@ def _sprite():
     return _bg['b']
 
 
+import wb_engine as _WE
+
+ICON_MAP = [(('car', 'lamborghini', 'driving'), 'car'), (('house', 'home', 'building'), 'house'), (('watch', 'clock', 'calendar'), 'watch'),
+            (('coin', 'piggy', 'jar', 'dollar', 'money', 'bills', 'salary', 'wallet', 'paycheck'), 'coins'),
+            (('chart', 'stock', 'market', 'investment', 'portfolio', 'financial', 'data'), 'chart'),
+            (('card', 'payment', 'terminal'), 'card'), (('shopping', 'bags', 'store', 'mall'), 'bag'),
+            (('phone', 'app', 'notification', 'banking'), 'phone'), (('laptop', 'office', 'business', 'work', 'desk', 'freelanc', 'designer', 'shop'), 'briefcase'),
+            (('plant', 'tree', 'growing'), 'palm'), (('learning', 'studying', 'writing', 'notebook', 'skill', 'calculator', 'budget'), 'compass'),
+            (('handshake', 'family'), 'heart'), (('man', 'woman', 'person', 'people', 'worker', 'runner', 'workout', 'crowd'), 'person'),
+            (('door', 'opening'), 'shield'), (('construction', 'stairs'), 'house')]
+
+
+def icon_for(q):
+    for keys, ic in ICON_MAP:
+        if any(k in q for k in keys):
+            return ic
+    return 'bolt'
+
+
+def big_icon(c, kind, x, y, s, a):
+    if kind in ('coins', 'chart', 'card', 'bag', 'phone'):
+        c.save(); c.translate(x, y); c.scale(s / 100, s / 100)
+        c.set_source_rgba(*GOLD2, a); c.set_line_width(2.4 * 100 / s); c.set_line_join(cairo.LINE_JOIN_ROUND)
+        if kind == 'coins':
+            for k in range(5):
+                yy = 30 - k * 14
+                c.save(); c.translate(-10 if k % 2 else 0, yy); c.scale(1, 0.35); c.arc(0, 0, 34, 0, 6.3); c.restore(); c.stroke()
+            c.save(); c.translate(40, 20); c.scale(1, 0.35); c.arc(0, 0, 26, 0, 6.3); c.restore(); c.stroke()
+        elif kind == 'chart':
+            c.rectangle(-48, -40, 96, 80); c.stroke()
+            c.move_to(-38, 26); c.line_to(-16, 6); c.line_to(2, 14); c.line_to(36, -26); c.stroke()
+            c.move_to(24, -26); c.line_to(36, -26); c.line_to(36, -14); c.stroke()
+        elif kind == 'card':
+            rrect(c, -50, -32, 100, 64, 8); c.stroke(); c.move_to(-50, -14); c.line_to(50, -14); c.stroke()
+            c.rectangle(-38, 6, 22, 14); c.stroke()
+        elif kind == 'bag':
+            c.move_to(-36, -18); c.line_to(36, -18); c.line_to(42, 44); c.line_to(-42, 44); c.close_path(); c.stroke()
+            c.move_to(-16, -18); c.curve_to(-16, -46, 16, -46, 16, -18); c.stroke()
+        elif kind == 'phone':
+            rrect(c, -28, -50, 56, 100, 10); c.stroke(); c.move_to(-8, 40); c.line_to(8, 40); c.stroke()
+        c.restore()
+    elif kind == 'person':
+        _WE.person(c, x, y + s * 0.45, s * 0.9, a, GOLD2, 0.05)
+    else:
+        _WE.icon(c, kind, x, y, s, a, GOLD2, 2.4)
+
+
 def fallback_kind(q, k):
     if any(w in q for w in ('night', 'late', 'sleeping')):
         return 'night'
@@ -590,9 +637,14 @@ def fallback_kind(q, k):
     return 'dark'
 
 
-def fallback_bg(c, g, kind, t0, t1, k):
+def fallback_bg(c, g, kind, t0, t1, k, q=''):
     c.set_source_rgb(*BG0); c.paint()
     p = clamp((g - t0) / max(0.5, t1 - t0))
+    if kind == 'dark':
+        kind = 'night' if k % 2 == 0 else 'dawn'
+        themed = True
+    else:
+        themed = False
     if kind in ('night', 'dawn'):
         if kind not in _bg:
             _bg[kind] = cairo.ImageSurface.create_from_png(f'{WORK}/bg_{kind}.png')
@@ -600,7 +652,12 @@ def fallback_bg(c, g, kind, t0, t1, k):
         z = (H / 1350) * (1.08 + 0.06 * (p if k % 2 == 0 else 1 - p))
         c.save(); c.translate(CX + (-1 if k % 2 else 1) * (p - 0.5) * 160, H / 2); c.scale(z, z)
         c.set_source_surface(img, -1200 + (k % 3 - 1) * 260, -760); c.paint(); c.restore()
-        c.set_source_rgba(0, 0, 0, 0.25); c.paint()
+        c.set_source_rgba(0, 0, 0, 0.25 if not themed else 0.55); c.paint()
+        if themed:
+            ia = 0.55 * sm((g - t0) / 0.4)
+            glow(c, CX, H * 0.40, 520, GOLD, 0.16 * ia)
+            sz = 560 * (1.0 + 0.06 * p)
+            big_icon(c, icon_for(q), CX + (k % 3 - 1) * 40, H * 0.40, sz, ia)
     else:
         cx = W * (0.3 + 0.4 * ((k * 0.37) % 1)); cy = H * (0.25 + 0.3 * ((k * 0.61) % 1))
         gr = cairo.RadialGradient(cx, cy, 0, cx, cy, 1300)
@@ -670,7 +727,7 @@ def render(S, out_path):
         k = max(i for i, (t, q) in enumerate(cuts) if t <= g + 1e-6)
         if plan[k] is None:
             t1 = cuts[k + 1][0] if k + 1 < len(cuts) else S.dur
-            fallback_bg(c, g, fallback_kind(cuts[k][1], k), cuts[k][0], t1, k)
+            fallback_bg(c, g, fallback_kind(cuts[k][1], k), cuts[k][0], t1, k, cuts[k][1])
         draw_overlay(c, S, g, gfx)
         surf.flush()
         enc.stdin.write(arr.tobytes())

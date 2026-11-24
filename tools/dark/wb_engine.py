@@ -9,9 +9,12 @@ from multiprocessing import Pool
 WORK = os.environ.get('WORK', '/root/work/ep2')
 W, H, FPS = 1920, 1080, 30
 import soundfile as _sf
-TL = json.load(open(f'{WORK}/tl3.json'))
-WD = json.load(open(f'{WORK}/w3.json'))
-DUR = _sf.info(f'{WORK}/voice3.wav').duration
+try:
+    TL = json.load(open(f'{WORK}/tl3.json'))
+    WD = json.load(open(f'{WORK}/w3.json'))
+    DUR = _sf.info(f'{WORK}/voice3.wav').duration
+except Exception:   # usado só como biblioteca (ex.: Shorts)
+    TL, WD, DUR = [], [], 0.0
 
 
 def T(i): return TL[i]['start']

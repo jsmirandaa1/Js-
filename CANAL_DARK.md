@@ -36,11 +36,13 @@ O Ep. 001 ficou com **muito fundo escuro + texto centralizado**. A partir do Ep.
 |---|---|---|
 | Ep. 001 – "The First $100,000 Is the Hardest — Here's Why" | **Pronto (24/11/2026)**, aguardando postar | vídeo `videos/dark/ep001_first_100k.mp4` · thumb `videos/dark/ep001_thumbnail.png` · legenda `videos/dark/ep001_first_100k.en.srt` · roteiro `roteiros/dark/ep001-first-100k.md` · título/descrição/tags `roteiros/dark/ep001-publicacao.md` |
 
-## Em produção (24/11/2026)
-- **7 Shorts da Semana 1** (1 por dia), roteiros em `roteiros/dark/shorts-semana1.md`.
-  - Feito: as 7 narrações (32–38s + 3,9s de tela final = 36–42s), tempos das palavras (Whisper conferido 100%), motor `tools/dark/shorts_build.py` (legenda palavra por palavra, título de abertura, gráficos por cima da filmagem, tela final, trilha `wb_audio.py` + assinatura sonora). Fontes do áudio salvas em `videos/dark/shorts_w1/_src/` (copiar pra `$WORK` antes de rodar).
-  - **Bloqueado:** filmagem real precisa da chave do Pexels (API ainda responde 401). Com a chave: `WORK=... python3 shorts_build.py fetch N` e depois `render N` (N=1..7). Conferir os clipes escolhidos (quadros) antes de entregar.
-- **Ep. 002 – "Why Rich People Don't Work for Money"**: entrega **quarta 25/11** pra postar quinta 26/11. Mesma identidade do Ep. 001 (navy/preto + dourado, Playfair + Inter, voz, trilha, tela final), aperfeiçoando com a **Diretriz visual**. Roteiro: aguardando (perguntar se o usuário manda ou se o Claude escreve).
+## Status (madrugada 24→25/11/2026)
+- **Ep. 002 – "Why Rich People Don't Work for Money": PRONTO** (postar quinta 26/11). Roteiro escrito pelo Claude (`roteiros/dark/ep002-rich-dont-work-for-money.md`, todas as contas conferidas), vídeo `videos/dark/ep002_rich_dont_work_for_money.mp4` (8m45s), thumb, legenda `.srt`, publicação `roteiros/dark/ep002-publicacao.md`.
+  - Mesma identidade do Ep. 001; produção aperfeiçoada: layouts fora do centro, telas divididas, cortes secos, pessoas estilizadas, 15+ tipos de gráfico, assinatura sonora no fim.
+  - Motor agora é reutilizável: `tools/dark/wb_engine.py` (identidade) + `epXXX_build.py` (cenas do episódio) + `ep_tts.py` (narração a partir do .md) + `epXXX_music.py` + `epXXX_extras.py`.
+- **7 Shorts da Semana 1: versão PROVISÓRIA pronta** em `videos/dark/shorts_w1/` (sem filmagem real: skyline animada + ícone dourado temático por corte + gráficos + legenda palavra por palavra + tela final + assinatura sonora). Roteiros em `roteiros/dark/shorts-semana1.md`.
+  - **Pendente: filmagem real (Pexels).** A chave foi salva pelo formulário, mas o Pexels responde *Invalid API key*. Provável causa: o formulário salva com prefixo "Bearer" e o Pexels quer a chave pura. Usuário precisa editar o segredo nas configurações do ambiente (sem prefixo) ou conferir a chave. Teste: `curl -s -o /dev/null -w "%{http_code}" "https://api.pexels.com/videos/search?query=city&per_page=1"` → 200.
+  - Com a chave ok: copiar `videos/dark/shorts_w1/_src/*` pra `$WORK`, gerar `bg_night.png`/`bg_dawn.png` (ver comando no histórico: `wb_engine.skyline(...)`), rodar `shorts_build.py fetch N` e `render N` (N=1..7) e conferir os quadros.
 
 ## Como o Ep. 001 foi feito (técnico)
 - **Voz:** Kokoro TTS (open source, roda local, sem custo), mistura de 60% `am_michael` + 40% `am_onyx` (grave, ~106 Hz), velocidade 0.88, gerada frase a frase. Valores em dólar escritos por extenso no texto da TTS (senão ela lê errado). Modelo: `kokoro-onnx` + `kokoro-v1.0.onnx`/`voices-v1.0.bin` (GitHub releases do thewh1teagle/kokoro-onnx).
