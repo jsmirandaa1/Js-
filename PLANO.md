@@ -11,12 +11,7 @@
 - Tem **PS5 + GTA 6 (pré-download)**, placa de captura e OBS (ainda se enrolando com o OBS). Quer fazer live na **Twitch**.
 - Desconfortável em mostrar o rosto → formato escolhido: **Shorts de curiosidades narrados com voz de IA** (ElevenLabs). Ele grava a voz e manda; o Claude monta o vídeo.
 
-## Canal secundário em INGLÊS (decidido em 24/11/2026)
-- Além do canal principal (PT-BR), vai ter um **canal secundário com conteúdo em inglês**, focado em **monetização** (público gringo paga mais por view).
-- Roteiros, narração (ElevenLabs em inglês), legendas na tela, títulos e hashtags: tudo em **inglês**.
-- Humor adaptado pro público gringo (meme/zoeira em inglês) — piada que só brasileiro entende fica no canal principal.
-- A ideia é reaproveitar os formatos que funcionam (X vs Y, "The stages of…", "Nobody uses this…"), mas com roteiro reescrito, não tradução literal.
-- Pendente: nome/@ do canal, quais plataformas, e se reaproveita os vídeos do canal BR ou só conteúdo novo.
+> Existe também um **canal dark em inglês sobre dinheiro**, que é um projeto separado: ver `CANAL_DARK.md`.
 
 ## Estratégia decidida
 - Mesmo vídeo vertical em **TikTok, YouTube Shorts e Instagram Reels**.
@@ -36,7 +31,6 @@
 - O "7 coisas" diz "hoje à meia-noite" → só serve pra postar em 18/11.
 
 ## Próximos passos (ordem)
-0. Definir o canal em inglês (nome, plataformas, frequência) e fazer o 1º Short em inglês.
 1. Confirmar se o "5 fases" foi postado e saber como foram os 2 primeiros posts (views, retenção, comentários) e ajustar.
 2. **"Segredos do GTA 6 que ninguém te contou"** (prometido no fim do "7 coisas") – idealmente com gameplay dele gravado após o lançamento.
 3. Banco de ideias pendente:
