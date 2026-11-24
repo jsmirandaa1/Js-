@@ -24,7 +24,8 @@ O Ep. 001 ficou com **muito fundo escuro + texto centralizado**. A partir do Ep.
 - **Gráficos animados por cima de imagem real** (não só em fundo liso), mais variados: linha, barras, pizza, linha do tempo, comparativo lado a lado, mapa, contadores.
 - **Mudanças de enquadramento:** zoom-in/out, pan, mudança de lado (texto à esquerda/direita, não sempre centralizado), cortes secos no ritmo da fala além de crossfade.
 - Texto centralizado em fundo escuro: só pra frases-chave (máx. 3–4 por vídeo) e cartelas de capítulo.
-- **Fonte das imagens:** Pexels. Rede já liberada no ambiente "Js-" (api/videos/images.pexels.com). **Pendente: chave grátis da API do Pexels** (pexels.com/api). O usuário recusou o formulário na sessão de 24/11. Pode ser adicionada depois nas configurações do ambiente (Network secrets, host `api.pexels.com`, header `Authorization`, valor = a chave sem prefixo) ou pelo formulário, se ele pedir.
+- **Fonte das imagens:** Pexels. Rede já liberada no ambiente "Js-" (api/videos/images.pexels.com).
+- **Chave do Pexels:** o formulário seguro foi recusado 2x em 24/11 (provavelmente o app não conseguiu mostrar). Combinado: o usuário vai salvar a chave pelas configurações do ambiente ("Js-" → Edit → Network secrets: host `api.pexels.com`, header `Authorization`, valor = chave sem prefixo). Só vale em **sessão nova**. No começo do próximo vídeo: testar `curl -s -o /dev/null -w "%{http_code}" "https://api.pexels.com/videos/search?query=city&per_page=1"`. Se der 200, ok. Se der 401, a chave não tá salva: lembrar o usuário (não pedir a chave no chat).
 
 ## Cuidados (monetização no YouTube)
 - O YouTube corta monetização de conteúdo "inautêntico": vídeo em massa, repetitivo, só voz de IA lendo texto genérico em cima de imagem de banco. Pra passar: roteiro original com opinião e ângulo próprio, edição caprichada e formatos variados.
@@ -46,7 +47,7 @@ O Ep. 001 ficou com **muito fundo escuro + texto centralizado**. A partir do Ep.
 
 ## Próximos passos
 1. Postar o Ep. 001 no YouTube (seguir `roteiros/dark/ep001-publicacao.md`) e contar como foi (CTR da thumb, retenção nos primeiros 30s, comentários).
-3. Ep. 002: aplicar a **Diretriz visual** acima (precisa da chave do Pexels pra ter imagens reais). Definir tema. Formato "Wealth Blueprint" (documentário 8–10 min) reaproveita o motor de animação.
+3. Ep. 002: aplicar a **Diretriz visual** acima (imagens reais do Pexels + variedade de planos). **Não refazer o Ep. 001**, fica como está. Definir tema. Formato "Wealth Blueprint" (documentário 8–10 min) reaproveita o motor de animação.
 4. Definir as decisões em aberto acima (@, Shorts de corte do episódio pra divulgar, frequência).
 
 Pastas: roteiros em `roteiros/dark/`, vídeos em `videos/dark/`, scripts em `tools/dark/`.
