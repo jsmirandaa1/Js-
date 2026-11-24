@@ -7,3 +7,7 @@ Este repositório guarda o plano de crescimento nas redes sociais (TikTok, YouTu
 - Responda sempre em português BR, tom descontraído.
 - Ao terminar um vídeo ou decisão nova, atualize `PLANO.md` (o que foi feito + próximos passos) e faça commit/push.
 - Vídeos prontos ficam em `videos/`, roteiros e legendas em `roteiros/`, scripts de montagem em `tools/`.
+
+## Projeto 2: TikTok Shop
+
+Projeto separado, fica em `tiktok-shop/`. **Quando o usuário falar de TikTok Shop** (ex.: "bora continuar o TikTok Shop"): leia `tiktok-shop/PLANO.md` inteiro e retome da seção "Próximos passos". Não misture com o plano de GTA 6. Ao avançar, atualize `tiktok-shop/PLANO.md` e faça commit/push.
