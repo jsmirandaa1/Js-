@@ -9,10 +9,10 @@ from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_brainrush01 as B
 from brgfx import *
-from brainrush01_data import QS
+QS = B.QS; VID = B.VID
 
 W, H, FPS = 1080, 1920, 30
-OUT = "/tmp/claude-0/br01/shorts"; os.makedirs(OUT, exist_ok=True)
+OUT = f"/tmp/claude-0/br{VID}/shorts"; os.makedirs(OUT, exist_ok=True)
 SHORTS = [
     dict(qs=[0, 1, 2], hook="ONLY 1% GET 3/3", hook_v="Only one percent of people get all three right. Let's see if you can!"),
     dict(qs=[3, 4, 5], hook="CAN YOU GET 3/3?", hook_v="Three questions. Seven seconds each. Can you get them all?"),
@@ -20,6 +20,7 @@ SHORTS = [
     dict(qs=[9, 10, 11], hook="GENIUS TEST: 3/3?", hook_v="Only real geniuses get all three. Let's find out!"),
     dict(qs=[12, 13, 14], hook="FINAL BOSS QUIZ", hook_v="The final three. These are the hardest ones. Ready?"),
 ]
+SHORTS = getattr(B.D, "SHORTS", SHORTS)
 OUTRO_V = "How many did you get right? Comment your score, and follow for more quizzes!"
 
 # ------------------------------------------------------------------ voz extra (gancho/CTA)
@@ -52,10 +53,13 @@ def setup(si):
     for n, qi in enumerate(S["qs"]):
         src = next(s for s in B.TL if s["kind"] == "q" and s["qi"] == qi)
         ans = f"q{qi+1:02d}_ans"; dur = src["AN"] + B.META[ans]["dur"] + 0.9
+        P = src.get("P", 0.0)   # shorts não usam o "Question number X!"
+        src = dict(src, A0=src["A0"] - P, letters=[x - P for x in src["letters"]], CS=src["CS"] - P, R=src["R"] - P, AN=src["AN"] - P)
+        dur = src["AN"] + B.META[ans]["dur"] + 0.9
         sc = dict(src, start=t, dur=dur, n=n); TL.append(sc)
         voice(f"q{qi+1:02d}_ask", t + src["A0"]); voice(ans, t + src["AN"])
         SFX += [(t, "whoosh"), (t + 0.55, "qstart")] + [(t + src["CS"] + k, "tick" if k < 4 else "tick2") for k in range(7)]
-        SFX.append((t + src["R"], "victory" if n == 2 else "correct")); t += dur
+        SFX.append((t + src["R"], "victory" if n == len(S["qs"]) - 1 else "correct")); t += dur
     d = B.META["sh_outro"]["dur"]
     TL.append(dict(kind="outro", start=t, dur=0.4 + d + 1.6, v0=0.4, vd=d)); voice("sh_outro", t + 0.4); SFX.append((t, "whoosh")); t += TL[-1]["dur"]
     # aplica no módulo base (áudio e legenda usam esses globais)
@@ -196,7 +200,7 @@ def frame(t, TL):
 def render_short(si):
     TL, total = setup(si); cap_v.cache_clear()
     B.build_audio(f"{OUT}/s{si}.wav")
-    path = f"{OUT}/brainrush01_short{si+1}.mp4"
+    path = f"{OUT}/brainrush{VID}_short{si+1}.mp4"
     p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", f"{OUT}/s{si}.wav",
                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
                           "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", path], stdin=subprocess.PIPE)

@@ -2,21 +2,25 @@
 import json, os, re, subprocess, sys
 import numpy as np, soundfile as sf
 sys.path.insert(0, os.path.dirname(__file__))
-from brainrush01_data import INTRO, QS, SCORE, OUTRO
-K = "/tmp/claude-0/kokoro/"; OUT = sys.argv[1] if len(sys.argv) > 1 else "/tmp/claude-0/br01/voz"
+import importlib
+VID = os.environ.get("BR_VID", "01"); D = importlib.import_module(f"brainrush{VID}_data")
+INTRO, QS, SCORE, OUTRO = D.INTRO, D.QS, D.SCORE, D.OUTRO
+K = "/tmp/claude-0/kokoro/"; OUT = sys.argv[1] if len(sys.argv) > 1 else f"/tmp/claude-0/br{VID}/voz"
 os.makedirs(OUT, exist_ok=True)
 VOICE, SPEED = "am_michael", 1.08
 from kokoro_onnx import Kokoro
 k = Kokoro(K + "model.onnx", K + "voices.npz")
-segs = list(INTRO)
+segs = [x[:2] for x in INTRO]
 for i, q in enumerate(QS, 1):
+    if hasattr(D, "PRE"): segs.append((f"q{i:02d}_pre", D.PRE[i - 1]))
     segs += [(f"q{i:02d}_ask", q[4]), (f"q{i:02d}_ans", q[5])]
 segs += [SCORE, OUTRO]
-LETTER_A = {"q05_ask", "q05_ans"}  # "A G", "A U", "letters A and U"
+LETTER_A = getattr(D, "LETTER_A", {"q05_ask", "q05_ans"})  # "A G", "A U", "letters A and U"
 from faster_whisper import WhisperModel
 wm = WhisperModel("small", compute_type="int8")
-meta = {}
+meta = json.load(open(f"{OUT}/meta.json")) if os.path.exists(f"{OUT}/meta.json") else {}
 for name, text in segs:
+    if name in meta and meta[name]["text"] == text: continue
     wav = f"{OUT}/{name}.wav"
     tts = text.replace("BrainRush", "Brain Rush")
     if name in LETTER_A:

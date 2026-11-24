@@ -6,12 +6,14 @@ import json, math, os, re, subprocess, sys, difflib, functools, random
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from brainrush01_data import QS, BANDS
+import importlib
+VID = os.environ.get("BR_VID", "01"); D = importlib.import_module(f"brainrush{VID}_data")
+QS, BANDS = D.QS, D.BANDS
 from brgfx import *
 from planets import sphere, saturn
 
 W, H, FPS = 1920, 1080, 30
-WORK = "/tmp/claude-0/br01"; VOZ = WORK + "/voz"
+WORK = f"/tmp/claude-0/br{VID}"; VOZ = WORK + "/voz"
 META = json.load(open(VOZ + "/meta.json"))
 
 # ------------------------------------------------------------------ alinhamento texto x whisper
@@ -47,16 +49,23 @@ def scene(kind, dur, **kw):
     global t
     d = dict(kind=kind, start=t, dur=dur, **kw); TL.append(d); t += dur; return d
 
-d1 = META["intro1"]["dur"]; s = scene("intro1", 1.0 + d1 + 0.7); add_voice("intro1", s["start"] + 1.0); SFX.append((s["start"] + 0.45, "impact"))
-d2 = META["intro2"]["dur"]; s = scene("intro2", 0.5 + d2 + 0.6); add_voice("intro2", s["start"] + 0.5); SFX.append((s["start"], "whoosh")); SFX.append((s["start"] + 0.1, "impact"))
-d3 = META["intro3"]["dur"]; s = scene("intro3", 0.3 + d3 + 0.9, words=align("intro3"), v0=0.3); add_voice("intro3", s["start"] + 0.3); SFX.append((s["start"], "whoosh"))
+for _nm, _tx, *_k in D.INTRO:
+    _kind = _k[0] if _k else _nm; _d = META[_nm]["dur"]
+    if _kind == "intro1":
+        s = scene("intro1", 1.0 + _d + 0.7); add_voice(_nm, s["start"] + 1.0); SFX.append((s["start"] + 0.45, "impact"))
+    elif _kind == "intro2":
+        s = scene("intro2", 0.5 + _d + 0.6); add_voice(_nm, s["start"] + 0.5); SFX.append((s["start"], "whoosh")); SFX.append((s["start"] + 0.1, "impact"))
+    else:
+        s = scene("intro3", 0.3 + _d + 0.9, words=align(_nm), v0=0.3); add_voice(_nm, s["start"] + 0.3); SFX.append((s["start"], "whoosh"))
 for i, q in enumerate(QS):
-    ask, ans = f"q{i+1:02d}_ask", f"q{i+1:02d}_ans"
-    A0 = 0.9; aw = align(ask)
+    ask, ans, pre = f"q{i+1:02d}_ask", f"q{i+1:02d}_ans", f"q{i+1:02d}_pre"
+    P = META[pre]["dur"] + 0.15 if pre in META else 0.0
+    A0 = 0.9 + P; aw = align(ask)
     letters = [A0 + s_ for s_, e_, w in aw if re.fullmatch(r"[ABCD]:", w)]
     CS = A0 + META[ask]["dur"] + 0.45; R = CS + 7.0; AN = R + 1.0
     dur = AN + META[ans]["dur"] + 1.5
-    s = scene("q", dur, qi=i, A0=A0, letters=letters, CS=CS, R=R, AN=AN, aw=align(ans))
+    s = scene("q", dur, qi=i, A0=A0, P=P, letters=letters, CS=CS, R=R, AN=AN, aw=align(ans))
+    if P: add_voice(pre, s["start"] + 0.9)
     add_voice(ask, s["start"] + A0); add_voice(ans, s["start"] + AN)
     SFX += [(s["start"], "whoosh"), (s["start"] + 0.55, "qstart")]
     SFX += [(s["start"] + CS + k, "tick" if k < 4 else "tick2") for k in range(7)]
@@ -66,7 +75,7 @@ d = META["outro"]["dur"]; s = scene("outro", 0.6 + d + 2.6, v0=0.6, vd=d); add_v
 TOTAL = t
 for sc in TL:
     if sc["kind"] == "score":
-        ws = sc["words"]; keys = ["zero", "six", "eleven", "fourteen", "perfect"]; ts = []
+        ws = sc["words"]; keys = getattr(D, "SCORE_KEYS", ["zero", "six", "eleven", "fourteen", "perfect"]); ts = []
         for kk in keys:
             ts.append(next(s_ for s_, e_, w in ws if norm(w) == kk) + sc["v0"])
         sc["band_t"] = ts
@@ -579,12 +588,11 @@ def render_intro2(img, sc, tl):
     paste_c(img, lg, W / 2, H / 2 - 20, scale=(0.82 + 0.18 * eback(tl / 0.7)) * (1 + 0.015 * tl), alpha=a)
     if tl > 1.8: paste_c(img, text_img("THINK FAST  •  KNOW MORE", F("bebas", 48), fill=(200, 200, 200), spacing=6), W / 2, H / 2 + 190, alpha=ease((tl - 1.8) / 0.5) * a)
 
-MONT = [(0, 3), (3, 5), (11, 4), (5, 4), (1, 3), (9, 6), (12, 3), (13, 4)]
+MONT = [(0, 3), (3, 5), (11, 4), (5, 4), (1, 3), (9, 3, "exp"), (12, 3), (13, 4)]
 def render_intro3(img, sc, tl):
     particles(img, tl + 20)
-    k = int(tl / 1.35) % len(MONT); qi, off = MONT[k]; te = tl % 1.35
-    st = stage_ask(qi, off + te)
-    if qi == 9: st = stage_exp(9, 3 + te, None)
+    k = int(tl / 1.35) % len(MONT); qi, off = MONT[k][:2]; te = tl % 1.35
+    st = stage_exp(qi, off + te, None) if len(MONT[k]) > 2 else stage_ask(qi, off + te)
     compose_stage(img, st, alpha=ease(tl / 0.4), scale=1.0 + 0.03 * te, cy=430)
     ws = sc["words"]; v0 = sc["v0"]
     t7 = next(s_ for s_, e_, w in ws if norm(w) == "seven") + v0
@@ -796,6 +804,10 @@ def build_audio(path):
     import soundfile as sf
     sf.write(path, mix.astype(np.float32), SR)
 
+# cenas específicas de cada vídeo (substituem stage_ask / stage_exp / MONT)
+if VID != "01":
+    exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), f"brainrush{VID}_scenes.py")).read(), globals())
+
 # ------------------------------------------------------------------ main
 def render_range(a, b, out):
     p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
@@ -824,12 +836,12 @@ if __name__ == "__main__":
         i, n = int(sys.argv[-2]), int(sys.argv[-1]); NF = int(TOTAL * FPS)
         a, b = NF * i // n, NF * (i + 1) // n; render_range(a, b, f"{WORK}/part{i}.mp4"); sys.exit()
     # completo
-    open(f"{WORK}/brainrush01.srt", "w").write(srt())
+    open(f"{WORK}/brainrush{VID}.srt", "w").write(srt())
     build_audio(f"{WORK}/audio.wav")
     n = int(os.environ.get("JOBS", "4"))
     ps = [subprocess.Popen([sys.executable, __file__, "--part", str(i), str(n)]) for i in range(n)]
     for p in ps: p.wait()
     open(f"{WORK}/parts.txt", "w").write("".join(f"file 'part{i}.mp4'\n" for i in range(n)))
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{WORK}/parts.txt", "-i", f"{WORK}/audio.wav",
-                    "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "256k", "-ar", "48000", "-shortest", "-movflags", "+faststart", f"{WORK}/brainrush01.mp4"], check=True)
+                    "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "256k", "-ar", "48000", "-shortest", "-movflags", "+faststart", f"{WORK}/brainrush{VID}.mp4"], check=True)
     print("FIM", TOTAL)
