@@ -10,3 +10,4 @@ Este repositório guarda o plano de crescimento nas redes sociais (TikTok, YouTu
 
 ## Projeto 2: canal dark de quiz (BrainRush Quiz)
 Fica em `quiz/` com plano próprio em `quiz/PLANO.md`. **Quando o usuário falar do quiz/BrainRush**, leia `quiz/PLANO.md` (não o PLANO.md do GTA) e retome de lá. Mesmas regras: atualizar o plano + commit/push a cada vídeo.
+- **Legendas/descrições do BrainRush: SEM hashtags.** Usar legendas com **SEO**: palavra-chave principal no começo ("General knowledge quiz", "trivia quiz"), termos que as pessoas buscam (tema de cada pergunta: "capital of Australia", "chemical symbol for gold"…), frase natural e uma chamada pra comentar. Título do Short com a palavra-chave primeiro.

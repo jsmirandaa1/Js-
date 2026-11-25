@@ -21,6 +21,14 @@ Projeto separado do canal de GTA 6. Canal "dark" (sem rosto): narração + visua
 - Assets (não versionados, baixar de novo em `/tmp/claude-0/quiz_assets`): texturas de planetas (raw.githubusercontent: `jeromeetienne/threex.planets`, `mrdoob/three.js` textures/planets), emojis 3D **Microsoft Fluent Emoji** (MIT, `microsoft/fluentui-emoji/main/assets/<Nome>/3D/<nome>_3d.png`), mapas `world-atlas@2` (npm). Modelo Kokoro: HF `onnx-community/Kokoro-82M-v1.0-ONNX`.
 - Rede: Pexels (fotos reais) está com chave inválida; Wikimedia/NASA/Unsplash bloqueados. Visual hoje = planetas 3D reais + cenas desenhadas + emojis 3D.
 
+## Regras de texto (25/11)
+- **Nada de hashtags.** Títulos, legendas e descrições com **SEO**:
+  1. Palavra-chave principal logo no início (ex.: "General Knowledge Quiz", "Science Trivia Quiz", "Hard Trivia Questions").
+  2. Termos que as pessoas pesquisam, tirados das perguntas do vídeo ("capital of Australia", "fastest land animal", "chemical symbol for gold").
+  3. Frase natural em inglês (sem lista de palavras soltas), 1–3 linhas, + CTA ("Comment your score!").
+  4. YouTube Shorts: título ≤ ~70 caracteres com a keyword na frente; descrição repete a keyword + temas.
+  5. TikTok: a legenda funciona como busca — escrever como alguém procuraria ("easy general knowledge quiz with answers").
+
 ## Fluxo padrão (decidido em 24/11)
 O usuário manda o roteiro → eu entrego **1 vídeo longo 16:9 no template + 3 cortes verticais** (TikTok/Shorts, 3 perguntas cada, +1 min) + thumb + .srt + título/descrição/capítulos + legendas dos posts.
 Como fazer um vídeo novo NN:
