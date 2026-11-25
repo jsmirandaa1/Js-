@@ -39,8 +39,19 @@ Como fazer um vídeo novo NN:
 - 24/11: **Vídeo 02 – "15 Science & Nature Questions — Can You Beat This Quiz?"** (8:15) + 3 shorts, pra postar em 25/11. Arquivos `quiz/videos/brainrush02*`, `quiz/videos/shorts/brainrush02_short1..3.mp4`, textos em `quiz/roteiros/brainrush02_*`.
   - Padronizei "Question number X!" + leitura das alternativas em todas as perguntas (o roteiro só tinha na 1ª).
 
+- 25/11: **Resultado do 1º dia:** vídeo longo 01 ~0 views; shorts ~800 views, 7 comentários, 7 inscritos (tudo veio dos shorts). → canal vira **shorts-first**.
+
+## Estratégia de postagem (decidida em 25/11)
+- **Shorts são o motor.** Vídeo longo em canal sem inscritos não recebe tráfego; ele só começa a render quando os shorts trazem base (~500–1.000 inscritos).
+- **Ritmo:** **2 shorts por dia** (manhã ~11h e noite ~19h, horário de Brasília — público EUA acorda/almoça), mesmo arquivo no TikTok + YouTube Shorts (+ Reels se der).
+- **1 vídeo longo por semana** (sábado ou domingo), feito das mesmas 15 perguntas — vira a "playlist" pra quem chega pelos shorts. Quando passar de ~1k inscritos, testar 2 longos/semana.
+- **Produção:** cada roteiro de 15 perguntas → **5 shorts** (não 3) + 1 longo. 2 shorts/dia = **~3 roteiros por semana** (1 vira longo; os outros podem ser só shorts).
+- **Testes contínuos:** variar o gancho (%, "geniuses", "90% fail") e o tema; anotar views/retenção por short e repetir o que ganhar. Fixar comentário "Comment your score 👇".
+- **Métricas que importam:** YouTube Shorts → "% que assistiu vs. deslizou" (meta >70%) e retenção média; TikTok → tempo médio e % que assistiu inteiro; comentários; inscritos por short.
+
 ## Próximos passos
-1. Postar o vídeo 01 no YouTube (subir o .srt) e os shorts no TikTok/Shorts (2–3 hoje, resto amanhã). Trazer números: CTR da thumb, retenção, views e comentários dos shorts.
-2. Decidir se mantém a voz Kokoro ou troca pra ElevenLabs (é só substituir os wav em `voz/` e rodar de novo).
-3. Arrumar a chave do Pexels pra ter fotos reais nas perguntas de animais/lugares.
-4. Próximos vídeos: reaproveitar o template; ideias – "Only Geniuses Get 15/15 (Hard Mode)", "Guess the Country by Its Shape", "Science Quiz", Shorts verticais com 3 perguntas cortadas do vídeo longo.
+1. Saber qual short teve as 800 views (TikTok ou YT? qual tema/gancho?) e dobrar a aposta no que ganhou.
+2. Postar os shorts do vídeo 02 (2/dia). Vídeo 02 longo: segurar pro fim de semana.
+3. Usuário manda ~3 roteiros/semana; eu entrego 5 shorts por roteiro + longo semanal.
+4. Ideias de séries curtas: "Guess the Country by Its Shape", "Only Geniuses (Hard Mode)", "Human Body", "Space", "Guess the Flag/Logo", "Kids vs Adults questions".
+5. Pendentes técnicos: voz (Kokoro vs ElevenLabs), chave do Pexels pra fotos reais.
