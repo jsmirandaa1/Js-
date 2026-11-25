@@ -53,7 +53,9 @@ Como fazer um vídeo novo NN:
 - **Métricas que importam:** YouTube Shorts → "% que assistiu vs. deslizou" (meta >70%) e retenção média; TikTok → tempo médio e % que assistiu inteiro; comentários; inscritos por short.
 
 ## Próximos passos
-0. **YouTube é a plataforma principal (inglês).** TikTok: testar **versão em PT-BR** dos shorts (voz Kokoro pt-BR) por ~1 semana, com cortes de ~60–70s; se não reagir, manter o TikTok só como repost.
+0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
+   - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
+   - Rotina simples: usuário manda roteiro → eu entrego 5 shorts + 1 longo → usuário posta 2 shorts/dia + 1 longo/semana. Só isso.
 1. Saber qual short teve as 800 views (qual tema/gancho) e dobrar a aposta no que ganhou.
 2. Postar os shorts do vídeo 02 (2/dia). Vídeo 02 longo: segurar pro fim de semana.
 3. Usuário manda ~3 roteiros/semana; eu entrego 5 shorts por roteiro + longo semanal.
