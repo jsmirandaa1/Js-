@@ -56,6 +56,14 @@ Como fazer um vídeo novo NN:
 - **Testes contínuos:** variar o gancho (%, "geniuses", "90% fail") e o tema; anotar views/retenção por short e repetir o que ganhar. Fixar comentário "Comment your score 👇".
 - **Métricas que importam:** YouTube Shorts → "% que assistiu vs. deslizou" (meta >70%) e retenção média; TikTok → tempo médio e % que assistiu inteiro; comentários; inscritos por short.
 
+## TikTok — formato SPEED QUIZ (decidido em 25/11)
+- YouTube Shorts segue no formato atual (está funcionando: 9 inscritos, short com 200 views em 10 min). **Só o TikTok muda.**
+- TikTok não entregava (3 shorts ~200 views). Causas prováveis: vídeo lento (7s + leitura das opções), conta nova, e o TikTok distribui muito pela região da conta.
+- **Formato novo (Speed Quiz):** 8 perguntas em ~65s; voz lê só a pergunta; timer 3s (HARD 4s, FINAL BOSS 5s); resposta seca ("Mars!"); flash a cada troca; **5ª = HARD QUESTION** e **8ª = FINAL BOSS** (tag vermelha + impacto); gancho fixo no topo o vídeo todo ("ONLY 2% GET 8/8"); fim "How many did you get? Comment your score /8".
+- Script: `tools/build_speed.py <lote>` + `tools/<lote>_data.py` (escolhe perguntas do banco dos vídeos 01–03). Saída `quiz/videos/tiktok/`.
+- Se o speed for bem no TikTok, testar também no YouTube Shorts.
+- **Para os próximos roteiros:** marcar dificuldade de cada pergunta (fácil/médio/difícil) e escrever a resposta curta falada. Mais perguntas por roteiro (30+), poucas "pegadinhas" difíceis no meio.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
