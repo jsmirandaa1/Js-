@@ -41,6 +41,9 @@ Como fazer um vídeo novo NN:
 
 - 25/11: **Resultado do 1º dia:** vídeo longo 01 ~0 views; shorts ~800 views, 7 comentários, 7 inscritos (tudo veio dos shorts). → canal vira **shorts-first**.
 
+- 25/11 (detalhe): só 2 shorts postados no **YouTube**: um ~800 views (7 coment.), outro ~350 views / 7 curtidas / 0 coment. **TikTok flopou:** 3 shorts, ~200 views no total, 1 seguidor.
+  - Hipótese principal do TikTok: conta brasileira → TikTok mostra pra público do Brasil, que não entende o quiz em inglês. Outras: conta nova em "aquecimento", vídeo de 90s longo demais pra conta nova no TikTok.
+
 ## Estratégia de postagem (decidida em 25/11)
 - **Shorts são o motor.** Vídeo longo em canal sem inscritos não recebe tráfego; ele só começa a render quando os shorts trazem base (~500–1.000 inscritos).
 - **Ritmo:** **2 shorts por dia** (manhã ~11h e noite ~19h, horário de Brasília — público EUA acorda/almoça), mesmo arquivo no TikTok + YouTube Shorts (+ Reels se der).
@@ -50,7 +53,8 @@ Como fazer um vídeo novo NN:
 - **Métricas que importam:** YouTube Shorts → "% que assistiu vs. deslizou" (meta >70%) e retenção média; TikTok → tempo médio e % que assistiu inteiro; comentários; inscritos por short.
 
 ## Próximos passos
-1. Saber qual short teve as 800 views (TikTok ou YT? qual tema/gancho?) e dobrar a aposta no que ganhou.
+0. **YouTube é a plataforma principal (inglês).** TikTok: testar **versão em PT-BR** dos shorts (voz Kokoro pt-BR) por ~1 semana, com cortes de ~60–70s; se não reagir, manter o TikTok só como repost.
+1. Saber qual short teve as 800 views (qual tema/gancho) e dobrar a aposta no que ganhou.
 2. Postar os shorts do vídeo 02 (2/dia). Vídeo 02 longo: segurar pro fim de semana.
 3. Usuário manda ~3 roteiros/semana; eu entrego 5 shorts por roteiro + longo semanal.
 4. Ideias de séries curtas: "Guess the Country by Its Shape", "Only Geniuses (Hard Mode)", "Human Body", "Space", "Guess the Flag/Logo", "Kids vs Adults questions".
