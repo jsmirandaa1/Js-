@@ -44,6 +44,10 @@ Como fazer um vídeo novo NN:
 - 25/11 (detalhe): só 2 shorts postados no **YouTube**: um ~800 views (7 coment.), outro ~350 views / 7 curtidas / 0 coment. **TikTok flopou:** 3 shorts, ~200 views no total, 1 seguidor.
   - Hipótese principal do TikTok: conta brasileira → TikTok mostra pra público do Brasil, que não entende o quiz em inglês. Outras: conta nova em "aquecimento", vídeo de 90s longo demais pra conta nova no TikTok.
 
+- 25/11: **Vídeo 03 – "30 General Knowledge Questions — Can You Score 30/30?"** (roteiro de 30 perguntas em 5 rounds, ~14 min) + **10 shorts** (5 dias de conteúdo a 2/dia). Arquivos `quiz/videos/brainrush03*`, `quiz/videos/shorts/brainrush03_short1..10.mp4`, textos em `quiz/roteiros/brainrush03_*`.
+  - Motor agora aceita qualquer nº de perguntas, rounds no chip e roteiro sem tela de pontuação. Perguntas repetidas reaproveitam cenas dos vídeos 01/02.
+  - Ferramenta `tools/fix_transcripts.py` (BR_VID=NN) refaz transcrições ruins do Whisper.
+
 ## Estratégia de postagem (decidida em 25/11)
 - **Shorts são o motor.** Vídeo longo em canal sem inscritos não recebe tráfego; ele só começa a render quando os shorts trazem base (~500–1.000 inscritos).
 - **Ritmo:** **2 shorts por dia** (manhã ~11h e noite ~19h, horário de Brasília — público EUA acorda/almoça), mesmo arquivo no TikTok + YouTube Shorts (+ Reels se der).
