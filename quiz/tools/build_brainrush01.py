@@ -70,7 +70,8 @@ for i, q in enumerate(QS):
     SFX += [(s["start"], "whoosh"), (s["start"] + 0.55, "qstart")]
     SFX += [(s["start"] + CS + k, "tick" if k < 4 else "tick2") for k in range(7)]
     SFX.append((s["start"] + R, "victory" if i == len(QS) - 1 else "correct"))
-d = META["score"]["dur"]; s = scene("score", 0.8 + d + 1.2, words=align("score"), v0=0.8); add_voice("score", s["start"] + 0.8); SFX.append((s["start"], "whoosh"))
+if D.SCORE:
+    d = META["score"]["dur"]; s = scene("score", 0.8 + d + 1.2, words=align("score"), v0=0.8); add_voice("score", s["start"] + 0.8); SFX.append((s["start"], "whoosh"))
 d = META["outro"]["dur"]; s = scene("outro", 0.6 + d + 2.6, v0=0.6, vd=d); add_voice("outro", s["start"] + 0.6); SFX.append((s["start"], "whoosh")); SFX.append((s["start"] + 0.6 + d + 0.5, "impact"))
 TOTAL = t
 for sc in TL:
@@ -238,13 +239,13 @@ def timer(frac, num, pulse, done=False, urgent=False):
     return im
 
 def progress_dots(img, qi, t):
-    d = ImageDraw.Draw(img); n = 15; gap = 34; x0 = W / 2 - gap * (n - 1) / 2; y = 116
+    d = ImageDraw.Draw(img); n = len(QS); gap = min(34, 900 / max(1, n - 1)); x0 = W / 2 - gap * (n - 1) / 2; y = 116; q = 1.0 if n <= 15 else 0.7
     for k in range(n):
         x = x0 + k * gap
-        if k < qi: d.ellipse((x - 7, y - 7, x + 7, y + 7), fill=GOLD)
+        if k < qi: d.ellipse((x - 7 * q, y - 7 * q, x + 7 * q, y + 7 * q), fill=GOLD)
         elif k == qi:
-            r = 9 + 2 * math.sin(t * 5); d.ellipse((x - r, y - r, x + r, y + r), fill=GOLD_L)
-        else: d.ellipse((x - 6, y - 6, x + 6, y + 6), outline=(120, 100, 60), width=2)
+            r = (9 + 2 * math.sin(t * 5)) * q; d.ellipse((x - r, y - r, x + r, y + r), fill=GOLD_L)
+        else: d.ellipse((x - 6 * q, y - 6 * q, x + 6 * q, y + 6 * q), outline=(120, 100, 60), width=2)
 
 # ------------------------------------------------------------------ cenas do palco (SW x SH)
 def kb(img, tl, z0=1.0, z1=1.12, dur=12.0, px=0.5, py=0.5, dx=0.0):
@@ -521,14 +522,14 @@ def compose_stage(img, st, alpha=1.0, scale=1.0, cx=SX + SW / 2, cy=SY + SH / 2)
 
 # ------------------------------------------------------------------ render por cena
 def render_q(img, sc, tq):
-    qi = sc["qi"]; q = QS[qi]; R, CS = sc["R"], sc["CS"]; final = qi == 14
+    qi = sc["qi"]; q = QS[qi]; R, CS = sc["R"], sc["CS"]; final = qi == len(QS) - 1
     progress_dots(img, qi, tq)
     paste_c(img, small_logo(), 210, 66)
     paste_c(img, chip(q[0]), W / 2, 66, alpha=ease(tq / 0.4))
     # coluna esquerda
     paste_c(img, text_img("QUESTION" if not final else "FINAL", F("bebas", 44), fill=GOLD, spacing=5), 220, 250)
     paste_c(img, gold_text_cached(f"{qi+1:02d}", 190, 1.0), 220, 380, scale=eback(tq / 0.5) if tq < 0.5 else 1.0)
-    paste_c(img, text_img("/ 15", F("bebas", 56), fill=(150, 150, 150)), 220, 500)
+    paste_c(img, text_img(f"/ {len(QS)}", F("bebas", 56), fill=(150, 150, 150)), 220, 500)
     # palco
     EX = R + 1.6
     st = stage_ask(qi, tq) if tq < EX else stage_exp(qi, tq - EX, sc)
@@ -597,7 +598,7 @@ def render_intro3(img, sc, tl):
     ws = sc["words"]; v0 = sc["v0"]
     t7 = next(s_ for s_, e_, w in ws if norm(w) == "seven") + v0
     tb = next(s_ for s_, e_, w in ws if norm(w) == "lets") + v0
-    if tl < t7 - 0.1: txt, t0 = "15 QUESTIONS", 0.2
+    if tl < t7 - 0.1: txt, t0 = f"{len(QS)} QUESTIONS", 0.2
     elif tl < tb - 0.1: txt, t0 = "7 SECONDS EACH", t7
     else: txt, t0 = "LET'S PLAY!", tb
     paste_c(img, gold_text_cached(txt, 120, 1.0), W / 2, 820, scale=eback((tl - t0) / 0.35))
@@ -781,7 +782,7 @@ def build_audio(path):
     for sc in TL:
         i0, i1 = int(sc["start"] * SR), int((sc["start"] + sc["dur"]) * SR)
         if sc["kind"] in ("q",):
-            g_p[i0:i1] = 0.8; g_h[i0:i1] = 0.8; g_k[i0:i1] = 0.35 if sc["qi"] < 14 else 0.9
+            g_p[i0:i1] = 0.8; g_h[i0:i1] = 0.8; g_k[i0:i1] = 0.35 if sc["qi"] < len(QS) - 1 else 0.9
             c0, c1 = int((sc["start"] + sc["CS"]) * SR), int((sc["start"] + sc["R"]) * SR)
             g_h[c0:c1] = 0.3; g_k[c0:c1] = 0.15
         elif sc["kind"] == "intro3": g_p[i0:i1] = 0.6; g_h[i0:i1] = 0.6

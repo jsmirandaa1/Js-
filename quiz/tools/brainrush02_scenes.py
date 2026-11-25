@@ -74,9 +74,16 @@ def _brain_side(te, glow):
     d.rounded_rectangle((cx + 40, cy + 150, cx + 140, cy + 470), 40, fill=(210, 140, 150))
     return im.resize((SW, SH), Image.LANCZOS)
 
+def _plants(tl):
+    im = _bg((20, 60, 30), (4, 12, 6)); paste_c(im, emoji("sun", 150), SW - 140, 110, scale=1 + 0.05 * math.sin(tl * 2))
+    paste_c(im, emoji("potted_plant", 260), SW / 2, SH / 2 + 30 + 6 * math.sin(tl * 1.5))
+    for k in range(5): paste_c(im, emoji("leaf_fluttering_in_wind", 80), (tl * 60 + k * 230) % (SW + 160) - 80, 80 + (k * 97) % 300 + 15 * math.sin(tl + k))
+    return im
+
 def stage_ask(qi, tl):
     if qi == 0: return solar(tl)
-    if qi == 1:
+    if qi == 1: return _plants(tl)
+    if qi == -1:
         im = _bg((20, 60, 30), (4, 12, 6)); paste_c(im, emoji("sun", 150), SW - 140, 110, scale=1 + 0.05 * math.sin(tl * 2))
         paste_c(im, emoji("potted_plant", 260), SW / 2, SH / 2 + 30 + 6 * math.sin(tl * 1.5))
         for k in range(5): paste_c(im, emoji("leaf_fluttering_in_wind", 80), (tl * 60 + k * 230) % (SW + 160) - 80, 80 + (k * 97) % 300 + 15 * math.sin(tl + k))
@@ -146,7 +153,7 @@ def stage_exp(qi, te, sc):
         if te > 1.6: paste_c(im, pill("1 ORBIT = 88 DAYS", 40), SW * 0.62, SH - 60, scale=eback((te - 1.6) / 0.4))
         return im
     if qi == 1:
-        im = stage_ask(1, te + 10); im.alpha_composite(Image.new("RGBA", im.size, (0, 0, 0, 150)))
+        im = _plants(te + 10); im.alpha_composite(Image.new("RGBA", im.size, (0, 0, 0, 150)))
         if te > 0.3: paste_c(im, pill("CARBON DIOXIDE (CO2)", 46), SW / 2, 110, scale=eback((te - 0.3) / 0.4))
         if te > 1.4: paste_c(im, text_img("CO2 + WATER + SUNLIGHT  =  SUGAR + O2", F("mont", 40), fill=WHITE), SW / 2, SH / 2 + 30, alpha=ease((te - 1.4) / 0.5))
         if te > 2.4: paste_c(im, emoji("potted_plant", 110), SW / 2, SH - 80, scale=eback((te - 2.4) / 0.4))

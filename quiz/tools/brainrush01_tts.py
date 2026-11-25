@@ -14,7 +14,7 @@ segs = [x[:2] for x in INTRO]
 for i, q in enumerate(QS, 1):
     if hasattr(D, "PRE"): segs.append((f"q{i:02d}_pre", D.PRE[i - 1]))
     segs += [(f"q{i:02d}_ask", q[4]), (f"q{i:02d}_ans", q[5])]
-segs += [SCORE, OUTRO]
+segs += [x for x in (SCORE, OUTRO) if x]
 LETTER_A = getattr(D, "LETTER_A", {"q05_ask", "q05_ans"})  # "A G", "A U", "letters A and U"
 from faster_whisper import WhisperModel
 wm = WhisperModel("small", compute_type="int8")
@@ -37,5 +37,6 @@ for name, text in segs:
     sg, _ = wm.transcribe(a16, language="en", word_timestamps=True, initial_prompt=text)
     words = [[round(w.start, 3), round(w.end, 3), w.word.strip()] for s in sg for w in s.words]
     meta[name] = {"dur": len(a) / sr, "text": text, "words": words}
+    json.dump(meta, open(f"{OUT}/meta.json", "w"), indent=1)
     print(name, round(len(a) / sr, 2), " ".join(w[2] for w in words)[:90], flush=True)
 json.dump(meta, open(f"{OUT}/meta.json", "w"), indent=1)

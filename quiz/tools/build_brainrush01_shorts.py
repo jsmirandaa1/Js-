@@ -215,5 +215,6 @@ if __name__ == "__main__":
         sys.exit()
     if "--short" in sys.argv: render_short(int(sys.argv[-1])); sys.exit()
     ensure_voice()
-    ps = [subprocess.Popen([sys.executable, __file__, "--short", str(i)]) for i in range(len(SHORTS))]
-    for p in ps: p.wait()
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(4) as ex:
+        list(ex.map(lambda i: subprocess.run([sys.executable, __file__, "--short", str(i)]), range(len(SHORTS))))
