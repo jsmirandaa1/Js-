@@ -89,6 +89,8 @@ Como fazer um vídeo novo NN:
 
 - 26/11: **guess01 — "Guess 100 Animals by Their Shadow | Easy → Impossible"** (8:48, 100 animais em 4 níveis, 3s cada) + **10 shorts** verticais + thumb COLORIDA (cards nas cores dos níveis) + legendas SEO. Script `tools/build_guess.py` + `tools/guess01_data.py` (reutilizável pra outros "Guess the ___").
 
+- 27/11: TikTok: 74 seguidores, 92 curtidas. Riddle #1 e #2 ≈ 395 views cada (melhor que o formato antigo: 3 vídeos = 200 no total). Speed #1 = 98. Vários vídeos novos com 0–1 view (postados em sequência). Plano: máx. 2–3 posts/dia espaçados, priorizar formatos sem idioma (sombra, odd one out) + riddles; checar países da audiência.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
