@@ -66,7 +66,7 @@ Como fazer um vídeo novo NN:
 
 ## TikTok — formato SPEED QUIZ (decidido em 25/11)
 - YouTube Shorts segue no formato atual (está funcionando: 9 inscritos, short com 200 views em 10 min). **Só o TikTok muda.**
-- TikTok não entregava (3 shorts ~200 views). Causas prováveis: vídeo lento (7s + leitura das opções), conta nova, e o TikTok distribui muito pela região da conta.
+- TikTok não entregava (3 shorts ~200 views). Causas prováveis: vídeo lento (7s + leitura das opções), conta nova, (hipótese de região descartada: usuário mora nos EUA).
 - **Formato novo (Speed Quiz):** 8 perguntas em ~65s; voz lê só a pergunta; timer 3s (HARD 4s, FINAL BOSS 5s); resposta seca ("Mars!"); flash a cada troca; **5ª = HARD QUESTION** e **8ª = FINAL BOSS** (tag vermelha + impacto); gancho fixo no topo o vídeo todo ("ONLY 2% GET 8/8"); fim "How many did you get? Comment your score /8".
 - Script: `tools/build_speed.py <lote>` + `tools/<lote>_data.py` (escolhe perguntas do banco dos vídeos 01–03). Saída `quiz/videos/tiktok/`.
 - Se o speed for bem no TikTok, testar também no YouTube Shorts.
@@ -90,6 +90,7 @@ Como fazer um vídeo novo NN:
 - 26/11: **guess01 — "Guess 100 Animals by Their Shadow | Easy → Impossible"** (8:48, 100 animais em 4 níveis, 3s cada) + **10 shorts** verticais + thumb COLORIDA (cards nas cores dos níveis) + legendas SEO. Script `tools/build_guess.py` + `tools/guess01_data.py` (reutilizável pra outros "Guess the ___").
 
 - 27/11: TikTok: 74 seguidores, 92 curtidas. Riddle #1 e #2 ≈ 395 views cada (melhor que o formato antigo: 3 vídeos = 200 no total). Speed #1 = 98. Vários vídeos novos com 0–1 view (postados em sequência). Plano: máx. 2–3 posts/dia espaçados, priorizar formatos sem idioma (sombra, odd one out) + riddles; checar países da audiência.
+- **CORREÇÃO (27/11): o usuário MORA NOS EUA e a conta do TikTok é americana.** Descartar a hipótese de "conta brasileira/região". Público-alvo = EUA; horários de postagem em horário dos EUA.
 
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
