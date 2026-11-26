@@ -90,6 +90,7 @@ Como fazer um vídeo novo NN:
 - 26/11: **guess01 — "Guess 100 Animals by Their Shadow | Easy → Impossible"** (8:48, 100 animais em 4 níveis, 3s cada) + **10 shorts** verticais + thumb COLORIDA (cards nas cores dos níveis) + legendas SEO. Script `tools/build_guess.py` + `tools/guess01_data.py` (reutilizável pra outros "Guess the ___").
 
 - 27/11: TikTok: 74 seguidores, 92 curtidas. Riddle #1 e #2 ≈ 395 views cada (melhor que o formato antigo: 3 vídeos = 200 no total). Speed #1 = 98. Vários vídeos novos com 0–1 view (postados em sequência). Plano: máx. 2–3 posts/dia espaçados, priorizar formatos sem idioma (sombra, odd one out) + riddles; checar países da audiência.
+- Os 74 seguidores do TikTok vieram quase todos da PROMOÇÃO paga (orgânico ainda ~0). Decisão: parar de pagar promoção até um vídeo provar retenção orgânica.
 - **CORREÇÃO (27/11): o usuário MORA NOS EUA e a conta do TikTok é americana.** Descartar a hipótese de "conta brasileira/região". Público-alvo = EUA; horários de postagem em horário dos EUA.
 
 ## Próximos passos
