@@ -72,6 +72,15 @@ Como fazer um vídeo novo NN:
 - Se o speed for bem no TikTok, testar também no YouTube Shorts.
 - **Para os próximos roteiros:** marcar dificuldade de cada pergunta (fácil/médio/difícil) e escrever a resposta curta falada. Mais perguntas por roteiro (30+), poucas "pegadinhas" difíceis no meio.
 
+## TikTok — diagnóstico e formatos MICRO (26/11)
+- Promoção do short "90% fail question 3" (formato antigo, 90s, abre com tela de título): **só 27% passaram de 2s**, **0% assistiram completo**; 10,9% passaram de 6s (acima da média) → o problema é a abertura e a duração.
+- Referências que lideram a busca "quiz" no TikTok: pergunta gigante no 1º frame, 1 pergunta por vídeo (10–20s), charadas/pegadinhas, "find the odd one out" (independe de idioma), ícone por opção, barra de tempo, 3 opções.
+- **Formatos novos (lote micro01):** `tools/build_micro.py` + `tools/micro01_data.py`
+  - **Riddle Micro** (~11s): charada no 1º frame, 3 opções com emoji 3D, barra 6s, resposta + "Did you get it? Comment your answer!".
+  - **Odd One Out** (~11–13s): grade de letras/números com 1 diferente, relógio 8–10s, círculo dourado no diferente.
+- Speed Quiz agora **sem intro** (pergunta 1 no 1º frame).
+- Teste: 3 posts/dia no TikTok (1 de cada formato) por 3 dias → comparar % "assistiu completo" e % "2 segundos" → escalar o vencedor.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).

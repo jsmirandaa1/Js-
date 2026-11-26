@@ -55,8 +55,7 @@ def ensure_voice():
 # ------------------------------------------------------------------ linha do tempo
 def setup(si):
     S_ = SD.SPEED[si]; P = f"{LOTE}_sp{si}"; TL, AUD, SFX = [], [], []; t = 0.0
-    d = B.META[f"{P}_h"]["dur"]
-    TL.append(dict(kind="intro3", start=0, dur=0.15 + d + 0.25)); AUD.append((0.15, f"{P}_h")); SFX.append((0.0, "impact")); t = TL[-1]["dur"]
+    # sem tela de abertura: a pergunta 1 já aparece no 1º frame (lição do TikTok: 73% saíam em 2s com intro)
     n = len(S_["qs"])
     for k, (v, qi, lv, qtxt, atxt) in enumerate(S_["qs"]):
         qd = B.META[f"{P}_q{k}"]["dur"]; ad = B.META[f"{P}_a{k}"]["dur"]; T = SD.TIMER[lv]
@@ -90,19 +89,20 @@ def render_q(img, sc, tq, hook):
     paste_c(img, banner(hook), W / 2, 215)
     if lv not in "HB": paste_c(img, B.chip(f"QUESTION {sc['k']+1} / {sc['n']}"), W / 2, 320)
     shake = 10 * math.sin(tq * 60) * max(0, 1 - tq / 0.35) if lv in "HB" else 0
+    first = sc["k"] == 0
     EX = R + 0.15
     st = ASK[v](qi, tq) if tq < EX else EXP[v](qi, tq - EX + 0.5, None)
     if EX <= tq < EX + 0.2:
         a = ASK[v](qi, tq); b = st.copy(); b.putalpha(int(255 * (tq - EX) / 0.2)); a.alpha_composite(b); st = a
-    B.compose_stage(img, st, alpha=ease(tq / 0.2), scale=0.98 * (0.94 + 0.06 * eout(tq / 0.3)), cx=W / 2 + shake, cy=ST_CY)
+    B.compose_stage(img, st, alpha=1 if first else ease(tq / 0.2), scale=0.98 if first else 0.98 * (0.94 + 0.06 * eout(tq / 0.3)), cx=W / 2 + shake, cy=ST_CY)
     if lv in "HB": paste_c(img, tag("⚡ HARD QUESTION".replace("⚡ ", "") if lv == "H" else "FINAL BOSS"), W / 2, 320, scale=eback(tq / 0.3) * (1 + 0.05 * math.sin(tq * 8)))
     if tq < CS: frac, num, pulse = 1.0, T, 0
     elif tq < R: e = tq - CS; frac = 1 - e / T; num = T - int(e); pulse = max(0, 1 - (e % 1) / 0.25)
     else: frac, num, pulse = 1.0, 0, 0
     paste_c(img, B.timer(frac, num, pulse, done=tq >= R, urgent=(R - 2 <= tq < R)), W / 2, TM_Y, scale=0.62 * (1 + (0.15 * max(0, 1 - (tq - R) / 0.3) if tq >= R else 0)))
-    qa = ease(tq / 0.25); qim = S.q_img(q[1]); paste_c(img, qim, W / 2, Q_Y - max(0, qim.height - 150) / 2, alpha=qa)
+    qa = 1 if first else ease(tq / 0.25); qim = S.q_img(q[1]); paste_c(img, qim, W / 2, Q_Y - max(0, qim.height - 150) / 2, alpha=qa)
     for k, opt in enumerate(q[2]):
-        p = eout((tq - 0.15 - k * 0.1) / 0.25)
+        p = 1 if first else eout((tq - 0.15 - k * 0.1) / 0.25)
         if p <= 0: continue
         L = "ABCD"[k]
         if tq >= R and k == q[3]:
@@ -111,7 +111,7 @@ def render_q(img, sc, tq, hook):
             a = p if tq < R else p * (1 - 0.7 * ease((tq - R) / 0.25))
             paste_c(img, B.option_img(opt, L, "n"), 500 - 50 * (1 - p), OPT_Y[k], alpha=a, scale=1.04)
     if R <= tq < R + 0.2: img.alpha_composite(Image.new("RGBA", (W, H), (255, 220, 140, int(80 * (1 - (tq - R) / 0.2)))))
-    if tq < 0.12: img.alpha_composite(Image.new("RGBA", (W, H), (255, 240, 200, int(120 * (1 - tq / 0.12)))))
+    if tq < 0.12 and sc["k"] > 0: img.alpha_composite(Image.new("RGBA", (W, H), (255, 240, 200, int(120 * (1 - tq / 0.12)))))
 
 def render_hook(img, sc, tl, hook):
     S.particles(img, tl)
