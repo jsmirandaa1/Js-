@@ -81,6 +81,12 @@ Como fazer um vídeo novo NN:
 - Speed Quiz agora **sem intro** (pergunta 1 no 1º frame).
 - Teste: 3 posts/dia no TikTok (1 de cada formato) por 3 dias → comparar % "assistiu completo" e % "2 segundos" → escalar o vencedor.
 
+## Espionagem YouTube (26/11) — canais de referência
+- **Quiz Blitz** (2,51 mi inscritos, 1,1 mil vídeos): "Guess 120 Animals in 3 Seconds | Easy, Medium, Hard, Impossible" (27 mi, 16 min), "Guess all 195 flags" (13 mi), "Guess 52 Fruits", "Guess who's singing" (tema do momento, 15 mi).
+- **Fun Quiz Questions** (294 mil, 505 vídeos, apresentadora com rosto): "Would You Rather… food edition" (7,1 mi), "Can You Pass High School Quiz?" (5,4 mi, 14 min), Guess the Song, General Knowledge.
+- **Padrões:** (1) "GUESS THE ___" visual — imagem em vez de texto, qualquer idade/idioma; (2) número grande no título (120, 195, 52); (3) níveis Easy→Medium→Hard→Impossible; (4) 3 segundos por item; (5) vídeos LONGOS 12–16 min (público família/TV → tempo de exibição); (6) thumbnail colorida: faixa de título + grade de imagens reconhecíveis; (7) volume altíssimo; (8) surfar tema do momento; (9) "você passaria na escola?" / "would you rather".
+- **Nossa versão (sem copiar marca/personagem com direitos):** Guess the Animal by its Shadow (emojis 3D → silhueta → revela), Guess the Country by its Shape (mapas world-atlas), Guess the Emoji Puzzle (combinação de emojis = palavra), Can You Pass 5th Grade/High School, Would You Rather. Todos com níveis Easy→Impossible, 3s por item, longo 10–15 min + shorts cortados por nível.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
