@@ -102,6 +102,8 @@ Como fazer um vídeo novo NN:
 - Link mágico `youtube.com/@brainrushquiz07?sub_confirmation=1` em bios e descrições. Guia completo: `quiz/roteiros/kit_chamadas.md`.
 - Implementado em `tools/build_guess.py` (aplicar nos próximos builders também).
 
+- Banco de temas: `quiz/roteiros/banco_de_temas.md` (usuário quer variar MUITO os temas — não só animais).
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
