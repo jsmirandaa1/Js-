@@ -64,3 +64,9 @@ Título: Impossible Animal Shadow Quiz
 Descrição: The hardest animal shadow quiz: swan, bat, mosquito, moose, cricket… and can you guess the oyster? Guess the animal silhouette in 3 seconds!
 
 Fixar comentário: "Comment your score 👇"
+
+
+## Atualização 28/11 — Parts 3 a 10 refeitos com CLIFFHANGER
+O último animal de cada parte (a partir do Part 3) só é revelado no começo da parte seguinte. Postar NA ORDEM.
+Comentário fixado: YouTube `Comment your guess for the last animal 👇 Answer in the next part! 🔔` · TikTok/IG `Comment your guess for the last animal 👇 Follow for the answer! 👉`
+Na legenda, trocar a última frase por: `The last animal is revealed in the next part — can you guess it?`
