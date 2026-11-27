@@ -109,6 +109,8 @@ Como fazer um vídeo novo NN:
 - 28/11: **Bandeiras flopou:** Instagram 121, TikTok 0, YT Shorts ~400 (sombra dos animais faz ~1.000), longo de bandeiras 4 views. Hipótese: bandeira aparece inteira (sem mistério) e a 1ª é óbvia (EUA) → desliza; sombra = curiosidade até a revelação. **Lição: manter a mecânica de MISTÉRIO → REVELAÇÃO** (sombra, zoom, desfocado). Pausar a série de bandeiras; seguir com a sombra dos animais. Próximos temas com a mesma mecânica: comida pela sombra, país pelo formato (silhueta), objeto pela sombra/zoom.
 - TikTok com 0 views repetidamente → verificar "Status da conta" (restrição/violação) antes de postar mais.
 
+- 28/11: **food01 — "Guess 100 Foods by Their Shadow"** (longo + 10 shorts _yt/_soc, SEM cliffhanger pra comparar com os animais). Gerador ganhou cache do brilho (render mais rápido) e já sai com as 2 versões dos shorts.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).

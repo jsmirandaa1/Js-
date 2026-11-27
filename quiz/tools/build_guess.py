@@ -154,13 +154,16 @@ def item_draw(img, sc, tl, cx, cy, size, name_y, name_size, timer_xy, timer_scal
     else:
         r = tl - G; p = min(1, r / 0.25); pop = 1 + 0.12 * math.sin(min(1, r / 0.35) * math.pi)
         paste_c(img, animal(f, size, True), cx, cy, alpha=1 - p, scale=pop)
-        paste_c(img, halo(animal(f, size, False), 30, (255, 210, 120), 0.5), cx, cy, alpha=p * 0.9, scale=pop)
+        paste_c(img, halo_c(f, size), cx, cy, alpha=p * 0.9, scale=pop)
         paste_c(img, animal(f, size, False), cx, cy, alpha=p, scale=pop)
         paste_c(img, name_img(show, name_size), cx, name_y, scale=eback(r / 0.3))
         if r < 0.2: img.alpha_composite(Image.new("RGBA", img.size, (255, 230, 160, int(70 * (1 - r / 0.2)))))
     if tl < G: e = tl; frac = 1 - e / G; num = 3 - int(e); pulse = max(0, 1 - (e % 1) / 0.25)
     else: frac, num, pulse = 1, 0, 0
     paste_c(img, B.timer(frac, num, pulse, done=tl >= G, urgent=(tl > G - 1)), *timer_xy, scale=timer_scale)
+
+@functools.lru_cache(maxsize=64)
+def halo_c(f, size): return halo(animal(f, size, False), 30, (255, 210, 120), 0.5)
 
 @functools.lru_cache(None)
 def gold_text_cached_q(): return gold_text("?", F("anton", 160))
@@ -337,5 +340,6 @@ if __name__ == "__main__":
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", f"{OUT}/parts.txt", "-i", f"{OUT}/long.wav", "-c:v", "libx264", "-preset", "medium", "-crf", "22",
                     "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", f"{OUT}/{LOTE}.mp4"], check=True)
     print("LONGO OK", flush=True)
-    with ThreadPoolExecutor(4) as ex: list(ex.map(lambda k: subprocess.run([sys.executable, __file__, LOTE, "--short", str(k)]), range(10)))
+    jobs = [(k, p_) for k in range(10) for p_ in ("yt", "soc")]
+    with ThreadPoolExecutor(4) as ex: list(ex.map(lambda j: subprocess.run([sys.executable, __file__, LOTE, "--short", str(j[0]), j[1]]), jobs))
     print("TUDO OK", flush=True)
