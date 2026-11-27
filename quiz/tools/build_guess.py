@@ -29,6 +29,9 @@ def ensure_voice():
     want = {VN("intro"): GD.INTRO_V, VN("outro"): GD.OUTRO_V, VN("send"): GD.SHORT_END_V}
     for i, v in enumerate(GD.LEVEL_V): want[VN(f"lv{i}")] = v
     for li, gi, f, show, say in ITEMS: want[VN(f"a{gi}")] = say + "!"
+    for k in range(10):
+        want[VN(f"end_yt{k}")] = f"How many did you get? Subscribe for part {NUMW[k + 1]}!"
+        want[VN(f"end_soc{k}")] = f"How many did you get? Follow for part {NUMW[k + 1]}!"
     todo = {k: v for k, v in want.items() if k not in B.META or B.META[k]["text"] != v}
     if not todo: return
     import soundfile as sf
@@ -40,6 +43,8 @@ def ensure_voice():
         sf.write(f"{B.VOZ}/{name}.wav", a, sr); B.META[name] = {"dur": len(a) / sr, "text": text, "words": []}
     json.dump(B.META, open(f"{B.VOZ}/meta.json", "w"), indent=1); print("voz ok", len(todo), flush=True)
 dur = lambda k: B.META[VN(k)]["dur"]
+NUMW = ["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"]
+PLAT = "yt"
 
 # ------------------------------------------------------------------ linha do tempo
 def timeline_long():
@@ -61,9 +66,10 @@ def short_items(k):
 
 def timeline_short(k):
     TL = []; t = 0.0
-    for it in short_items(k):
-        TL.append(dict(kind="item", it=it, start=t, dur=GD.GUESS_T + GD.REVEAL_T)); t += GD.GUESS_T + GD.REVEAL_T
-    d = dur("send"); TL.append(dict(kind="outro", start=t, dur=0.2 + d + 1.2, vd=d)); t += TL[-1]["dur"]
+    its = short_items(k)
+    for j, it in enumerate(its):
+        TL.append(dict(kind="item", it=it, start=t, dur=GD.GUESS_T + GD.REVEAL_T, mid=(j == len(its) // 2))); t += GD.GUESS_T + GD.REVEAL_T
+    d = dur(f"end_{PLAT}{k}"); TL.append(dict(kind="outro", start=t, dur=0.2 + d + 1.6, vd=d, endv=f"end_{PLAT}{k}")); t += TL[-1]["dur"]
     return TL, t
 
 def audio(TL, total, path):
@@ -81,7 +87,8 @@ def audio(TL, total, path):
             sfx(s0, "qstart")
             for j in range(3): sfx(s0 + j, "tick" if j < 2 else "tick2")
             sfx(s0 + GD.GUESS_T, "correct"); put(s0 + GD.GUESS_T + 0.15, f"a{sc['it'][1]}")
-        else: put(s0 + 0.3, "outro" if total > 120 else "send"); sfx(s0, "whoosh")
+        else: put(s0 + 0.3, sc.get("endv", "outro")); sfx(s0, "whoosh")
+        if sc.get("mid"): sfx(s0 + 0.1, "pluck")
     voice *= 0.9 / max(1e-6, np.abs(voice).max())
     drone, pad, pulse, hats, kick = B.music(Nn)
     mus = drone * 0.8 + pad * 2.4 + pulse * 0.8 + hats * 0.7 + kick * 0.35
@@ -190,18 +197,36 @@ def frame_short(k, t, TL):
     img = S.bg_v().copy(); S.particles(img, t, 0.5)
     sc = next((s for s in TL if s["start"] <= t < s["start"] + s["dur"]), TL[-1]); tl = t - sc["start"]
     hook = GD.SHORT_HOOKS[k % len(GD.SHORT_HOOKS)]
-    hi = hook_img(hook); paste_c(img, hi, WS / 2, 300 - hi.height / 2 + 40)
+    if sc.get("mid"): paste_c(img, cta_pill(PLAT), WS / 2, 250, scale=eback(tl / 0.35) * (1 + 0.05 * math.sin(tl * 7)))
+    else: hi = hook_img(hook); paste_c(img, hi, WS / 2, 300 - hi.height / 2 + 40)
     if sc["kind"] == "item":
         n = [s for s in TL if s["kind"] == "item"].index(sc)
         paste_c(img, lvl_chip(sc["it"][0]), WS / 2, 410)
-        paste_c(img, text_img(f"{n+1} / {len(TL)-1}", F("anton", 60), fill=WHITE), WS / 2, 495)
+        paste_c(img, text_img(f"PART {k+1}   •   {n+1} / {len(TL)-1}", F("anton", 60), fill=WHITE), WS / 2, 495)
         item_draw(img, sc, tl, WS / 2, 890, 560, 1280, 120, (WS / 2, 1450), 0.7)
     else:
         paste_c(img, S.gold_text_cached_v("HOW MANY", 150), WS / 2, 720, scale=eback(tl / 0.3))
         paste_c(img, S.gold_text_cached_v("DID YOU GET?", 150), WS / 2, 900, scale=eback((tl - 0.15) / 0.3))
-        if tl > 0.5: paste_c(img, text_img(f"COMMENT YOUR SCORE /{len(TL)-1}", F("anton", 80), fill=WHITE), WS / 2, 1100, alpha=ease((tl - 0.5) / 0.3))
-        if tl > 0.9: paste_c(img, S.follow_btn(), WS / 2, 1300, scale=eback((tl - 0.9) / 0.3))
+        if tl > 0.5: paste_c(img, text_img(f"COMMENT YOUR SCORE /{len(TL)-1}", F("anton", 80), fill=WHITE), WS / 2, 1080, alpha=ease((tl - 0.5) / 0.3))
+        if tl > 0.9: paste_c(img, end_btn(PLAT, k + 2), WS / 2, 1290, scale=eback((tl - 0.9) / 0.3) * (1 + 0.04 * math.sin(tl * 6)))
     return img.convert("RGB")
+
+@functools.lru_cache(None)
+def cta_pill(plat):
+    yt = plat == "yt"; t_ = text_img("STILL PERFECT? " + ("SUBSCRIBE!" if yt else "FOLLOW!"), F("anton", 70), fill=WHITE, shadow=False)
+    e = emoji("bell" if yt else "point_right", 110); w_, h_ = t_.width + e.width + 90, 140
+    im = rrect((w_, h_), h_ // 2, (215, 30, 40, 255) if yt else (40, 40, 48, 255), (255, 255, 255, 255), 4)
+    im.alpha_composite(e, (30, 15)); im.alpha_composite(t_, (30 + e.width + 20, (h_ - t_.height) // 2))
+    out = Image.new("RGBA", (w_ + 60, h_ + 60), (0, 0, 0, 0)); out.alpha_composite(glow_of(im, 18, (255, 80, 80) if yt else (255, 200, 90), 0.8), (30, 30)); out.alpha_composite(im, (30, 30)); return out
+
+@functools.lru_cache(None)
+def end_btn(plat, part):
+    yt = plat == "yt"; t_ = text_img(("SUBSCRIBE" if yt else "FOLLOW") + f" FOR PART {part}", F("anton", 68), fill=WHITE if yt else (24, 14, 2), shadow=False)
+    e = emoji("bell" if yt else "point_right", 120); w_, h_ = t_.width + e.width + 100, 150
+    if yt: im = rrect((w_, h_), h_ // 2, (215, 30, 40, 255))
+    else: im = grad(w_, h_, GOLD_L, GOLD_D).convert("RGBA"); im.putalpha(rrect((w_, h_), h_ // 2, (255, 255, 255, 255)).getchannel("A"))
+    im.alpha_composite(e, (35, 15)); im.alpha_composite(t_, (35 + e.width + 25, (h_ - t_.height) // 2))
+    out = Image.new("RGBA", (w_ + 60, h_ + 60), (0, 0, 0, 0)); out.alpha_composite(glow_of(im, 20, (255, 60, 60) if yt else (255, 190, 60), 0.9), (30, 30)); out.alpha_composite(im, (30, 30)); return out
 
 @functools.lru_cache(None)
 def hook_img(txt):
@@ -236,7 +261,9 @@ if __name__ == "__main__":
         i = sys.argv.index("--frames"); mode = sys.argv[i + 1]; ts = [float(x) for x in sys.argv[i + 2].split(",")]
         for x in ts:
             if mode == "L": frame_long(x).save(f"{OUT}/L_{x:06.1f}.png")
-            else: k = int(sys.argv[i + 3]); TL, _ = timeline_short(k); frame_short(k, x, TL).save(f"{OUT}/S{k}_{x:05.1f}.png")
+            else:
+                k = int(sys.argv[i + 3]); PLAT = sys.argv[i + 4] if len(sys.argv) > i + 4 else "yt"
+                TL, _ = timeline_short(k); frame_short(k, x, TL).save(f"{OUT}/S{k}{PLAT}_{x:05.1f}.png")
         sys.exit()
     if "--part" in sys.argv:
         i, n = int(sys.argv[-2]), int(sys.argv[-1]); TL, total = timeline_long(); NF = int(total * FPS)
@@ -244,11 +271,17 @@ if __name__ == "__main__":
         for f in range(a, b): p.stdin.write(frame_long(f / FPS).tobytes())
         p.stdin.close(); p.wait(); sys.exit()
     if "--short" in sys.argv:
-        k = int(sys.argv[-1]); TL, total = timeline_short(k); audio(TL, total, f"{OUT}/s{k}.wav")
-        p = ff(f"{OUT}/{LOTE}_short{k+1}.mp4", WS, HS, f"{OUT}/s{k}.wav")
+        i = sys.argv.index("--short"); k = int(sys.argv[i + 1]); PLAT = sys.argv[i + 2] if len(sys.argv) > i + 2 else "yt"
+        TL, total = timeline_short(k); audio(TL, total, f"{OUT}/s{k}_{PLAT}.wav")
+        p = ff(f"{OUT}/{LOTE}_short{k+1}_{PLAT}.mp4", WS, HS, f"{OUT}/s{k}_{PLAT}.wav")
         for f in range(int(total * FPS)): p.stdin.write(frame_short(k, f / FPS, TL).tobytes())
         p.stdin.close(); p.wait(); print("short", k + 1, round(total, 1), flush=True); sys.exit()
     ensure_voice()
+    if "--shorts-only" in sys.argv:
+        from concurrent.futures import ThreadPoolExecutor
+        jobs = [(k, p_) for k in range(10) for p_ in ("yt", "soc")]
+        with ThreadPoolExecutor(4) as ex: list(ex.map(lambda j: subprocess.run([sys.executable, __file__, LOTE, "--short", str(j[0]), j[1]]), jobs))
+        print("SHORTS OK", flush=True); sys.exit()
     TL, total = timeline_long(); print("longo", round(total, 1), "s", flush=True)
     open(f"{OUT}/{LOTE}.srt", "w").write(srt_long()); audio(TL, total, f"{OUT}/long.wav")
     from concurrent.futures import ThreadPoolExecutor

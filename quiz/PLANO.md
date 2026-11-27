@@ -95,6 +95,13 @@ Como fazer um vídeo novo NN:
 
 - 27/11: **Instagram criado** (Brain rush quiz game). 3 reels: "90% fail question 3" (formato antigo) 638 views · Guess the Animal by Shadow 1.243 · Speed Quiz "Only 2% get 8/8" 1.305 — mas só 1 seguidor. Views vêm de não-seguidores; falta motivo pra seguir (perfil com poucos posts, sem série/"parte 2"). Instagram = repost dos mesmos arquivos do YouTube/TikTok.
 
+## Sistema de chamadas (decidido em 27/11) — vale pra TODO vídeo novo
+- Vídeos entregam bem (short com 5 curtidas em 5 min), mas pouca conversão em inscrito/seguidor.
+- **Em todo short:** série "PART N" no topo; selo na metade "STILL PERFECT? SUBSCRIBE!" (YT) / "FOLLOW!" (TikTok/IG); final "SUBSCRIBE/FOLLOW FOR PART N+1" + voz.
+- **2 versões por short:** `_yt` (YouTube, sino vermelho) e `_soc` (TikTok/Instagram, dedinho dourado).
+- Link mágico `youtube.com/@brainrushquiz07?sub_confirmation=1` em bios e descrições. Guia completo: `quiz/roteiros/kit_chamadas.md`.
+- Implementado em `tools/build_guess.py` (aplicar nos próximos builders também).
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
