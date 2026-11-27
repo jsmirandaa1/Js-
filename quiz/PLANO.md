@@ -93,6 +93,8 @@ Como fazer um vídeo novo NN:
 - Os 74 seguidores do TikTok vieram quase todos da PROMOÇÃO paga (orgânico ainda ~0). Decisão: parar de pagar promoção até um vídeo provar retenção orgânica.
 - **CORREÇÃO (27/11): o usuário MORA NOS EUA e a conta do TikTok é americana.** Descartar a hipótese de "conta brasileira/região". Público-alvo = EUA; horários de postagem em horário dos EUA.
 
+- 27/11: **Instagram criado** (Brain rush quiz game). 3 reels: "90% fail question 3" (formato antigo) 638 views · Guess the Animal by Shadow 1.243 · Speed Quiz "Only 2% get 8/8" 1.305 — mas só 1 seguidor. Views vêm de não-seguidores; falta motivo pra seguir (perfil com poucos posts, sem série/"parte 2"). Instagram = repost dos mesmos arquivos do YouTube/TikTok.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
