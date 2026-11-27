@@ -32,6 +32,9 @@ def ensure_voice():
     for k in range(10):
         want[VN(f"end_yt{k}")] = f"How many did you get? Subscribe for part {NUMW[k + 1]}!"
         want[VN(f"end_soc{k}")] = f"How many did you get? Follow for part {NUMW[k + 1]}!"
+        want[VN(f"cliff_yt{k}")] = f"The answer to the last one is in part {NUMW[k + 1]}! Subscribe so you don't miss it!"
+        want[VN(f"cliff_soc{k}")] = f"The answer to the last one is in part {NUMW[k + 1]}! Follow so you don't miss it!"
+    want[VN("recap")] = "The answer to the last part was..."
     todo = {k: v for k, v in want.items() if k not in B.META or B.META[k]["text"] != v}
     if not todo: return
     import soundfile as sf
@@ -66,10 +69,16 @@ def short_items(k):
 
 def timeline_short(k):
     TL = []; t = 0.0
+    CF = getattr(GD, "CLIFF_FROM", 99); cliff = k >= CF and k < 9
+    if k > 0 and k - 1 >= CF:
+        prev = short_items(k - 1)[-1]; d = 0.2 + dur("recap") + 0.1 + dur(f"a{prev[1]}") + 0.9
+        TL.append(dict(kind="recap", it=prev, start=t, dur=d)); t += d
     its = short_items(k)
     for j, it in enumerate(its):
-        TL.append(dict(kind="item", it=it, start=t, dur=GD.GUESS_T + GD.REVEAL_T, mid=(j == len(its) // 2))); t += GD.GUESS_T + GD.REVEAL_T
-    d = dur(f"end_{PLAT}{k}"); TL.append(dict(kind="outro", start=t, dur=0.2 + d + 1.6, vd=d, endv=f"end_{PLAT}{k}")); t += TL[-1]["dur"]
+        last = cliff and j == len(its) - 1; dd = GD.GUESS_T + (1.4 if last else GD.REVEAL_T)
+        TL.append(dict(kind="item", it=it, start=t, dur=dd, mid=(j == len(its) // 2), cliff=last)); t += dd
+    ev = f"{'cliff' if cliff else 'end'}_{PLAT}{k}"
+    d = dur(ev); TL.append(dict(kind="outro", start=t, dur=0.2 + d + 1.6, vd=d, endv=ev, cliff=cliff)); t += TL[-1]["dur"]
     return TL, t
 
 def audio(TL, total, path):
@@ -83,10 +92,13 @@ def audio(TL, total, path):
         s0 = sc["start"]
         if sc["kind"] == "intro": put(s0 + 0.4, "intro"); sfx(s0, "impact")
         elif sc["kind"] == "level": put(s0 + 0.3, f"lv{sc['li']}"); sfx(s0, "impact" if sc["li"] == 3 else "whoosh")
+        elif sc["kind"] == "recap":
+            put(s0 + 0.2, "recap"); t2 = s0 + 0.2 + dur("recap") + 0.1; put(t2, f"a{sc['it'][1]}"); sfx(t2, "correct")
         elif sc["kind"] == "item":
             sfx(s0, "qstart")
             for j in range(3): sfx(s0 + j, "tick" if j < 2 else "tick2")
-            sfx(s0 + GD.GUESS_T, "correct"); put(s0 + GD.GUESS_T + 0.15, f"a{sc['it'][1]}")
+            if sc.get("cliff"): sfx(s0 + GD.GUESS_T, "impact")
+            else: sfx(s0 + GD.GUESS_T, "correct"); put(s0 + GD.GUESS_T + 0.15, f"a{sc['it'][1]}")
         else: put(s0 + 0.3, sc.get("endv", "outro")); sfx(s0, "whoosh")
         if sc.get("mid"): sfx(s0 + 0.1, "pluck")
     voice *= 0.9 / max(1e-6, np.abs(voice).max())
@@ -98,8 +110,17 @@ def audio(TL, total, path):
     import soundfile as sf; sf.write(path, m.astype(np.float32), SR)
 
 # ------------------------------------------------------------------ peças visuais
+MODE = getattr(GD, "MODE", "shadow")
+SZ_S = 760 if MODE == "flag" else 560
+@functools.lru_cache(maxsize=256)
+def flag_img(code, size):
+    w_, h_ = size, int(size * 0.75); fl = Image.open(A + f"flags/{code}.png").convert("RGBA").resize((w_, h_), Image.LANCZOS)
+    m = rrect((w_, h_), 22, (255, 255, 255, 255)).getchannel("A"); fl.putalpha(m)
+    out = Image.new("RGBA", (w_ + 24, h_ + 24), (0, 0, 0, 0)); out.alpha_composite(rrect((w_ + 24, h_ + 24), 30, GOLD_L + (255,)), (0, 0)); out.alpha_composite(fl, (12, 12)); return out
+
 @functools.lru_cache(maxsize=256)
 def animal(f, size, sil):
+    if MODE == "flag": return flag_img(f, size)
     e = Image.open(A + f"e_{efile(f)}_3d.png").convert("RGBA").resize((size, size), Image.LANCZOS)
     if not sil: return e
     s = Image.new("RGBA", e.size, (8, 8, 10, 255)); s.putalpha(e.getchannel("A")); return s
@@ -154,8 +175,8 @@ def frame_long(t):
     sc = next((s for s in TLL if s["start"] <= t < s["start"] + s["dur"]), TLL[-1]); tl = t - sc["start"]
     if sc["kind"] == "intro":
         paste_c(img, intro_grid(), W / 2, H / 2, alpha=0.22)
-        paste_c(img, gold_text_cached2("GUESS 100 ANIMALS", 150), W / 2, 420, scale=eback(tl / 0.5))
-        paste_c(img, gold_text_cached2("BY THEIR SHADOW", 100, white=True), W / 2, 570, scale=eback((tl - 0.3) / 0.5))
+        paste_c(img, gold_text_cached2(getattr(GD, "TITLE1", "GUESS 100 ANIMALS"), 150), W / 2, 420, scale=eback(tl / 0.5))
+        paste_c(img, gold_text_cached2(getattr(GD, "TITLE2", "BY THEIR SHADOW"), 100, white=True), W / 2, 570, scale=eback((tl - 0.3) / 0.5))
         if tl > 1.2: paste_c(img, text_img("EASY  •  MEDIUM  •  HARD  •  IMPOSSIBLE", F("bebas", 60), fill=(220, 220, 220), spacing=4), W / 2, 700, alpha=ease((tl - 1.2) / 0.4))
         if tl > 2.0: paste_c(img, text_img("3 SECONDS EACH", F("bebas", 60), fill=GOLD_L, spacing=4), W / 2, 780, alpha=ease((tl - 2.0) / 0.4))
     elif sc["kind"] == "level":
@@ -163,14 +184,14 @@ def frame_long(t):
         paste_c(img, spotlight(1200, 900, col), W / 2, H / 2, alpha=0.6)
         paste_c(img, gold_text_cached2(f"LEVEL {li+1}", 170), W / 2, 400, scale=eback(tl / 0.4))
         paste_c(img, level_word(li), W / 2, 590, scale=eback((tl - 0.25) / 0.4))
-        if tl > 0.8: paste_c(img, text_img(f"{len(GD.LEVELS[li][2])} ANIMALS", F("bebas", 64), fill=WHITE, spacing=5), W / 2, 740, alpha=ease((tl - 0.8) / 0.4))
+        if tl > 0.8: paste_c(img, text_img(f"{len(GD.LEVELS[li][2])} {getattr(GD, 'UNIT', 'ANIMALS')}", F("bebas", 64), fill=WHITE, spacing=5), W / 2, 740, alpha=ease((tl - 0.8) / 0.4))
         progress(img, sum(len(GD.LEVELS[j][2]) for j in range(li)), 260, 1660, 1010)
     elif sc["kind"] == "item":
         li, gi = sc["it"][0], sc["it"][1]
         paste_c(img, B.small_logo(), 210, 66); paste_c(img, lvl_chip(li), W / 2, 70)
         paste_c(img, gold_text_cached2(f"{gi+1}/{N}", 72), W - 170, 70)
-        item_draw(img, sc, tl, W / 2, 520, 470, 880, 110, (1640, 500), 0.85)
-        paste_c(img, text_img("GUESS THE ANIMAL", F("bebas", 58), fill=(200, 200, 200), spacing=5), 280, 500)
+        item_draw(img, sc, tl, W / 2, 500 if MODE == 'flag' else 520, 640 if MODE == 'flag' else 470, 890 if MODE == 'flag' else 880, 110, (1640, 500), 0.85)
+        paste_c(img, text_img(getattr(GD, "LABEL", "GUESS THE ANIMAL"), F("bebas", 58), fill=(200, 200, 200), spacing=5), 280, 500)
         progress(img, gi, 260, 1660, 1010)
     else:
         lg = B.logo(1.0); paste_c(img, lg, W / 2, 230, scale=0.8)
@@ -199,17 +220,41 @@ def frame_short(k, t, TL):
     hook = GD.SHORT_HOOKS[k % len(GD.SHORT_HOOKS)]
     if sc.get("mid"): paste_c(img, cta_pill(PLAT), WS / 2, 250, scale=eback(tl / 0.35) * (1 + 0.05 * math.sin(tl * 7)))
     else: hi = hook_img(hook); paste_c(img, hi, WS / 2, 300 - hi.height / 2 + 40)
-    if sc["kind"] == "item":
-        n = [s for s in TL if s["kind"] == "item"].index(sc)
+    items_ = [s for s in TL if s["kind"] == "item"]
+    if sc["kind"] == "recap":
+        paste_c(img, recap_chip(), WS / 2, 410)
+        paste_c(img, text_img(f"PART {k+1}", F("anton", 60), fill=WHITE), WS / 2, 495)
+        t2 = 0.2 + dur("recap") + 0.1
+        item_draw(img, sc, (GD.GUESS_T - 0.01) if tl < t2 else GD.GUESS_T + (tl - t2), WS / 2, 890, SZ_S, 1280, 120, (WS / 2, 1450), 0.7)
+    elif sc["kind"] == "item":
+        n = items_.index(sc)
         paste_c(img, lvl_chip(sc["it"][0]), WS / 2, 410)
-        paste_c(img, text_img(f"PART {k+1}   •   {n+1} / {len(TL)-1}", F("anton", 60), fill=WHITE), WS / 2, 495)
-        item_draw(img, sc, tl, WS / 2, 890, 560, 1280, 120, (WS / 2, 1450), 0.7)
+        paste_c(img, text_img(f"PART {k+1}   •   {n+1} / {len(items_)}", F("anton", 60), fill=WHITE), WS / 2, 495)
+        if sc.get("cliff") and tl >= GD.GUESS_T:
+            item_draw(img, sc, GD.GUESS_T - 0.01, WS / 2, 890, SZ_S, 1280, 120, (WS / 2, 1450), 0.7)
+            paste_c(img, cliff_pill(PLAT, k + 2), WS / 2, 1300, scale=eback((tl - GD.GUESS_T) / 0.35) * (1 + 0.04 * math.sin(tl * 6)))
+        else: item_draw(img, sc, tl, WS / 2, 890, SZ_S, 1280, 120, (WS / 2, 1450), 0.7)
     else:
         paste_c(img, S.gold_text_cached_v("HOW MANY", 150), WS / 2, 720, scale=eback(tl / 0.3))
         paste_c(img, S.gold_text_cached_v("DID YOU GET?", 150), WS / 2, 900, scale=eback((tl - 0.15) / 0.3))
-        if tl > 0.5: paste_c(img, text_img(f"COMMENT YOUR SCORE /{len(TL)-1}", F("anton", 80), fill=WHITE), WS / 2, 1080, alpha=ease((tl - 0.5) / 0.3))
+        if sc.get("cliff"): paste_c(img, text_img("ANSWER IN THE NEXT PART!", F("anton", 76), fill=GOLD_L), WS / 2, 1080, alpha=ease((tl - 0.5) / 0.3)) if tl > 0.5 else None
+        elif tl > 0.5: paste_c(img, text_img(f"COMMENT YOUR SCORE /{len(items_)}", F("anton", 80), fill=WHITE), WS / 2, 1080, alpha=ease((tl - 0.5) / 0.3))
         if tl > 0.9: paste_c(img, end_btn(PLAT, k + 2), WS / 2, 1290, scale=eback((tl - 0.9) / 0.3) * (1 + 0.04 * math.sin(tl * 6)))
     return img.convert("RGB")
+
+@functools.lru_cache(None)
+def recap_chip():
+    t_ = text_img("LAST PART'S ANSWER", F("anton", 46), fill=(14, 10, 4), shadow=False)
+    im = rrect((t_.width + 70, t_.height + 26), (t_.height + 26) // 2, GOLD_L + (255,)); im.alpha_composite(t_, (35, 13)); return im
+
+@functools.lru_cache(None)
+def cliff_pill(plat, part):
+    yt = plat == "yt"; t1 = text_img(f"ANSWER IN PART {part}", F("anton", 74), fill=WHITE, shadow=False)
+    t2 = text_img(("SUBSCRIBE" if yt else "FOLLOW") + " SO YOU DON'T MISS IT", F("anton", 46), fill=(255, 230, 160), shadow=False)
+    e = emoji("bell" if yt else "point_right", 120); w_ = max(t1.width, t2.width) + e.width + 100; h_ = 190
+    im = rrect((w_, h_), 40, (215, 30, 40, 255) if yt else (40, 40, 48, 255), (255, 255, 255, 255), 4)
+    im.alpha_composite(e, (35, (h_ - e.height) // 2)); im.alpha_composite(t1, (35 + e.width + 25, 22)); im.alpha_composite(t2, (35 + e.width + 25, 22 + t1.height + 6))
+    out = Image.new("RGBA", (w_ + 60, h_ + 60), (0, 0, 0, 0)); out.alpha_composite(glow_of(im, 18, (255, 80, 80) if yt else (255, 200, 90), 0.8), (30, 30)); out.alpha_composite(im, (30, 30)); return out
 
 @functools.lru_cache(None)
 def cta_pill(plat):
@@ -279,7 +324,9 @@ if __name__ == "__main__":
     ensure_voice()
     if "--shorts-only" in sys.argv:
         from concurrent.futures import ThreadPoolExecutor
-        jobs = [(k, p_) for k in range(10) for p_ in ("yt", "soc")]
+        ks = range(10)
+        if "--ks" in sys.argv: a_, b_ = sys.argv[sys.argv.index("--ks") + 1].split("-"); ks = range(int(a_), int(b_) + 1)
+        jobs = [(k, p_) for k in ks for p_ in ("yt", "soc")]
         with ThreadPoolExecutor(4) as ex: list(ex.map(lambda j: subprocess.run([sys.executable, __file__, LOTE, "--short", str(j[0]), j[1]]), jobs))
         print("SHORTS OK", flush=True); sys.exit()
     TL, total = timeline_long(); print("longo", round(total, 1), "s", flush=True)
