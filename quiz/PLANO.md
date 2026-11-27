@@ -104,6 +104,8 @@ Como fazer um vídeo novo NN:
 
 - Banco de temas: `quiz/roteiros/banco_de_temas.md` (usuário quer variar MUITO os temas — não só animais).
 
+- 28/11: Instagram estável em ~1.200 views por reel (5 reels; Part 2 da sombra 1.201 rápido), mas 1 seguidor. Ideia proposta: "cliffhanger" (última resposta revelada só na parte seguinte) + fixar top 3 + 1–2 reels/dia.
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
