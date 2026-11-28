@@ -111,6 +111,9 @@ Como fazer um vídeo novo NN:
 
 - 28/11: **food01 — "Guess 100 Foods by Their Shadow"** (longo + 10 shorts _yt/_soc, SEM cliffhanger pra comparar com os animais). Gerador ganhou cache do brilho (render mais rápido) e já sai com as 2 versões dos shorts.
 
+- 29/11: **Virou o jogo no YouTube:** 21 inscritos (eram 9). Longos: Flags 106 views em 17h (melhor longo), Animals 63, General Knowledge 22. Shorts todos entre ~860 e 1,3 mil (Food Part 1 ~1 mil, **Flags Part 1 ~1 mil — tinha 400 na 1ª leitura**, Lion 1,3 mil, Speed 976). TikTok voltou a entregar (>200).
+  - **Lição: não julgar vídeo antes de 48h.** O "flop" das bandeiras era só começo. Série de bandeiras VOLTA (continuar postando as partes).
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).
