@@ -116,6 +116,8 @@ Como fazer um vídeo novo NN:
 
 - 29/11: Longo de bandeiras: **122 de 125 views vieram de "YouTube recommendations"** → o YouTube está recomendando o canal. Tempo de exibição 4,9 h / 125 views ≈ 2,3 min por view (~27% de 8:49). Decisão: produzir MAIS vídeos longos (até 2/semana) e colocar ganchos de retenção nos longos (checkpoints de pontuação no fim de cada nível).
 
+- 29/11: **shapes01 — "Guess 100 Countries by Their Shape"** (sombra do país → preenche com a bandeira) + 20 shorts com cliffhanger + **checkpoints de retenção** nos cards de nível do longo ("GOT 20+ IN LEVEL 1? TOP 10%!" etc.).
+
 ## Próximos passos
 0. **FOCO ÚNICO: YouTube em inglês até monetizar.** Nada em português (decisão do usuário, 25/11 — evitar acúmulo). TikTok = só repost do mesmo arquivo, sem esforço extra.
    - Meta: entrar no Programa de Parcerias do YouTube (regra geral: 1.000 inscritos + 10 mi de views em Shorts em 90 dias, ou 4.000 h de exibição em vídeos longos; conferir no YouTube Studio › Ganhar dinheiro).

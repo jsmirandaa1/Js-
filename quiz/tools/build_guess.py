@@ -119,8 +119,53 @@ def flag_img(code, size):
     out = Image.new("RGBA", (w_ + 24, h_ + 24), (0, 0, 0, 0)); out.alpha_composite(rrect((w_ + 24, h_ + 24), 30, GOLD_L + (255,)), (0, 0)); out.alpha_composite(fl, (12, 12)); return out
 
 @functools.lru_cache(maxsize=256)
+def country_polys(cid):
+    from brgfx import _topo
+    polys = [rings[0] for c, n, rings in _topo() if c == cid]
+    def area(p): return abs(sum(p[i][0] * p[i - 1][1] - p[i - 1][0] * p[i][1] for i in range(len(p)))) / 2
+    def unwrap(p):
+        out = [list(p[0])]
+        for lo, la in p[1:]:
+            while lo - out[-1][0] > 180: lo -= 360
+            while lo - out[-1][0] < -180: lo += 360
+            out.append([lo, la])
+        return out
+    polys = [unwrap(p) for p in polys]; big = max(polys, key=area); A0 = area(big)
+    cx0 = sum(x for x, y in big) / len(big); cy0 = sum(y for x, y in big) / len(big)
+    diag = math.hypot(max(x for x, y in big) - min(x for x, y in big), max(y for x, y in big) - min(y for x, y in big))
+    keep = []
+    for p in polys:
+        mx = sum(x for x, y in p) / len(p)
+        while mx - cx0 > 180: p = [[x - 360, y] for x, y in p]; mx -= 360
+        while mx - cx0 < -180: p = [[x + 360, y] for x, y in p]; mx += 360
+        my = sum(y for x, y in p) / len(p)
+        if area(p) >= 0.3 * A0 or (area(p) >= 0.01 * A0 and math.hypot(mx - cx0, my - cy0) <= max(0.8 * diag, 4)): keep.append(p)
+    if cid == "840": keep = [p for p in keep if min(x for x, y in p) > -130 or max(x for x, y in p) > -125]
+    return keep
+
+@functools.lru_cache(maxsize=256)
+def country_img(key, size, sil):
+    cid, a2 = key.split("|"); polys = country_polys(cid)
+    xs = [x for p in polys for x, y in p]; ys = [y for p in polys for x, y in p]
+    latc = (max(ys) + min(ys)) / 2; k = math.cos(math.radians(latc))
+    px = [[((x - min(xs)) * k, (max(ys) - y)) for x, y in p] for p in polys]
+    w0 = (max(xs) - min(xs)) * k; h0 = max(ys) - min(ys); sc = size * 0.92 / max(w0, h0); ss = 2
+    W_, H_ = int(w0 * sc) + 8, int(h0 * sc) + 8
+    mask = Image.new("L", (W_ * ss, H_ * ss), 0); d = ImageDraw.Draw(mask)
+    for p in px: d.polygon([((x * sc + 4) * ss, (y * sc + 4) * ss) for x, y in p], fill=255)
+    mask = mask.resize((W_, H_), Image.LANCZOS)
+    if sil:
+        im = Image.new("RGBA", (W_, H_), (8, 8, 10, 255)); im.putalpha(mask); return im
+    fl = Image.open(A + f"flags/{a2}.png").convert("RGBA"); fr = fl.width / fl.height
+    fw, fh = (W_, int(W_ / fr)) if W_ / H_ > fr else (int(H_ * fr), H_)
+    fl = fl.resize((fw, fh), Image.LANCZOS).crop(((fw - W_) // 2, (fh - H_) // 2, (fw - W_) // 2 + W_, (fh - H_) // 2 + H_))
+    edge = mask.filter(ImageFilter.MaxFilter(7)); out = Image.new("RGBA", (W_, H_), GOLD_L + (0,)); out.putalpha(edge)
+    fl.putalpha(mask); out.alpha_composite(fl); return out
+
+@functools.lru_cache(maxsize=256)
 def animal(f, size, sil):
     if MODE == "flag": return flag_img(f, size)
+    if MODE == "shape": return country_img(f, size, sil)
     e = Image.open(A + f"e_{efile(f)}_3d.png").convert("RGBA").resize((size, size), Image.LANCZOS)
     if not sil: return e
     s = Image.new("RGBA", e.size, (8, 8, 10, 255)); s.putalpha(e.getchannel("A")); return s
@@ -187,6 +232,8 @@ def frame_long(t):
         paste_c(img, spotlight(1200, 900, col), W / 2, H / 2, alpha=0.6)
         paste_c(img, gold_text_cached2(f"LEVEL {li+1}", 170), W / 2, 400, scale=eback(tl / 0.4))
         paste_c(img, level_word(li), W / 2, 590, scale=eback((tl - 0.25) / 0.4))
+        cps = getattr(GD, "CHECKPOINTS", None)
+        if cps and cps[li] and tl > 1.2: paste_c(img, B.pill(cps[li], 44), W / 2, 880, scale=eback((tl - 1.2) / 0.4))
         if tl > 0.8: paste_c(img, text_img(f"{len(GD.LEVELS[li][2])} {getattr(GD, 'UNIT', 'ANIMALS')}", F("bebas", 64), fill=WHITE, spacing=5), W / 2, 740, alpha=ease((tl - 0.8) / 0.4))
         progress(img, sum(len(GD.LEVELS[j][2]) for j in range(li)), 260, 1660, 1010)
     elif sc["kind"] == "item":
